@@ -1,0 +1,42 @@
+
+# BODY
+body: g
+body_name: gait
+# num_windows: 8
+# ar_only_kappa: 1000000
+# full_model_kappa: 100000
+# forward_indices:
+# - 0
+# - 2
+# - 17
+# num_keypoints: 21
+augment: True
+
+# MODEL/PREPROCESSING/ANALYSIS
+taps_per_window: 20
+num_states: 8
+num_ar_iters: 50
+num_full_iters: 500
+ids: 
+- 1
+- 10
+- 11
+- 12
+- 13
+- 14
+- 15
+- 2
+- 3
+- 4
+- 5
+- 6
+- 7
+- 8
+- 9
+thresh: 2
+multiclass: False
+class_models:
+- xgboost
+- logistic
+plot_grouped_freq: True
+plot_bars: True

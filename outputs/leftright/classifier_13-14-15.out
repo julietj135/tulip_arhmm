@@ -1,0 +1,213 @@
+WARNING:absl:No GPU/TPU found, falling back to CPU. (Set TF_CPP_MIN_LOG_LEVEL=0 and rerun for more info.)
+{'body': 'lr', 'body_name': 'leftright', 'augment': True, 'taps_per_window': 20, 'num_states': 8, 'num_ar_iters': 50, 'num_full_iters': 500, 'ids': [1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9], 'thresh': 2, 'multiclass': False, 'class_models': ['xgboost', 'logistic'], 'plot_grouped_freq': True, 'plot_bars': True, 'num_keypoints': 21, 'ar_only_kappa': 1000.0, 'full_model_kappa': 100.0, 'num_windows': 12, 'forward_indices': [0, 2, 17], 'target_direction': [1, 0, 0], 'config_path': 'training/hand_config.yml', 'combine': True}
+MODEL-0
+MODEL-4
+MODEL-1
+MODEL-2
+MODEL-5
+MODEL-3
+MODEL-7
+MODEL-8
+MODEL-6
+MODEL-9
+['MODEL-0', 'MODEL-4', 'MODEL-1', 'MODEL-2', 'MODEL-5', 'MODEL-3', 'MODEL-7', 'MODEL-8', 'MODEL-6', 'MODEL-9']
+updating configuration for patient 1...
+updating configuration for patient 10...
+updating configuration for patient 11...
+updating configuration for patient 12...
+updating configuration for patient 13...
+updating configuration for patient 14...
+updating configuration for patient 15...
+updating configuration for patient 2...
+updating configuration for patient 3...
+updating configuration for patient 4...
+updating configuration for patient 5...
+updating configuration for patient 6...
+updating configuration for patient 7...
+updating configuration for patient 8...
+updating configuration for patient 9...
+  0%|          | 0/10 [00:00<?, ?it/s] 10%|█         | 1/10 [00:59<08:57, 59.69s/it] 20%|██        | 2/10 [01:49<07:12, 54.12s/it]/hpc/group/tdunn/jmj73/tulip_arhmm/analysis/classifier.py:71: RuntimeWarning:
+
+More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`). Consider using `matplotlib.pyplot.close()`.
+
+ 30%|███       | 3/10 [02:50<06:39, 57.13s/it] 40%|████      | 4/10 [03:28<04:57, 49.59s/it] 50%|█████     | 5/10 [03:54<03:24, 40.98s/it] 60%|██████    | 6/10 [04:29<02:36, 39.05s/it] 70%|███████   | 7/10 [05:25<02:13, 44.45s/it] 80%|████████  | 8/10 [06:23<01:37, 48.82s/it] 90%|█████████ | 9/10 [07:27<00:53, 53.47s/it]100%|██████████| 10/10 [08:10<00:00, 50.35s/it]100%|██████████| 10/10 [08:10<00:00, 49.05s/it]
+Classifying results in MODEL-0...
+{0, 1}
+starting classification...
+leave_out  ['lsub13.0', 'lsub13.1', 'lsub13.2', 'lsub13.3', 'lsub13.4', 'lsub13.5', 'lsub13.6', 'lsub13.7', 'lsub13.8', 'lsub13.9', 'lsub13.10', 'lsub13.11', 'rsub13.0', 'rsub13.1', 'rsub13.2', 'rsub13.3', 'rsub13.4', 'rsub13.5', 'rsub13.6', 'rsub13.7', 'rsub13.8', 'rsub13.9', 'rsub13.10', 'rsub13.11', 'lsub14.0', 'lsub14.1', 'lsub14.2', 'lsub14.3', 'lsub14.4', 'lsub14.5', 'lsub14.6', 'lsub14.7', 'lsub14.8', 'lsub14.9', 'lsub14.10', 'lsub14.11', 'rsub14.0', 'rsub14.1', 'rsub14.2', 'rsub14.3', 'rsub14.4', 'rsub14.5', 'rsub14.6', 'rsub14.7', 'rsub14.8', 'rsub14.9', 'rsub14.10', 'rsub14.11', 'lsub15.0', 'lsub15.1', 'lsub15.2', 'lsub15.3', 'lsub15.4', 'lsub15.5', 'lsub15.6', 'lsub15.7', 'lsub15.8', 'lsub15.9', 'lsub15.10', 'lsub15.11', 'rsub15.0', 'rsub15.1', 'rsub15.2', 'rsub15.3', 'rsub15.4', 'rsub15.5', 'rsub15.6', 'rsub15.7', 'rsub15.8', 'rsub15.9', 'rsub15.10', 'rsub15.11']
+Best Hyperparameters: {'learning_rate': 0.1, 'max_depth': 3, 'n_estimators': 50}
+Mean Accuracy: 0.8715277777777778
+Mean F1 Score: 0.8668496695527762
+Accuracy: 0.9722222222222222
+['UPDRS<2', 'UPDRS>=2']
+Best Hyperparameters: {'C': 0.1}
+Mean Accuracy: 0.84375
+Mean F1 Score: 0.8391109254488885
+Accuracy: 0.9583333333333334
+[[ 0.12765714  0.15944258 -0.1314361  -0.02030446  0.26892083  0.39542581
+   0.1095789  -0.63847601  0.3000364   0.26595167 -0.56626606  0.4622822
+  -0.41249936 -0.46473138  1.08337671 -0.48829445 -0.24189975  0.03719212
+   0.18411008]]
+['UPDRS<2', 'UPDRS>=2']
+Classifying results in MODEL-4...
+{0, 1}
+starting classification...
+leave_out  ['lsub13.0', 'lsub13.1', 'lsub13.2', 'lsub13.3', 'lsub13.4', 'lsub13.5', 'lsub13.6', 'lsub13.7', 'lsub13.8', 'lsub13.9', 'lsub13.10', 'lsub13.11', 'rsub13.0', 'rsub13.1', 'rsub13.2', 'rsub13.3', 'rsub13.4', 'rsub13.5', 'rsub13.6', 'rsub13.7', 'rsub13.8', 'rsub13.9', 'rsub13.10', 'rsub13.11', 'lsub14.0', 'lsub14.1', 'lsub14.2', 'lsub14.3', 'lsub14.4', 'lsub14.5', 'lsub14.6', 'lsub14.7', 'lsub14.8', 'lsub14.9', 'lsub14.10', 'lsub14.11', 'rsub14.0', 'rsub14.1', 'rsub14.2', 'rsub14.3', 'rsub14.4', 'rsub14.5', 'rsub14.6', 'rsub14.7', 'rsub14.8', 'rsub14.9', 'rsub14.10', 'rsub14.11', 'lsub15.0', 'lsub15.1', 'lsub15.2', 'lsub15.3', 'lsub15.4', 'lsub15.5', 'lsub15.6', 'lsub15.7', 'lsub15.8', 'lsub15.9', 'lsub15.10', 'lsub15.11', 'rsub15.0', 'rsub15.1', 'rsub15.2', 'rsub15.3', 'rsub15.4', 'rsub15.5', 'rsub15.6', 'rsub15.7', 'rsub15.8', 'rsub15.9', 'rsub15.10', 'rsub15.11']
+Best Hyperparameters: {'learning_rate': 0.2, 'max_depth': 1, 'n_estimators': 100}
+Mean Accuracy: 0.8923611111111112
+Mean F1 Score: 0.8896835368704696
+Accuracy: 0.9583333333333334
+['UPDRS<2', 'UPDRS>=2']
+Best Hyperparameters: {'C': 1}
+Mean Accuracy: 0.9097222222222222
+Mean F1 Score: 0.9064981960607245
+Accuracy: 0.9722222222222222
+[[-0.32238968  0.37921397  0.21700472  0.06106747  1.53277912 -1.21698377
+  -0.64245538  0.7799568  -0.93241679  0.75741874 -0.77093597  1.23868026
+   1.31897388 -1.26154554 -0.52221215  0.80162462 -0.98658859 -0.0185113
+   0.14308762]]
+['UPDRS<2', 'UPDRS>=2']
+Classifying results in MODEL-1...
+{0, 1}
+starting classification...
+leave_out  ['lsub13.0', 'lsub13.1', 'lsub13.2', 'lsub13.3', 'lsub13.4', 'lsub13.5', 'lsub13.6', 'lsub13.7', 'lsub13.8', 'lsub13.9', 'lsub13.10', 'lsub13.11', 'rsub13.0', 'rsub13.1', 'rsub13.2', 'rsub13.3', 'rsub13.4', 'rsub13.5', 'rsub13.6', 'rsub13.7', 'rsub13.8', 'rsub13.9', 'rsub13.10', 'rsub13.11', 'lsub14.0', 'lsub14.1', 'lsub14.2', 'lsub14.3', 'lsub14.4', 'lsub14.5', 'lsub14.6', 'lsub14.7', 'lsub14.8', 'lsub14.9', 'lsub14.10', 'lsub14.11', 'rsub14.0', 'rsub14.1', 'rsub14.2', 'rsub14.3', 'rsub14.4', 'rsub14.5', 'rsub14.6', 'rsub14.7', 'rsub14.8', 'rsub14.9', 'rsub14.10', 'rsub14.11', 'lsub15.0', 'lsub15.1', 'lsub15.2', 'lsub15.3', 'lsub15.4', 'lsub15.5', 'lsub15.6', 'lsub15.7', 'lsub15.8', 'lsub15.9', 'lsub15.10', 'lsub15.11', 'rsub15.0', 'rsub15.1', 'rsub15.2', 'rsub15.3', 'rsub15.4', 'rsub15.5', 'rsub15.6', 'rsub15.7', 'rsub15.8', 'rsub15.9', 'rsub15.10', 'rsub15.11']
+Best Hyperparameters: {'learning_rate': 0.01, 'max_depth': 5, 'n_estimators': 50}
+Mean Accuracy: 0.84375
+Mean F1 Score: 0.8360527977674236
+Accuracy: 0.9722222222222222
+['UPDRS<2', 'UPDRS>=2']
+Best Hyperparameters: {'C': 10}
+Mean Accuracy: 0.8333333333333334
+Mean F1 Score: 0.8264925133346187
+Accuracy: 0.9861111111111112
+[[-1.17225747  1.88091223  0.87834081 -1.09356509 -0.28066545 -0.39551411
+   1.03336761  1.07481425  0.57800164  1.31979088 -0.20395818 -2.11386852
+   3.40112394 -0.28105162  1.03622412  2.02280729 -0.74231597  0.6171812
+   0.26852733]]
+['UPDRS<2', 'UPDRS>=2']
+Classifying results in MODEL-2...
+{0, 1}
+starting classification...
+leave_out  ['lsub13.0', 'lsub13.1', 'lsub13.2', 'lsub13.3', 'lsub13.4', 'lsub13.5', 'lsub13.6', 'lsub13.7', 'lsub13.8', 'lsub13.9', 'lsub13.10', 'lsub13.11', 'rsub13.0', 'rsub13.1', 'rsub13.2', 'rsub13.3', 'rsub13.4', 'rsub13.5', 'rsub13.6', 'rsub13.7', 'rsub13.8', 'rsub13.9', 'rsub13.10', 'rsub13.11', 'lsub14.0', 'lsub14.1', 'lsub14.2', 'lsub14.3', 'lsub14.4', 'lsub14.5', 'lsub14.6', 'lsub14.7', 'lsub14.8', 'lsub14.9', 'lsub14.10', 'lsub14.11', 'rsub14.0', 'rsub14.1', 'rsub14.2', 'rsub14.3', 'rsub14.4', 'rsub14.5', 'rsub14.6', 'rsub14.7', 'rsub14.8', 'rsub14.9', 'rsub14.10', 'rsub14.11', 'lsub15.0', 'lsub15.1', 'lsub15.2', 'lsub15.3', 'lsub15.4', 'lsub15.5', 'lsub15.6', 'lsub15.7', 'lsub15.8', 'lsub15.9', 'lsub15.10', 'lsub15.11', 'rsub15.0', 'rsub15.1', 'rsub15.2', 'rsub15.3', 'rsub15.4', 'rsub15.5', 'rsub15.6', 'rsub15.7', 'rsub15.8', 'rsub15.9', 'rsub15.10', 'rsub15.11']
+Best Hyperparameters: {'learning_rate': 0.001, 'max_depth': 3, 'n_estimators': 20}
+Mean Accuracy: 0.7291666666666666
+Mean F1 Score: 0.7015387808349146
+Accuracy: 0.9722222222222222
+['UPDRS<2', 'UPDRS>=2']
+Best Hyperparameters: {'C': 10}
+Mean Accuracy: 0.767361111111111
+Mean F1 Score: 0.7572197136871535
+Accuracy: 0.9583333333333334
+[[ 3.46309008 -2.88427067  1.84753202 -1.26639132 -0.73614353  0.31584111
+   0.0782452   0.04044044  0.77571262  0.68819992 -2.80927666  1.18150886
+   0.2185281   4.16210756  0.53893641 -0.5801111  -0.34266773  0.23460308
+   0.51712974]]
+['UPDRS<2', 'UPDRS>=2']
+Classifying results in MODEL-5...
+{0, 1}
+starting classification...
+leave_out  ['lsub13.0', 'lsub13.1', 'lsub13.2', 'lsub13.3', 'lsub13.4', 'lsub13.5', 'lsub13.6', 'lsub13.7', 'lsub13.8', 'lsub13.9', 'lsub13.10', 'lsub13.11', 'rsub13.0', 'rsub13.1', 'rsub13.2', 'rsub13.3', 'rsub13.4', 'rsub13.5', 'rsub13.6', 'rsub13.7', 'rsub13.8', 'rsub13.9', 'rsub13.10', 'rsub13.11', 'lsub14.0', 'lsub14.1', 'lsub14.2', 'lsub14.3', 'lsub14.4', 'lsub14.5', 'lsub14.6', 'lsub14.7', 'lsub14.8', 'lsub14.9', 'lsub14.10', 'lsub14.11', 'rsub14.0', 'rsub14.1', 'rsub14.2', 'rsub14.3', 'rsub14.4', 'rsub14.5', 'rsub14.6', 'rsub14.7', 'rsub14.8', 'rsub14.9', 'rsub14.10', 'rsub14.11', 'lsub15.0', 'lsub15.1', 'lsub15.2', 'lsub15.3', 'lsub15.4', 'lsub15.5', 'lsub15.6', 'lsub15.7', 'lsub15.8', 'lsub15.9', 'lsub15.10', 'lsub15.11', 'rsub15.0', 'rsub15.1', 'rsub15.2', 'rsub15.3', 'rsub15.4', 'rsub15.5', 'rsub15.6', 'rsub15.7', 'rsub15.8', 'rsub15.9', 'rsub15.10', 'rsub15.11']
+Best Hyperparameters: {'learning_rate': 0.1, 'max_depth': 1, 'n_estimators': 70}
+Mean Accuracy: 0.7743055555555555
+Mean F1 Score: 0.7558481092727668
+Accuracy: 0.9583333333333334
+['UPDRS<2', 'UPDRS>=2']
+Best Hyperparameters: {'C': 100}
+Mean Accuracy: 0.8090277777777778
+Mean F1 Score: 0.8042569598213142
+Accuracy: 0.9583333333333334
+[[ 1.21614313  0.38658828 -1.6469087  -4.27669576  0.38115227  3.58249276
+   1.74763255 -6.18372486  1.09824309  1.50740381  0.1876165   0.23420431
+  -0.90436897  2.62002866  6.78924376 -0.56878447  0.72014802  0.5973258
+  -0.02916018]]
+['UPDRS<2', 'UPDRS>=2']
+Classifying results in MODEL-3...
+{0, 1}
+starting classification...
+leave_out  ['lsub13.0', 'lsub13.1', 'lsub13.2', 'lsub13.3', 'lsub13.4', 'lsub13.5', 'lsub13.6', 'lsub13.7', 'lsub13.8', 'lsub13.9', 'lsub13.10', 'lsub13.11', 'rsub13.0', 'rsub13.1', 'rsub13.2', 'rsub13.3', 'rsub13.4', 'rsub13.5', 'rsub13.6', 'rsub13.7', 'rsub13.8', 'rsub13.9', 'rsub13.10', 'rsub13.11', 'lsub14.0', 'lsub14.1', 'lsub14.2', 'lsub14.3', 'lsub14.4', 'lsub14.5', 'lsub14.6', 'lsub14.7', 'lsub14.8', 'lsub14.9', 'lsub14.10', 'lsub14.11', 'rsub14.0', 'rsub14.1', 'rsub14.2', 'rsub14.3', 'rsub14.4', 'rsub14.5', 'rsub14.6', 'rsub14.7', 'rsub14.8', 'rsub14.9', 'rsub14.10', 'rsub14.11', 'lsub15.0', 'lsub15.1', 'lsub15.2', 'lsub15.3', 'lsub15.4', 'lsub15.5', 'lsub15.6', 'lsub15.7', 'lsub15.8', 'lsub15.9', 'lsub15.10', 'lsub15.11', 'rsub15.0', 'rsub15.1', 'rsub15.2', 'rsub15.3', 'rsub15.4', 'rsub15.5', 'rsub15.6', 'rsub15.7', 'rsub15.8', 'rsub15.9', 'rsub15.10', 'rsub15.11']
+Best Hyperparameters: {'learning_rate': 0.001, 'max_depth': 5, 'n_estimators': 20}
+Mean Accuracy: 0.7881944444444445
+Mean F1 Score: 0.784193309656232
+Accuracy: 0.9305555555555556
+['UPDRS<2', 'UPDRS>=2']
+Best Hyperparameters: {'C': 1}
+Mean Accuracy: 0.8194444444444443
+Mean F1 Score: 0.8136715743273121
+Accuracy: 0.9861111111111112
+[[ 0.52271566  0.67182538 -0.44704626  0.3438557   0.3334741   0.31252073
+  -0.91327937  1.08889598  0.57174423 -0.29889301 -0.04126348 -0.31945151
+   1.72330303 -1.55547    -0.6750068   1.20939035 -0.72736829  0.28394615
+   0.49972752]]
+['UPDRS<2', 'UPDRS>=2']
+Classifying results in MODEL-7...
+{0, 1}
+starting classification...
+leave_out  ['lsub13.0', 'lsub13.1', 'lsub13.2', 'lsub13.3', 'lsub13.4', 'lsub13.5', 'lsub13.6', 'lsub13.7', 'lsub13.8', 'lsub13.9', 'lsub13.10', 'lsub13.11', 'rsub13.0', 'rsub13.1', 'rsub13.2', 'rsub13.3', 'rsub13.4', 'rsub13.5', 'rsub13.6', 'rsub13.7', 'rsub13.8', 'rsub13.9', 'rsub13.10', 'rsub13.11', 'lsub14.0', 'lsub14.1', 'lsub14.2', 'lsub14.3', 'lsub14.4', 'lsub14.5', 'lsub14.6', 'lsub14.7', 'lsub14.8', 'lsub14.9', 'lsub14.10', 'lsub14.11', 'rsub14.0', 'rsub14.1', 'rsub14.2', 'rsub14.3', 'rsub14.4', 'rsub14.5', 'rsub14.6', 'rsub14.7', 'rsub14.8', 'rsub14.9', 'rsub14.10', 'rsub14.11', 'lsub15.0', 'lsub15.1', 'lsub15.2', 'lsub15.3', 'lsub15.4', 'lsub15.5', 'lsub15.6', 'lsub15.7', 'lsub15.8', 'lsub15.9', 'lsub15.10', 'lsub15.11', 'rsub15.0', 'rsub15.1', 'rsub15.2', 'rsub15.3', 'rsub15.4', 'rsub15.5', 'rsub15.6', 'rsub15.7', 'rsub15.8', 'rsub15.9', 'rsub15.10', 'rsub15.11']
+Best Hyperparameters: {'learning_rate': 0.1, 'max_depth': 7, 'n_estimators': 20}
+Mean Accuracy: 0.8125
+Mean F1 Score: 0.8049348972460013
+Accuracy: 1.0
+['UPDRS<2', 'UPDRS>=2']
+Best Hyperparameters: {'C': 10}
+Mean Accuracy: 0.8645833333333334
+Mean F1 Score: 0.8601680169139522
+Accuracy: 1.0
+[[ 0.41861929  0.30690338 -1.75289702 -0.53304212  1.27556955 -1.19265101
+   3.0822874  -1.27232577  2.75819907  0.42285951 -0.79925346 -2.51284514
+   0.61574232 -1.33503955  2.11468858 -0.64512912 -0.10745086  0.72983545
+   0.14346507]]
+['UPDRS<2', 'UPDRS>=2']
+Classifying results in MODEL-8...
+{0, 1}
+starting classification...
+leave_out  ['lsub13.0', 'lsub13.1', 'lsub13.2', 'lsub13.3', 'lsub13.4', 'lsub13.5', 'lsub13.6', 'lsub13.7', 'lsub13.8', 'lsub13.9', 'lsub13.10', 'lsub13.11', 'rsub13.0', 'rsub13.1', 'rsub13.2', 'rsub13.3', 'rsub13.4', 'rsub13.5', 'rsub13.6', 'rsub13.7', 'rsub13.8', 'rsub13.9', 'rsub13.10', 'rsub13.11', 'lsub14.0', 'lsub14.1', 'lsub14.2', 'lsub14.3', 'lsub14.4', 'lsub14.5', 'lsub14.6', 'lsub14.7', 'lsub14.8', 'lsub14.9', 'lsub14.10', 'lsub14.11', 'rsub14.0', 'rsub14.1', 'rsub14.2', 'rsub14.3', 'rsub14.4', 'rsub14.5', 'rsub14.6', 'rsub14.7', 'rsub14.8', 'rsub14.9', 'rsub14.10', 'rsub14.11', 'lsub15.0', 'lsub15.1', 'lsub15.2', 'lsub15.3', 'lsub15.4', 'lsub15.5', 'lsub15.6', 'lsub15.7', 'lsub15.8', 'lsub15.9', 'lsub15.10', 'lsub15.11', 'rsub15.0', 'rsub15.1', 'rsub15.2', 'rsub15.3', 'rsub15.4', 'rsub15.5', 'rsub15.6', 'rsub15.7', 'rsub15.8', 'rsub15.9', 'rsub15.10', 'rsub15.11']
+Best Hyperparameters: {'learning_rate': 0.1, 'max_depth': 2, 'n_estimators': 50}
+Mean Accuracy: 0.84375
+Mean F1 Score: 0.836684746156513
+Accuracy: 1.0
+['UPDRS<2', 'UPDRS>=2']
+Best Hyperparameters: {'C': 1}
+Mean Accuracy: 0.8263888888888888
+Mean F1 Score: 0.818892626175502
+Accuracy: 1.0
+[[ 0.10979066  0.47412082 -0.85794531 -1.14354537  1.43506105 -0.54796669
+  -0.11008993  1.02776414  0.24844472 -1.20904528  0.42545364 -0.29441024
+   1.46515795  0.47115557  1.14625553  0.76873382 -0.50730014  0.59953523
+   0.11051212]]
+['UPDRS<2', 'UPDRS>=2']
+Classifying results in MODEL-6...
+{0, 1}
+starting classification...
+leave_out  ['lsub13.0', 'lsub13.1', 'lsub13.2', 'lsub13.3', 'lsub13.4', 'lsub13.5', 'lsub13.6', 'lsub13.7', 'lsub13.8', 'lsub13.9', 'lsub13.10', 'lsub13.11', 'rsub13.0', 'rsub13.1', 'rsub13.2', 'rsub13.3', 'rsub13.4', 'rsub13.5', 'rsub13.6', 'rsub13.7', 'rsub13.8', 'rsub13.9', 'rsub13.10', 'rsub13.11', 'lsub14.0', 'lsub14.1', 'lsub14.2', 'lsub14.3', 'lsub14.4', 'lsub14.5', 'lsub14.6', 'lsub14.7', 'lsub14.8', 'lsub14.9', 'lsub14.10', 'lsub14.11', 'rsub14.0', 'rsub14.1', 'rsub14.2', 'rsub14.3', 'rsub14.4', 'rsub14.5', 'rsub14.6', 'rsub14.7', 'rsub14.8', 'rsub14.9', 'rsub14.10', 'rsub14.11', 'lsub15.0', 'lsub15.1', 'lsub15.2', 'lsub15.3', 'lsub15.4', 'lsub15.5', 'lsub15.6', 'lsub15.7', 'lsub15.8', 'lsub15.9', 'lsub15.10', 'lsub15.11', 'rsub15.0', 'rsub15.1', 'rsub15.2', 'rsub15.3', 'rsub15.4', 'rsub15.5', 'rsub15.6', 'rsub15.7', 'rsub15.8', 'rsub15.9', 'rsub15.10', 'rsub15.11']
+Best Hyperparameters: {'learning_rate': 0.2, 'max_depth': 2, 'n_estimators': 50}
+Mean Accuracy: 0.8368055555555557
+Mean F1 Score: 0.8301506203034217
+Accuracy: 1.0
+['UPDRS<2', 'UPDRS>=2']
+Best Hyperparameters: {'C': 0.001}
+Mean Accuracy: 0.625
+Mean F1 Score: 0.4700730493278822
+Accuracy: 0.8888888888888888
+[[-0.02806302  0.02397354  0.01249738 -0.01690758 -0.01530382  0.01498039
+  -0.04261235  0.04426715 -0.028325    0.01856756 -0.00129728 -0.02290608
+  -0.00788887 -0.01623366 -0.01914184  0.04240466 -0.02969896  0.02404097
+  -0.00777827]]
+['UPDRS<2', 'UPDRS>=2']
+Classifying results in MODEL-9...
+{0, 1}
+starting classification...
+leave_out  ['lsub13.0', 'lsub13.1', 'lsub13.2', 'lsub13.3', 'lsub13.4', 'lsub13.5', 'lsub13.6', 'lsub13.7', 'lsub13.8', 'lsub13.9', 'lsub13.10', 'lsub13.11', 'rsub13.0', 'rsub13.1', 'rsub13.2', 'rsub13.3', 'rsub13.4', 'rsub13.5', 'rsub13.6', 'rsub13.7', 'rsub13.8', 'rsub13.9', 'rsub13.10', 'rsub13.11', 'lsub14.0', 'lsub14.1', 'lsub14.2', 'lsub14.3', 'lsub14.4', 'lsub14.5', 'lsub14.6', 'lsub14.7', 'lsub14.8', 'lsub14.9', 'lsub14.10', 'lsub14.11', 'rsub14.0', 'rsub14.1', 'rsub14.2', 'rsub14.3', 'rsub14.4', 'rsub14.5', 'rsub14.6', 'rsub14.7', 'rsub14.8', 'rsub14.9', 'rsub14.10', 'rsub14.11', 'lsub15.0', 'lsub15.1', 'lsub15.2', 'lsub15.3', 'lsub15.4', 'lsub15.5', 'lsub15.6', 'lsub15.7', 'lsub15.8', 'lsub15.9', 'lsub15.10', 'lsub15.11', 'rsub15.0', 'rsub15.1', 'rsub15.2', 'rsub15.3', 'rsub15.4', 'rsub15.5', 'rsub15.6', 'rsub15.7', 'rsub15.8', 'rsub15.9', 'rsub15.10', 'rsub15.11']
+Best Hyperparameters: {'learning_rate': 0.2, 'max_depth': 1, 'n_estimators': 200}
+Mean Accuracy: 0.8784722222222223
+Mean F1 Score: 0.8735449889271255
+Accuracy: 1.0
+['UPDRS<2', 'UPDRS>=2']
+Best Hyperparameters: {'C': 0.1}
+Mean Accuracy: 0.875
+Mean F1 Score: 0.8711302972623853
+Accuracy: 1.0
+[[-0.44342789 -0.14236143 -0.12513657  0.58796005 -0.33660703 -0.04126492
+   0.82042594  0.48059932 -0.31148641 -0.30747325 -0.51156258  0.32823134
+  -0.08790266  0.55162239  0.53300735  0.34367684 -0.15199516  0.22765545
+  -0.05532676]]
+['UPDRS<2', 'UPDRS>=2']

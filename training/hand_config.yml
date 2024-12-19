@@ -1,0 +1,177 @@
+
+
+#==================== ANATOMY =====================#
+
+# used to access columns in the keypoint data
+bodyparts:
+- finger1
+- finger2
+- finger3
+- finger4
+- finger5
+- finger6
+- finger7
+- finger8
+- finger9
+- finger10
+- finger11
+- finger12
+- finger13
+- finger14
+- finger15
+- finger16
+- finger17
+- finger18
+- finger19
+- finger20
+- finger21
+
+# determines the subset of bodyparts to use for modeling and the order in which they are represented
+use_bodyparts:
+- finger1
+- finger2
+- finger3
+- finger4
+- finger5
+- finger6
+- finger7
+- finger8
+- finger9
+- finger10
+- finger11
+- finger12
+- finger13
+- finger14
+- finger15
+- finger16
+- finger17
+- finger18
+- finger19
+- finger20
+- finger21
+
+# used for visualization only
+skeleton:
+- - finger1
+  - finger2
+- - finger1
+  - finger18
+- - finger2
+  - finger3
+- - finger3
+  - finger4
+- - finger4
+  - finger5
+- - finger2
+  - finger6
+- - finger6
+  - finger7
+- - finger7
+  - finger8
+- - finger8
+  - finger9
+- - finger6
+  - finger10
+- - finger10
+  - finger11
+- - finger11
+  - finger12
+- - finger12
+  - finger13
+- - finger10
+  - finger14
+- - finger14
+  - finger15
+- - finger15
+  - finger16
+- - finger16
+  - finger17
+- - finger14
+  - finger18
+- - finger18
+  - finger19
+- - finger19
+  - finger20
+- - finger20
+  - finger21
+
+# used to initialize heading
+anterior_bodyparts:
+- finger18
+
+# used to initialize heading
+posterior_bodyparts:
+- finger1
+- finger3
+
+
+#==================== FITTING =====================#
+
+# upper bound of uniform noise added to the data during initial AR-HMM fitting; this is used to regularize the model
+added_noise_level: 0.1
+
+# number of frames used to fit the PCA model during initialization
+PCA_fitting_num_frames: 1000
+
+# used to define outliers for interpolation when the model is initialized
+conf_threshold: 0.5
+
+
+#================== HYPER PARAMS ==================#
+
+# parameters to convert neural net likelihoods to error size priors
+error_estimator:
+  intercept: 0.25
+  slope: -0.5
+
+# keypoint observation hyperparameters
+obs_hypparams:
+  nu_s: 5
+  nu_sigma: 100000.0
+  sigmasq_0: 0.1
+  sigmasq_C: 0.1
+
+# autoregressive hyperparameters
+ar_hypparams:
+  K_0_scale: 10.0
+  S_0_scale: 0.01
+  latent_dim: 7
+  nlags: 3
+
+# transition hyperparameters
+trans_hypparams:
+  alpha: 5.7
+  gamma: 1000.0
+  kappa: 1000.0
+  num_states: 8
+
+# centroid movement hyperparameters
+cen_hypparams:
+  sigmasq_loc: 0.5
+
+
+#===================== OTHER ======================#
+
+# suffix used to match videos to recording names; this can usually be left empty (see `util.find_matching_videos` for details)
+recording_name_suffix: ''
+
+# whether to print progress messages during fitting
+verbose: false
+
+# pseudocount used regularize neural network confidences
+conf_pseudocount: 0.001
+
+# directory with videos from which keypoints were derived (used for crowd movies)
+video_dir: proj_directory/data/videos/
+
+# colormap used for visualization; see `matplotlib.cm.get_cmap` for options
+keypoint_colormap: autumn
+
+# whether to whiten principal components; used to initialize the latent pose trajectory `x`
+whiten: true
+
+# whether to keep the heading angle fixed; this should only be True if the pose is constrained to a narrow range of angles, e.g. a headfixed mouse.
+fix_heading: false
+
+# data are broken up into segments to parallelize fitting
+seg_length: 10000

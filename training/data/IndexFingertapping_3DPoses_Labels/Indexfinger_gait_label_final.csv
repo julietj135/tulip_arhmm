@@ -1,0 +1,46 @@
+Subject,UPDRS_name,clinician_1,clinician_2,clinician_3,gold_standard,average,thresh_1,thresh_2
+1,Finger tapping - Right hand,0,0,0,0,0,0,0
+1,Finger tapping - Left hand,0,0,0,0,0,0,0
+2,Finger tapping - Right hand,1,3,1,1,1.5,1,0
+2,Finger tapping - Left hand,0,1,1,1,0.75,1,0
+3,Finger tapping - Right hand,0,1,1,1,0.75,1,0
+3,Finger tapping - Left hand,0,0,0,0,0,0,0
+4,Finger tapping - Right hand,1,2,3,2,2,1,1
+4,Finger tapping - Left hand,1,1,2,1,1.25,1,0
+5,Finger tapping - Right hand,3,4,4,4,3.75,1,1
+5,Finger tapping - Left hand,3,3,3,3,3,1,1
+6,Finger tapping - Right hand,1,1,2,1,1.25,1,0
+6,Finger tapping - Left hand,2,3,2,2,2.25,1,1
+7,Finger tapping - Right hand,1,1,1,1,1,1,0
+7,Finger tapping - Left hand,0,0,1,0,0.25,0,0
+8,Finger tapping - Right hand,2,3,3,3,2.75,1,1
+8,Finger tapping - Left hand,2,2,2,2,2,1,1
+9,Finger tapping - Right hand,0,0,0,0,0,0,0
+9,Finger tapping - Left hand,0,0,0,0,0,0,0
+10,Finger tapping - Right hand,3,2,3,3,2.75,1,1
+10,Finger tapping - Left hand,2,1,2,2,1.75,1,1
+11,Finger tapping - Right hand,2,2,2,2,2,1,1
+11,Finger tapping - Left hand,2,1,2,2,1.75,1,1
+12,Finger tapping - Right hand,1,0,0,0,0.25,0,0
+12,Finger tapping - Left hand,0,0,0,0,0,0,0
+13,Finger tapping - Right hand,4,3,4,4,3.75,1,1
+13,Finger tapping - Left hand,3,2,3,3,2.75,1,1
+14,Finger tapping - Right hand,0,1,0,0,0.25,0,0
+14,Finger tapping - Left hand,0,0,0,0,0,0,0
+15,Finger tapping - Right hand,3,4,3,3,3.25,1,1
+15,Finger tapping - Left hand,3,3,3,3,3,1,1
+1,Gait,0,0,1,0,0.25,0,0
+2,Gait,0,1,1,1,0.75,1,0
+3,Gait,0,1,0,0,0.25,0,0
+4,Gait,1,2,1,1,1.25,1,0
+5,Gait,0,1,1,1,0.75,1,0
+6,Gait,1,1,2,1,1.25,1,0
+7,Gait,0,0,1,0,0.25,0,0
+8,Gait,1,1,2,1,1.25,1,0
+9,Gait,0,0,1,0,0.25,0,0
+10,Gait,2,1,2,2,1.75,1,1
+11,Gait,1,2,1,1,1.25,1,0
+12,Gait,0,0,0,0,0,0,0
+13,Gait,1,2,2,2,1.75,1,1
+14,Gait,0,1,0,0,0.25,0,0
+15,Gait,1,2,2,2,1.75,1,1

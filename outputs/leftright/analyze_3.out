@@ -1,0 +1,62 @@
+WARNING:absl:No GPU/TPU found, falling back to CPU. (Set TF_CPP_MIN_LOG_LEVEL=0 and rerun for more info.)
+{'body': 'lr', 'body_name': 'leftright', 'augment': True, 'taps_per_window': 20, 'num_states': 8, 'num_ar_iters': 50, 'num_full_iters': 500, 'ids': [1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9], 'thresh': 2, 'multiclass': False, 'class_models': ['xgboost', 'logistic'], 'plot_grouped_freq': True, 'plot_bars': True, 'num_keypoints': 21, 'ar_only_kappa': 1000.0, 'full_model_kappa': 100.0, 'num_windows': 12, 'forward_indices': [0, 2, 17], 'target_direction': [1, 0, 0], 'config_path': 'training/hand_config.yml', 'combine': True}
+getting left right data
+l subject 1 has an augmentation of 12 segments
+r subject 1 has an augmentation of 12 segments
+l subject 10 has an augmentation of 12 segments
+r subject 10 has an augmentation of 12 segments
+l subject 11 has an augmentation of 12 segments
+r subject 11 has an augmentation of 12 segments
+l subject 12 has an augmentation of 12 segments
+r subject 12 has an augmentation of 12 segments
+l subject 13 has an augmentation of 12 segments
+r subject 13 has an augmentation of 12 segments
+l subject 14 has an augmentation of 12 segments
+r subject 14 has an augmentation of 12 segments
+l subject 15 has an augmentation of 12 segments
+r subject 15 has an augmentation of 12 segments
+l subject 2 has an augmentation of 12 segments
+r subject 2 has an augmentation of 12 segments
+l subject 3 has an augmentation of 12 segments
+r subject 3 has an augmentation of 12 segments
+l subject 4 has an augmentation of 12 segments
+r subject 4 has an augmentation of 12 segments
+l subject 5 has an augmentation of 12 segments
+r subject 5 has an augmentation of 12 segments
+l subject 6 has an augmentation of 12 segments
+r subject 6 has an augmentation of 12 segments
+l subject 7 has an augmentation of 12 segments
+r subject 7 has an augmentation of 12 segments
+l subject 8 has an augmentation of 12 segments
+r subject 8 has an augmentation of 12 segments
+l subject 9 has an augmentation of 12 segments
+r subject 9 has an augmentation of 12 segments
+entered function
+Writing grid movies to training/outputs/2.model_ensembles/leftright/MODEL-3/grid_movies
+obtained index df
+got 8 instances
+{0: [('lsub6.9', 176, 185), ('rsub7.4', 71, 73), ('lsub6.6', 50, 54), ('lsub13.6', 54, 59), ('lsub4.3', 185, 195), ('lsub6.6', 94, 103), ('lsub8.9', 83, 94), ('lsub15.10', 127, 161), ('lsub14.3', 53, 61), ('lsub10.11', 224, 234), ('rsub8.9', 0, 5), ('lsub4.7', 41, 48)], 1: [('rsub12.5', 6, 22), ('rsub9.3', 5, 25), ('rsub14.11', 5, 58), ('lsub9.6', 122, 140), ('lsub3.10', 145, 172), ('lsub6.9', 38, 55), ('lsub4.11', 178, 202), ('lsub6.1', 22, 40), ('lsub14.9', 5, 40), ('lsub6.5', 84, 85), ('rsub9.10', 107, 115), ('lsub6.7', 29, 47)], 2: [('rsub3.7', 51, 58), ('rsub3.2', 50, 64), ('lsub7.0', 46, 50), ('rsub11.0', 33, 49), ('rsub7.7', 62, 63), ('lsub15.8', 144, 149), ('lsub13.8', 26, 31), ('rsub10.6', 261, 262), ('lsub2.11', 111, 115), ('rsub11.6', 131, 148), ('rsub7.7', 48, 60), ('rsub3.7', 149, 154)], 3: [('lsub10.11', 178, 180), ('rsub10.9', 258, 262), ('rsub7.5', 140, 159), ('rsub3.4', 55, 56), ('rsub3.0', 158, 165), ('rsub4.3', 177, 182), ('lsub7.6', 9, 43), ('rsub6.7', 135, 145), ('rsub14.0', 7, 20), ('lsub7.0', 89, 225), ('rsub11.9', 74, 81), ('rsub10.9', 25, 39)], 4: [('rsub2.10', 5, 401), ('lsub6.4', 31, 40), ('lsub12.3', 20, 93), ('rsub10.2', 136, 249), ('rsub10.1', 5, 68), ('lsub12.5', 104, 230), ('rsub10.10', 6, 21), ('lsub12.2', 182, 253), ('lsub5.2', 9, 271), ('rsub10.9', 262, 378), ('lsub10.5', 149, 163), ('lsub11.5', 5, 56)], 5: [('lsub15.3', 44, 62), ('lsub10.8', 184, 188), ('lsub13.6', 76, 242), ('lsub13.0', 225, 258), ('lsub10.10', 118, 124), ('lsub13.10', 297, 308), ('rsub13.1', 10, 34), ('lsub13.11', 70, 103), ('lsub5.8', 5, 244), ('lsub6.5', 5, 15), ('lsub13.2', 221, 249), ('lsub8.5', 6, 117)], 6: [('rsub15.0', 8, 240), ('rsub8.8', 67, 118), ('rsub5.1', 5, 239), ('rsub13.8', 6, 385), ('rsub15.2', 6, 192), ('rsub13.5', 50, 196), ('rsub5.8', 5, 241), ('rsub8.10', 5, 188), ('rsub15.4', 5, 209), ('rsub8.8', 5, 50), ('rsub8.4', 5, 278), ('rsub5.0', 5, 222)], 7: [('rsub6.5', 105, 106), ('lsub8.8', 113, 114), ('lsub4.2', 66, 67), ('lsub8.8', 109, 110), ('lsub4.2', 214, 215), ('lsub8.8', 21, 23), ('lsub10.8', 201, 202), ('lsub8.8', 29, 30), ('lsub4.2', 39, 40), ('lsub4.2', 162, 164), ('lsub5.7', 237, 238), ('lsub4.2', 189, 191)]}
+Using window size of 128 pixels
+Generating grid movies:   0%|                     | 0/8 [00:00<?, ?it/s]Generating grid movies: 100%|███████████| 8/8 [00:00<00:00, 1049.66it/s]
+Writing labeled movies to training/outputs/2.model_ensembles/leftright/MODEL-3/labeled_movies
+obtained index df
+  0%|          | 0/4 [00:00<?, ?it/s][swscaler @ 0x6a75f00] Warning: data is not aligned! This can lead to a speed loss
+ 25%|██▌       | 1/4 [00:01<00:04,  1.59s/it][swscaler @ 0x6d9cf00] Warning: data is not aligned! This can lead to a speed loss
+ 50%|█████     | 2/4 [00:02<00:02,  1.36s/it][swscaler @ 0x74b5f00] Warning: data is not aligned! This can lead to a speed loss
+ 75%|███████▌  | 3/4 [00:04<00:01,  1.31s/it][swscaler @ 0x6fbbf00] Warning: data is not aligned! This can lead to a speed loss
+100%|██████████| 4/4 [00:05<00:00,  1.29s/it]100%|██████████| 4/4 [00:05<00:00,  1.33s/it]
+[-24.0574787   86.50689598]
+[ 7.6776478  89.15256797]
+[-35.37668488  87.022995  ]
+[-13.23678237  56.82093236]
+Saving trajectory plots to training/outputs/2.model_ensembles/leftright/MODEL-3/trajectory_plots
+Generating trajectory plots:   0%|                | 0/7 [00:00<?, ?it/s]Generating trajectory plots:  14%|█▏      | 1/7 [00:02<00:15,  2.63s/it]Generating trajectory plots:  29%|██▎     | 2/7 [00:04<00:12,  2.40s/it]Generating trajectory plots:  43%|███▍    | 3/7 [00:07<00:10,  2.58s/it]Generating trajectory plots:  57%|████▌   | 4/7 [00:09<00:07,  2.44s/it]Generating trajectory plots:  71%|█████▋  | 5/7 [00:11<00:04,  2.31s/it]Generating trajectory plots:  86%|██████▊ | 6/7 [00:14<00:02,  2.24s/it]Generating trajectory plots: 100%|████████| 7/7 [00:16<00:00,  2.20s/it]Generating trajectory plots: 100%|████████| 7/7 [00:16<00:00,  2.31s/it]
+Saved interactive trajectories plot to training/outputs/2.model_ensembles/leftright/MODEL-3/trajectory_plots/all_trajectories.html
+{'text/html': '<iframe\n    scrolling="no"\n    width="100%"\n    height="520"\n    src="iframe_figures/figure_0.html"\n    frameborder="0"\n    allowfullscreen\n></iframe>\n'}
+computing moseq_df
+moseq df saved to  training/outputs/2.model_ensembles/leftright
+computing stats_df
+stats df saved to  training/outputs/2.model_ensembles/leftright
+create transition matrices...
+Group(s): HT, PD
+Saved figure to training/outputs/2.model_ensembles/leftright/MODEL-3/figures/transition_matrices.png

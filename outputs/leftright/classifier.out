@@ -1,0 +1,193 @@
+WARNING:absl:No GPU/TPU found, falling back to CPU. (Set TF_CPP_MIN_LOG_LEVEL=0 and rerun for more info.)
+{'body': 'lr', 'body_name': 'leftright', 'augment': True, 'taps_per_window': 20, 'num_states': 8, 'num_ar_iters': 50, 'num_full_iters': 500, 'ids': [1, 10, 11, 12, 2, 3, 4, 5, 6, 7, 8, 9], 'thresh': 2, 'multiclass': False, 'class_models': ['xgboost', 'logistic'], 'plot_grouped_freq': True, 'plot_bars': True, 'num_keypoints': 21, 'ar_only_kappa': 1000.0, 'full_model_kappa': 100.0, 'num_windows': 12, 'forward_indices': [0, 2, 17], 'target_direction': [1, 0, 0], 'config_path': 'training/hand_config.yml', 'combine': True}
+MODEL-0
+MODEL-4
+MODEL-1
+MODEL-2
+MODEL-5
+MODEL-3
+MODEL-7
+MODEL-8
+MODEL-6
+MODEL-9
+['MODEL-0', 'MODEL-4', 'MODEL-1', 'MODEL-2', 'MODEL-5', 'MODEL-3', 'MODEL-7', 'MODEL-8', 'MODEL-6', 'MODEL-9']
+updating configuration for patient 1...
+updating configuration for patient 10...
+updating configuration for patient 11...
+updating configuration for patient 12...
+updating configuration for patient 13...
+updating configuration for patient 14...
+updating configuration for patient 15...
+updating configuration for patient 2...
+updating configuration for patient 3...
+updating configuration for patient 4...
+updating configuration for patient 5...
+updating configuration for patient 6...
+updating configuration for patient 7...
+updating configuration for patient 8...
+updating configuration for patient 9...
+  0%|          | 0/10 [00:00<?, ?it/s] 10%|█         | 1/10 [00:39<05:51, 39.10s/it] 20%|██        | 2/10 [01:53<07:59, 59.89s/it]/hpc/group/tdunn/jmj73/tulip_arhmm/analysis/classifier.py:71: RuntimeWarning:
+
+More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`). Consider using `matplotlib.pyplot.close()`.
+
+ 30%|███       | 3/10 [02:59<07:19, 62.80s/it] 40%|████      | 4/10 [04:18<06:55, 69.26s/it] 50%|█████     | 5/10 [05:41<06:09, 73.90s/it] 60%|██████    | 6/10 [06:55<04:56, 74.21s/it] 70%|███████   | 7/10 [07:54<03:27, 69.23s/it] 80%|████████  | 8/10 [09:01<02:16, 68.29s/it] 90%|█████████ | 9/10 [10:18<01:11, 71.01s/it]100%|██████████| 10/10 [11:44<00:00, 75.88s/it]100%|██████████| 10/10 [11:44<00:00, 70.49s/it]
+Classifying results in MODEL-0...
+no index csv in training/outputs/2.model_ensembles/leftright/index.csv, use make_index_csv
+starting classification...
+leave_out  72
+Best Hyperparameters: {'learning_rate': 0.01, 'max_depth': 5, 'n_estimators': 20}
+Mean Accuracy: 0.7222222222222222
+Mean F1 Score: 0.7133315133315135
+Accuracy: 0.5277777777777778
+Best Hyperparameters: {'C': 1}
+Mean Accuracy: 0.7916666666666666
+Mean F1 Score: 0.7903509109064316
+Accuracy: 0.5555555555555556
+[[ 0.46129869 -1.30809685  0.88392587  0.17920608  0.13009958  0.77938233
+   0.90882695 -0.51270672  0.34808043  1.15437007 -0.14623926  0.82934292
+   0.34272752  1.14346101  0.7912688  -0.4469509  -0.13976109  0.28614129
+  -0.01014381]]
+Classifying results in MODEL-4...
+no index csv in training/outputs/2.model_ensembles/leftright/index.csv, use make_index_csv
+starting classification...
+leave_out  72
+Best Hyperparameters: {'learning_rate': 0.01, 'max_depth': 3, 'n_estimators': 20}
+Mean Accuracy: 0.7847222222222222
+Mean F1 Score: 0.7840532167847253
+Accuracy: 0.6944444444444444
+Best Hyperparameters: {'C': 1}
+Mean Accuracy: 0.7916666666666666
+Mean F1 Score: 0.7911817326023094
+Accuracy: 0.9861111111111112
+[[-0.01290969 -0.38201276 -0.71911519  1.45334834  0.65669568  0.08899823
+  -0.76006805  0.          1.07399111 -0.30879466  0.54121303  1.98470554
+   1.21566401  0.36127023  0.17818756  0.          0.14307842  0.71233159
+   0.13626881]]
+Classifying results in MODEL-1...
+no index csv in training/outputs/2.model_ensembles/leftright/index.csv, use make_index_csv
+starting classification...
+leave_out  72
+Best Hyperparameters: {'learning_rate': 0.01, 'max_depth': 1, 'n_estimators': 20}
+Mean Accuracy: 0.6284722222222222
+Mean F1 Score: 0.5760824280001319
+Accuracy: 0.9027777777777778
+Best Hyperparameters: {'C': 100}
+Mean Accuracy: 0.7013888888888888
+Mean F1 Score: 0.6992785733337209
+Accuracy: 0.7638888888888888
+[[ 0.64271757 -0.4389179  -0.10245246  0.11739056  0.90155941 -1.38172254
+   1.37065179  0.16398386  0.14410005  0.4039471   0.96346181 -0.22142797
+  -0.08386176  0.24390188  0.78628013  0.48608777  0.17471361  0.77883267
+   0.20738349]]
+Classifying results in MODEL-2...
+no index csv in training/outputs/2.model_ensembles/leftright/index.csv, use make_index_csv
+starting classification...
+leave_out  72
+Best Hyperparameters: {'learning_rate': 0.01, 'max_depth': 1, 'n_estimators': 70}
+Mean Accuracy: 0.6840277777777777
+Mean F1 Score: 0.6617258151684381
+Accuracy: 0.9722222222222222
+Best Hyperparameters: {'C': 0.01}
+Mean Accuracy: 0.7152777777777777
+Mean F1 Score: 0.7120433664886852
+Accuracy: 0.5694444444444444
+[[ 0.07385831  0.01731924  0.02067084 -0.02463663  0.05152223  0.22632087
+  -0.0249758   0.02842039  0.18799895 -0.07028384  0.01560105 -0.03688318
+  -0.14400061  0.25206811  0.01691462 -0.0047298   0.11570106 -0.03457292
+   0.07621016]]
+Classifying results in MODEL-5...
+no index csv in training/outputs/2.model_ensembles/leftright/index.csv, use make_index_csv
+starting classification...
+leave_out  72
+Best Hyperparameters: {'learning_rate': 0.1, 'max_depth': 1, 'n_estimators': 20}
+Mean Accuracy: 0.7118055555555555
+Mean F1 Score: 0.6978265306057921
+Accuracy: 0.5277777777777778
+Best Hyperparameters: {'C': 0.001}
+Mean Accuracy: 0.6944444444444445
+Mean F1 Score: 0.6918326543107064
+Accuracy: 0.5277777777777778
+[[ 0.02104288  0.02005202  0.00121851 -0.00142475 -0.04259635 -0.01185585
+   0.0048634   0.00857937  0.03141139  0.03508106 -0.00699842  0.02768089
+  -0.03893232 -0.01343536  0.00199109  0.01294076  0.00871591  0.02957368
+   0.01515546]]
+Classifying results in MODEL-3...
+no index csv in training/outputs/2.model_ensembles/leftright/index.csv, use make_index_csv
+starting classification...
+leave_out  72
+Best Hyperparameters: {'learning_rate': 0.01, 'max_depth': 1, 'n_estimators': 150}
+Mean Accuracy: 0.71875
+Mean F1 Score: 0.7027932233087949
+Accuracy: 0.9305555555555556
+Best Hyperparameters: {'C': 0.1}
+Mean Accuracy: 0.6597222222222222
+Mean F1 Score: 0.6577140554375037
+Accuracy: 0.9166666666666666
+[[ 0.18156546 -0.07513312 -0.03261629 -0.12278788  0.15342857  0.38137758
+   0.04793675 -0.11034164  0.62422114  0.0349395   0.33936382 -0.21991406
+  -0.1891704   0.5361819   0.48955106 -0.04820035  0.36482946 -0.04369307
+   0.08937327]]
+Classifying results in MODEL-7...
+no index csv in training/outputs/2.model_ensembles/leftright/index.csv, use make_index_csv
+starting classification...
+leave_out  72
+Best Hyperparameters: {'learning_rate': 0.01, 'max_depth': 1, 'n_estimators': 150}
+Mean Accuracy: 0.7638888888888888
+Mean F1 Score: 0.7512619873012379
+Accuracy: 0.9722222222222222
+Best Hyperparameters: {'C': 100}
+Mean Accuracy: 0.8576388888888888
+Mean F1 Score: 0.8573470266281286
+Accuracy: 0.7638888888888888
+[[ 2.76111464 -0.35661565 -1.79336299 -0.6290133  -0.44617218  1.13924511
+  -0.97254067 -1.85694845  2.62872396 -0.43619673 -0.49483521  0.25933819
+  -0.39299136  7.45577894  0.09654923 -1.97216914 -1.06363352  0.14890906
+   0.18395365]]
+Classifying results in MODEL-8...
+no index csv in training/outputs/2.model_ensembles/leftright/index.csv, use make_index_csv
+starting classification...
+leave_out  72
+Best Hyperparameters: {'learning_rate': 0.01, 'max_depth': 1, 'n_estimators': 100}
+Mean Accuracy: 0.7708333333333334
+Mean F1 Score: 0.7612762557807997
+Accuracy: 0.9583333333333334
+Best Hyperparameters: {'C': 100}
+Mean Accuracy: 0.8090277777777778
+Mean F1 Score: 0.8083351325577262
+Accuracy: 0.6388888888888888
+[[ 1.02734727 -1.4992186  -0.41069628  0.08802111 -1.21691507 -3.81824483
+  -5.64120432  0.42292524  8.5758334  -2.19516184 -1.40819766  0.26733086
+   4.13129361  4.01137398  5.2625139  -0.22380827  1.19699588  0.86214897
+  -0.70662806]]
+Classifying results in MODEL-6...
+no index csv in training/outputs/2.model_ensembles/leftright/index.csv, use make_index_csv
+starting classification...
+leave_out  72
+Best Hyperparameters: {'learning_rate': 0.01, 'max_depth': 1, 'n_estimators': 50}
+Mean Accuracy: 0.7291666666666666
+Mean F1 Score: 0.7111523342775241
+Accuracy: 0.8611111111111112
+Best Hyperparameters: {'C': 0.01}
+Mean Accuracy: 0.7430555555555555
+Mean F1 Score: 0.7327430009661597
+Accuracy: 0.6388888888888888
+[[-0.10174038 -0.05693777  0.02397149 -0.08594526  0.20093976 -0.0085935
+   0.01666136 -0.03178546  0.00743846 -0.14117629  0.19057513 -0.08023923
+   0.28687192  0.01133569 -0.05769125 -0.03178546  0.06222739  0.06281556
+  -0.0515797 ]]
+Classifying results in MODEL-9...
+no index csv in training/outputs/2.model_ensembles/leftright/index.csv, use make_index_csv
+starting classification...
+leave_out  72
+Best Hyperparameters: {'learning_rate': 0.01, 'max_depth': 1, 'n_estimators': 50}
+Mean Accuracy: 0.6805555555555557
+Mean F1 Score: 0.6455863265815059
+Accuracy: 0.9861111111111112
+Best Hyperparameters: {'C': 100}
+Mean Accuracy: 0.7847222222222222
+Mean F1 Score: 0.7838779956427016
+Accuracy: 0.75
+[[ 0.38508867 -0.24819639 -0.75805191  1.28542736  0.48090392 -0.73077764
+  -0.1509342  -0.46756374  0.67836571  0.38642387 -1.77686942  1.23745051
+   5.82528309  1.11165794  8.97430259  0.01661901  0.46824646  0.06893539
+   0.34395941]]

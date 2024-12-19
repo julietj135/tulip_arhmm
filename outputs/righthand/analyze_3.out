@@ -1,0 +1,52 @@
+WARNING:absl:No GPU/TPU found, falling back to CPU. (Set TF_CPP_MIN_LOG_LEVEL=0 and rerun for more info.)
+{'body': 'r', 'body_name': 'righthand', 'augment': True, 'taps_per_window': 20, 'num_states': 8, 'num_ar_iters': 50, 'num_full_iters': 500, 'ids': [1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9], 'thresh': 2, 'multiclass': False, 'class_models': ['xgboost', 'logistic'], 'plot_grouped_freq': True, 'plot_bars': True, 'num_keypoints': 21, 'ar_only_kappa': 1000.0, 'full_model_kappa': 100.0, 'num_windows': 12, 'forward_indices': [0, 2, 17], 'target_direction': [1, 0, 0], 'config_path': 'training/hand_config.yml', 'combine': False}
+getting augmented data
+subject 1 has an augmentation of 12 segments
+subject 10 has an augmentation of 12 segments
+subject 11 has an augmentation of 12 segments
+subject 12 has an augmentation of 12 segments
+subject 13 has an augmentation of 12 segments
+subject 14 has an augmentation of 12 segments
+subject 15 has an augmentation of 12 segments
+subject 2 has an augmentation of 12 segments
+subject 3 has an augmentation of 12 segments
+subject 4 has an augmentation of 12 segments
+subject 5 has an augmentation of 12 segments
+subject 6 has an augmentation of 12 segments
+subject 7 has an augmentation of 12 segments
+subject 8 has an augmentation of 12 segments
+subject 9 has an augmentation of 12 segments
+entered function
+Writing grid movies to training/outputs/2.model_ensembles/righthand/MODEL-3/grid_movies
+obtained index df
+got 8 instances
+{0: [('sub9.3', 0, 5), ('sub3.0', 0, 5), ('sub10.6', 100, 106), ('sub10.10', 214, 222), ('sub10.4', 0, 5), ('sub10.7', 269, 282), ('sub15.2', 0, 192), ('sub9.6', 0, 5), ('sub10.6', 183, 191), ('sub5.7', 0, 5), ('sub10.10', 134, 139), ('sub11.11', 75, 87)], 1: [('sub4.1', 5, 342), ('sub6.5', 12, 14), ('sub2.3', 50, 380), ('sub4.4', 30, 266), ('sub7.10', 89, 144), ('sub2.8', 6, 425), ('sub4.7', 6, 288), ('sub7.8', 114, 121), ('sub2.7', 5, 425), ('sub2.1', 5, 422), ('sub12.3', 5, 235), ('sub4.0', 48, 141)], 2: [('sub10.2', 273, 297), ('sub10.11', 59, 96), ('sub10.1', 8, 70), ('sub10.7', 282, 439), ('sub10.11', 24, 38), ('sub10.7', 216, 269), ('sub10.10', 42, 134), ('sub10.4', 165, 390), ('sub10.2', 78, 104), ('sub10.0', 6, 16), ('sub10.5', 18, 245), ('sub10.6', 191, 257)], 3: [('sub7.6', 54, 62), ('sub7.8', 55, 67), ('sub11.7', 124, 221), ('sub11.10', 5, 84), ('sub11.4', 116, 290), ('sub6.6', 7, 56), ('sub11.11', 87, 236), ('sub4.10', 5, 8), ('sub11.10', 91, 239), ('sub13.0', 172, 178), ('sub6.11', 102, 109), ('sub11.8', 150, 240)], 4: [('sub9.5', 6, 244), ('sub14.8', 115, 151), ('sub9.7', 14, 258), ('sub7.8', 130, 153), ('sub7.6', 108, 114), ('sub7.5', 10, 237), ('sub12.1', 5, 36), ('sub9.2', 32, 110), ('sub14.11', 91, 165), ('sub7.10', 35, 77), ('sub4.3', 20, 29), ('sub7.10', 11, 29)], 5: [('sub6.2', 5, 245), ('sub6.4', 97, 256), ('sub6.3', 5, 201), ('sub6.0', 6, 204), ('sub6.7', 6, 208), ('sub6.11', 109, 221), ('sub6.5', 14, 202), ('sub6.1', 5, 119), ('sub6.11', 5, 102), ('sub6.10', 5, 247), ('sub6.8', 5, 191), ('sub6.9', 6, 216)], 6: [('sub5.1', 6, 239), ('sub5.7', 5, 253), ('sub5.6', 6, 248), ('sub5.9', 0, 169), ('sub5.8', 0, 241), ('sub5.10', 7, 227), ('sub5.2', 0, 207), ('sub5.0', 6, 222), ('sub5.5', 0, 183), ('sub5.4', 6, 248), ('sub5.11', 5, 230), ('sub5.3', 5, 224)], 7: [('sub1.4', 0, 213), ('sub1.0', 5, 194), ('sub1.3', 0, 208), ('sub1.1', 0, 204), ('sub1.8', 0, 195), ('sub1.11', 0, 196), ('sub1.10', 0, 215), ('sub1.6', 5, 214), ('sub1.9', 5, 216), ('sub1.2', 6, 214), ('sub1.7', 5, 213), ('sub1.5', 5, 211)]}
+Using window size of 144 pixels
+Generating grid movies:   0%|                     | 0/8 [00:00<?, ?it/s]Generating grid movies: 100%|███████████| 8/8 [00:00<00:00, 1134.52it/s]
+Writing labeled movies to training/outputs/2.model_ensembles/righthand/MODEL-3/labeled_movies
+obtained index df
+  0%|          | 0/2 [00:00<?, ?it/s][swscaler @ 0x558be00] Warning: data is not aligned! This can lead to a speed loss
+ 50%|█████     | 1/2 [00:01<00:01,  1.36s/it][swscaler @ 0x6b79e00] Warning: data is not aligned! This can lead to a speed loss
+100%|██████████| 2/2 [00:02<00:00,  1.26s/it]100%|██████████| 2/2 [00:02<00:00,  1.28s/it]
+[-35.37668488  87.022995  ]
+[-13.23678237  56.82093236]
+Saving trajectory plots to training/outputs/2.model_ensembles/righthand/MODEL-3/trajectory_plots
+Generating trajectory plots:   0%|                | 0/5 [00:00<?, ?it/s]Generating trajectory plots:  20%|█▌      | 1/5 [00:14<00:57, 14.42s/it]Generating trajectory plots:  40%|███▏    | 2/5 [00:16<00:21,  7.09s/it]Generating trajectory plots:  60%|████▊   | 3/5 [00:19<00:10,  5.09s/it]Generating trajectory plots:  80%|██████▍ | 4/5 [00:21<00:03,  3.90s/it]Generating trajectory plots: 100%|████████| 5/5 [00:23<00:00,  3.22s/it]Generating trajectory plots: 100%|████████| 5/5 [00:23<00:00,  4.63s/it]
+Saved interactive trajectories plot to training/outputs/2.model_ensembles/righthand/MODEL-3/trajectory_plots/all_trajectories.html
+{'text/html': '<iframe\n    scrolling="no"\n    width="100%"\n    height="520"\n    src="iframe_figures/figure_0.html"\n    frameborder="0"\n    allowfullscreen\n></iframe>\n'}
+computing moseq_df
+moseq df saved to  training/outputs/2.model_ensembles/righthand
+computing stats_df
+stats df saved to  training/outputs/2.model_ensembles/righthand
+create transition matrices...
+Group(s): HT, PD
+Traceback (most recent call last):
+  File "/hpc/group/tdunn/jmj73/tulip_arhmm/work.py", line 83, in <module>
+    an.get_transition_matrix(save_dir, model_name)
+  File "/hpc/group/tdunn/jmj73/tulip_arhmm/analysis/results.py", line 115, in get_transition_matrix
+    trans_mats, usages, groups, syll_include=kpms.generate_transition_matrices(
+  File "/hpc/group/tdunn/jmj73/tulip_arhmm/keypointmoseq/analysis.py", line 1532, in generate_transition_matrices
+    trans_mats, usages = get_group_trans_mats(
+  File "/hpc/group/tdunn/jmj73/tulip_arhmm/keypointmoseq/analysis.py", line 1421, in get_group_trans_mats
+    group_frequencies = get_frequencies(use_labels)[syll_include]
+IndexError: index 7 is out of bounds for axis 0 with size 7

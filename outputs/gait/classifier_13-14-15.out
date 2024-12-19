@@ -1,0 +1,216 @@
+WARNING:absl:No GPU/TPU found, falling back to CPU. (Set TF_CPP_MIN_LOG_LEVEL=0 and rerun for more info.)
+{'body': 'g', 'body_name': 'gait', 'augment': True, 'taps_per_window': 20, 'num_states': 8, 'num_ar_iters': 50, 'num_full_iters': 500, 'ids': [1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9], 'thresh': 1, 'multiclass': False, 'class_models': ['xgboost', 'logistic'], 'plot_grouped_freq': True, 'plot_bars': True, 'num_keypoints': 26, 'ar_only_kappa': 10000.0, 'full_model_kappa': 1000.0, 'num_windows': 8, 'forward_indices': [3, 4, 19], 'target_direction': [1, 0, 0], 'config_path': 'training/gait_config.yml', 'combine': False}
+MODEL-0
+MODEL-4
+MODEL-1
+MODEL-2
+MODEL-5
+MODEL-3
+MODEL-7
+MODEL-8
+MODEL-6
+MODEL-9
+['MODEL-0', 'MODEL-4', 'MODEL-1', 'MODEL-2', 'MODEL-5', 'MODEL-3', 'MODEL-7', 'MODEL-8', 'MODEL-6', 'MODEL-9']
+  0%|          | 0/10 [00:00<?, ?it/s] 10%|█         | 1/10 [01:09<10:27, 69.70s/it] 20%|██        | 2/10 [01:52<07:09, 53.74s/it]/hpc/group/tdunn/jmj73/tulip_arhmm/analysis/classifier.py:337: RuntimeWarning:
+
+More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`). Consider using `matplotlib.pyplot.close()`.
+
+ 30%|███       | 3/10 [02:37<05:47, 49.69s/it] 40%|████      | 4/10 [03:21<04:45, 47.61s/it] 50%|█████     | 5/10 [04:15<04:08, 49.73s/it] 60%|██████    | 6/10 [05:03<03:17, 49.26s/it] 70%|███████   | 7/10 [05:54<02:29, 49.90s/it] 80%|████████  | 8/10 [06:39<01:36, 48.44s/it] 90%|█████████ | 9/10 [07:28<00:48, 48.54s/it]100%|██████████| 10/10 [08:15<00:00, 47.99s/it]100%|██████████| 10/10 [08:15<00:00, 49.54s/it]
+Classifying results in MODEL-0...
+{0, 1}
+moseq df saved to  training/outputs/2.model_ensembles/gait
+stats df saved to  training/outputs/2.model_ensembles/gait
+starting classification...
+leave_out  ['sub13.0', 'sub13.1', 'sub13.2', 'sub13.3', 'sub13.4', 'sub13.5', 'sub13.6', 'sub13.7', 'sub14.0', 'sub14.1', 'sub14.2', 'sub14.3', 'sub14.4', 'sub14.5', 'sub14.6', 'sub14.7', 'sub15.0', 'sub15.1', 'sub15.2', 'sub15.3', 'sub15.4', 'sub15.5', 'sub15.6', 'sub15.7']
+Best Hyperparameters: {'learning_rate': 0.1, 'max_depth': 5, 'n_estimators': 150}
+Mean Accuracy: 0.5625
+Mean F1 Score: 0.5294435253309182
+Accuracy: 0.75
+['UPDRS<1', 'UPDRS>=1']
+Best Hyperparameters: {'C': 0.1}
+Mean Accuracy: 0.65625
+Mean F1 Score: 0.6343255290623712
+Accuracy: 0.75
+[[ 0.01135248  0.149814    0.26507394  0.16343622 -0.17828694  0.04190256
+   0.31233865  0.         -0.10201005  0.1720489   0.35177383 -0.14690433
+   0.21717989  0.12150913 -0.22986916  0.          0.2322141  -0.30534911
+   0.1192167 ]]
+['UPDRS<1', 'UPDRS>=1']
+Classifying results in MODEL-4...
+{0, 1}
+moseq df saved to  training/outputs/2.model_ensembles/gait
+stats df saved to  training/outputs/2.model_ensembles/gait
+starting classification...
+leave_out  ['sub13.0', 'sub13.1', 'sub13.2', 'sub13.3', 'sub13.4', 'sub13.5', 'sub13.6', 'sub13.7', 'sub14.0', 'sub14.1', 'sub14.2', 'sub14.3', 'sub14.4', 'sub14.5', 'sub14.6', 'sub14.7', 'sub15.0', 'sub15.1', 'sub15.2', 'sub15.3', 'sub15.4', 'sub15.5', 'sub15.6', 'sub15.7']
+Best Hyperparameters: {'learning_rate': 0.01, 'max_depth': 1, 'n_estimators': 50}
+Mean Accuracy: 0.5833333333333334
+Mean F1 Score: 0.5023317775325046
+Accuracy: 0.9166666666666666
+['UPDRS<1', 'UPDRS>=1']
+Best Hyperparameters: {'C': 0.001}
+Mean Accuracy: 0.5833333333333334
+Mean F1 Score: 0.36709498614260516
+Accuracy: 0.6666666666666666
+[[ 0.00683028  0.00758835  0.00802362  0.00172615  0.00534581  0.00302268
+   0.00875893 -0.00769479  0.00656954  0.00126769  0.01050046 -0.01251595
+   0.01222932  0.0023505   0.00708525 -0.00736689  0.00463529  0.00550247
+   0.00770688]]
+['UPDRS<1', 'UPDRS>=1']
+Classifying results in MODEL-1...
+{0, 1}
+moseq df saved to  training/outputs/2.model_ensembles/gait
+stats df saved to  training/outputs/2.model_ensembles/gait
+starting classification...
+leave_out  ['sub13.0', 'sub13.1', 'sub13.2', 'sub13.3', 'sub13.4', 'sub13.5', 'sub13.6', 'sub13.7', 'sub14.0', 'sub14.1', 'sub14.2', 'sub14.3', 'sub14.4', 'sub14.5', 'sub14.6', 'sub14.7', 'sub15.0', 'sub15.1', 'sub15.2', 'sub15.3', 'sub15.4', 'sub15.5', 'sub15.6', 'sub15.7']
+Best Hyperparameters: {'learning_rate': 0.2, 'max_depth': 2, 'n_estimators': 150}
+Mean Accuracy: 0.6041666666666666
+Mean F1 Score: 0.5834945131496857
+Accuracy: 0.5833333333333334
+['UPDRS<1', 'UPDRS>=1']
+Best Hyperparameters: {'C': 0.001}
+Mean Accuracy: 0.5833333333333334
+Mean F1 Score: 0.36709498614260516
+Accuracy: 0.6666666666666666
+[[ 0.00233922  0.0107485   0.00471314  0.00929194  0.00788176  0.00267324
+   0.00409596  0.         -0.00635298 -0.00232049  0.00681502  0.01317154
+   0.00630115  0.00356505  0.00409596  0.          0.00367997  0.00974629
+   0.00873142]]
+['UPDRS<1', 'UPDRS>=1']
+Classifying results in MODEL-2...
+{0, 1}
+starting classification...
+leave_out  ['sub13.0', 'sub13.1', 'sub13.2', 'sub13.3', 'sub13.4', 'sub13.5', 'sub13.6', 'sub13.7', 'sub14.0', 'sub14.1', 'sub14.2', 'sub14.3', 'sub14.4', 'sub14.5', 'sub14.6', 'sub14.7', 'sub15.0', 'sub15.1', 'sub15.2', 'sub15.3', 'sub15.4', 'sub15.5', 'sub15.6', 'sub15.7']
+Best Hyperparameters: {'learning_rate': 0.2, 'max_depth': 5, 'n_estimators': 150}
+Mean Accuracy: 0.6770833333333334
+Mean F1 Score: 0.662846111968919
+Accuracy: 0.5833333333333334
+['UPDRS<1', 'UPDRS>=1']
+Best Hyperparameters: {'C': 0.1}
+Mean Accuracy: 0.65625
+Mean F1 Score: 0.6329099662432996
+Accuracy: 0.5833333333333334
+[[ 0.3587062   0.19353938  0.03315947 -0.03026278 -0.16720612 -0.14416941
+   0.1053315  -0.07095263  0.01363511 -0.45637892  0.22127331  0.48719689
+  -0.09437211  0.34666554  0.16551539  0.1121191   0.04574148 -0.00586556
+   0.05343491]]
+['UPDRS<1', 'UPDRS>=1']
+Classifying results in MODEL-5...
+{0, 1}
+moseq df saved to  training/outputs/2.model_ensembles/gait
+stats df saved to  training/outputs/2.model_ensembles/gait
+starting classification...
+leave_out  ['sub13.0', 'sub13.1', 'sub13.2', 'sub13.3', 'sub13.4', 'sub13.5', 'sub13.6', 'sub13.7', 'sub14.0', 'sub14.1', 'sub14.2', 'sub14.3', 'sub14.4', 'sub14.5', 'sub14.6', 'sub14.7', 'sub15.0', 'sub15.1', 'sub15.2', 'sub15.3', 'sub15.4', 'sub15.5', 'sub15.6', 'sub15.7']
+Best Hyperparameters: {'learning_rate': 0.01, 'max_depth': 1, 'n_estimators': 150}
+Mean Accuracy: 0.5
+Mean F1 Score: 0.4049981853806402
+Accuracy: 0.6666666666666666
+['UPDRS<1', 'UPDRS>=1']
+Best Hyperparameters: {'C': 0.001}
+Mean Accuracy: 0.5833333333333334
+Mean F1 Score: 0.36709498614260516
+Accuracy: 0.6666666666666666
+[[ 0.00217387  0.01331372  0.00800956  0.01078822  0.00948106  0.00634661
+  -0.00172755  0.00321492 -0.01010382  0.00311563  0.00503113  0.00715608
+   0.00218375  0.00842365 -0.0016291   0.00400115  0.00508793  0.00325994
+   0.01038987]]
+['UPDRS<1', 'UPDRS>=1']
+Classifying results in MODEL-3...
+{0, 1}
+moseq df saved to  training/outputs/2.model_ensembles/gait
+stats df saved to  training/outputs/2.model_ensembles/gait
+starting classification...
+leave_out  ['sub13.0', 'sub13.1', 'sub13.2', 'sub13.3', 'sub13.4', 'sub13.5', 'sub13.6', 'sub13.7', 'sub14.0', 'sub14.1', 'sub14.2', 'sub14.3', 'sub14.4', 'sub14.5', 'sub14.6', 'sub14.7', 'sub15.0', 'sub15.1', 'sub15.2', 'sub15.3', 'sub15.4', 'sub15.5', 'sub15.6', 'sub15.7']
+Best Hyperparameters: {'learning_rate': 0.2, 'max_depth': 1, 'n_estimators': 20}
+Mean Accuracy: 0.6666666666666666
+Mean F1 Score: 0.6461397218189554
+Accuracy: 0.8333333333333334
+['UPDRS<1', 'UPDRS>=1']
+Best Hyperparameters: {'C': 0.1}
+Mean Accuracy: 0.6979166666666666
+Mean F1 Score: 0.6708005770976498
+Accuracy: 0.625
+[[-0.01323332  0.07366778 -0.16175403  0.10848001 -0.10396662  0.22789456
+   0.10662816  0.          0.2001755   0.27233294 -0.40788991  0.02715335
+   0.3758971   0.10871854 -0.01821983  0.          0.10662816  0.29322568
+   0.03169066]]
+['UPDRS<1', 'UPDRS>=1']
+Classifying results in MODEL-7...
+{0, 1}
+moseq df saved to  training/outputs/2.model_ensembles/gait
+stats df saved to  training/outputs/2.model_ensembles/gait
+starting classification...
+leave_out  ['sub13.0', 'sub13.1', 'sub13.2', 'sub13.3', 'sub13.4', 'sub13.5', 'sub13.6', 'sub13.7', 'sub14.0', 'sub14.1', 'sub14.2', 'sub14.3', 'sub14.4', 'sub14.5', 'sub14.6', 'sub14.7', 'sub15.0', 'sub15.1', 'sub15.2', 'sub15.3', 'sub15.4', 'sub15.5', 'sub15.6', 'sub15.7']
+Best Hyperparameters: {'learning_rate': 0.001, 'max_depth': 2, 'n_estimators': 20}
+Mean Accuracy: 0.53125
+Mean F1 Score: 0.4965863441923633
+Accuracy: 0.4583333333333333
+['UPDRS<1', 'UPDRS>=1']
+Best Hyperparameters: {'C': 0.001}
+Mean Accuracy: 0.5833333333333334
+Mean F1 Score: 0.36709498614260516
+Accuracy: 0.6666666666666666
+[[ 0.00139797  0.01334523  0.00639563  0.00455499  0.01307613  0.00901467
+   0.00700529 -0.00102575 -0.01033753  0.00472358  0.01476516  0.00473801
+  -0.00266622  0.00751137  0.0040761  -0.00102575  0.01070996  0.00643487
+   0.00999029]]
+['UPDRS<1', 'UPDRS>=1']
+Classifying results in MODEL-8...
+{0, 1}
+moseq df saved to  training/outputs/2.model_ensembles/gait
+stats df saved to  training/outputs/2.model_ensembles/gait
+starting classification...
+leave_out  ['sub13.0', 'sub13.1', 'sub13.2', 'sub13.3', 'sub13.4', 'sub13.5', 'sub13.6', 'sub13.7', 'sub14.0', 'sub14.1', 'sub14.2', 'sub14.3', 'sub14.4', 'sub14.5', 'sub14.6', 'sub14.7', 'sub15.0', 'sub15.1', 'sub15.2', 'sub15.3', 'sub15.4', 'sub15.5', 'sub15.6', 'sub15.7']
+Best Hyperparameters: {'learning_rate': 0.2, 'max_depth': 2, 'n_estimators': 200}
+Mean Accuracy: 0.7395833333333334
+Mean F1 Score: 0.7160397062477846
+Accuracy: 0.5833333333333334
+['UPDRS<1', 'UPDRS>=1']
+Best Hyperparameters: {'C': 0.1}
+Mean Accuracy: 0.7395833333333334
+Mean F1 Score: 0.729531174352906
+Accuracy: 0.625
+[[-0.34960752  0.12613622  0.22019171  0.20249203  0.3526373  -0.20527183
+   0.10880274  0.         -0.33738598  0.1785501   0.32438638 -0.29649148
+   0.04677462  0.21824944  0.10880274  0.         -0.16770834  0.21019287
+   0.09643911]]
+['UPDRS<1', 'UPDRS>=1']
+Classifying results in MODEL-6...
+{0, 1}
+moseq df saved to  training/outputs/2.model_ensembles/gait
+stats df saved to  training/outputs/2.model_ensembles/gait
+starting classification...
+leave_out  ['sub13.0', 'sub13.1', 'sub13.2', 'sub13.3', 'sub13.4', 'sub13.5', 'sub13.6', 'sub13.7', 'sub14.0', 'sub14.1', 'sub14.2', 'sub14.3', 'sub14.4', 'sub14.5', 'sub14.6', 'sub14.7', 'sub15.0', 'sub15.1', 'sub15.2', 'sub15.3', 'sub15.4', 'sub15.5', 'sub15.6', 'sub15.7']
+Best Hyperparameters: {'learning_rate': 0.2, 'max_depth': 1, 'n_estimators': 200}
+Mean Accuracy: 0.6458333333333334
+Mean F1 Score: 0.633981233981234
+Accuracy: 0.7916666666666666
+['UPDRS<1', 'UPDRS>=1']
+Best Hyperparameters: {'C': 1}
+Mean Accuracy: 0.6770833333333334
+Mean F1 Score: 0.6553890103585844
+Accuracy: 0.7083333333333334
+[[-1.04851935  0.48122668  0.52438016  0.28919678  0.14945299  0.39510952
+   0.60314927  0.74655363 -0.38242733  0.83886703 -0.66394688  0.88031535
+   0.85919403  0.28072954  0.31915193  0.36855824 -0.57645741  0.31773426
+   0.38956655]]
+['UPDRS<1', 'UPDRS>=1']
+Classifying results in MODEL-9...
+{0, 1}
+moseq df saved to  training/outputs/2.model_ensembles/gait
+stats df saved to  training/outputs/2.model_ensembles/gait
+starting classification...
+leave_out  ['sub13.0', 'sub13.1', 'sub13.2', 'sub13.3', 'sub13.4', 'sub13.5', 'sub13.6', 'sub13.7', 'sub14.0', 'sub14.1', 'sub14.2', 'sub14.3', 'sub14.4', 'sub14.5', 'sub14.6', 'sub14.7', 'sub15.0', 'sub15.1', 'sub15.2', 'sub15.3', 'sub15.4', 'sub15.5', 'sub15.6', 'sub15.7']
+Best Hyperparameters: {'learning_rate': 0.01, 'max_depth': 3, 'n_estimators': 100}
+Mean Accuracy: 0.6979166666666666
+Mean F1 Score: 0.6856598662179297
+Accuracy: 0.5833333333333334
+['UPDRS<1', 'UPDRS>=1']
+Best Hyperparameters: {'C': 0.01}
+Mean Accuracy: 0.5729166666666666
+Mean F1 Score: 0.4212018140589569
+Accuracy: 0.75
+[[ 0.01047049  0.08218911  0.03375911  0.04792181  0.03405407  0.03668151
+   0.02176536  0.         -0.07305876  0.03508824  0.03452707  0.05806365
+   0.03421809  0.06190968  0.02176536  0.          0.05276342  0.03960007
+   0.05529355]]
+['UPDRS<1', 'UPDRS>=1']

@@ -1,0 +1,144 @@
+WARNING:absl:No GPU/TPU found, falling back to CPU. (Set TF_CPP_MIN_LOG_LEVEL=0 and rerun for more info.)
+{'body': 'l', 'body_name': 'lefthand', 'augment': True, 'taps_per_window': 20, 'num_states': 8, 'num_ar_iters': 50, 'num_full_iters': 500, 'ids': [1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9], 'thresh': 2, 'multiclass': False, 'class_models': ['xgboost', 'logistic'], 'plot_grouped_freq': True, 'plot_bars': True, 'num_keypoints': 21, 'ar_only_kappa': 1000.0, 'full_model_kappa': 100.0, 'num_windows': 12, 'forward_indices': [0, 2, 17], 'target_direction': [1, 0, 0], 'config_path': 'training/hand_config.yml', 'combine': False}
+getting augmented data
+subject 1 has an augmentation of 12 segments
+subject 10 has an augmentation of 12 segments
+subject 11 has an augmentation of 12 segments
+subject 12 has an augmentation of 12 segments
+subject 13 has an augmentation of 12 segments
+subject 14 has an augmentation of 12 segments
+subject 15 has an augmentation of 12 segments
+subject 2 has an augmentation of 12 segments
+subject 3 has an augmentation of 12 segments
+subject 4 has an augmentation of 12 segments
+subject 5 has an augmentation of 12 segments
+subject 6 has an augmentation of 12 segments
+subject 7 has an augmentation of 12 segments
+subject 8 has an augmentation of 12 segments
+subject 9 has an augmentation of 12 segments
+entered function
+Writing grid movies to training/outputs/2.model_ensembles/lefthand/MODEL-0/grid_movies
+obtained index df
+got 8 instances
+{0: [('sub8.11', 38, 42), ('sub5.6', 0, 5), ('sub6.1', 0, 9), ('sub15.10', 0, 5), ('sub11.3', 0, 11), ('sub10.5', 147, 148), ('sub13.10', 0, 5), ('sub7.1', 0, 5), ('sub2.2', 0, 15), ('sub15.3', 37, 44), ('sub15.5', 127, 128), ('sub15.11', 0, 6)], 1: [('sub3.10', 5, 260), ('sub14.1', 13, 121), ('sub4.10', 92, 103), ('sub3.3', 145, 254), ('sub3.11', 5, 34), ('sub14.9', 7, 132), ('sub14.4', 43, 178), ('sub11.3', 11, 15), ('sub14.1', 137, 219), ('sub10.7', 5, 9), ('sub4.10', 50, 52), ('sub14.7', 6, 97)], 2: [('sub15.8', 50, 67), ('sub4.6', 10, 143), ('sub13.8', 47, 167), ('sub4.0', 5, 119), ('sub10.5', 231, 256), ('sub9.3', 93, 109), ('sub13.10', 5, 130), ('sub13.2', 256, 289), ('sub4.4', 7, 141), ('sub13.8', 19, 26), ('sub13.5', 9, 17), ('sub10.11', 287, 348)], 3: [('sub15.9', 131, 139), ('sub15.8', 16, 39), ('sub5.9', 104, 132), ('sub15.11', 78, 87), ('sub8.9', 6, 36), ('sub13.4', 34, 43), ('sub5.2', 101, 144), ('sub15.2', 89, 132), ('sub15.8', 41, 47), ('sub5.11', 43, 92), ('sub8.11', 5, 38), ('sub15.2', 134, 139)], 4: [('sub11.5', 113, 283), ('sub2.11', 8, 43), ('sub2.2', 242, 267), ('sub2.4', 283, 338), ('sub11.2', 6, 97), ('sub15.10', 83, 85), ('sub11.5', 6, 109), ('sub15.3', 33, 37), ('sub2.1', 5, 359), ('sub2.9', 276, 278), ('sub15.1', 79, 83), ('sub2.7', 6, 9)], 5: [('sub10.11', 256, 287), ('sub13.6', 70, 92), ('sub13.11', 9, 20), ('sub6.10', 141, 147), ('sub5.11', 99, 114), ('sub13.8', 184, 207), ('sub5.1', 223, 231), ('sub13.11', 43, 51), ('sub5.8', 124, 141), ('sub13.2', 196, 207), ('sub5.1', 83, 138), ('sub5.11', 39, 43)], 6: [('sub12.11', 0, 97), ('sub9.11', 65, 77), ('sub12.11', 156, 174), ('sub9.4', 104, 118), ('sub13.8', 14, 19), ('sub15.8', 203, 214), ('sub14.3', 53, 58), ('sub15.1', 39, 43), ('sub4.10', 52, 57), ('sub15.9', 139, 158), ('sub12.11', 175, 297), ('sub9.0', 158, 167)], 7: [('sub1.2', 68, 207), ('sub1.5', 51, 207), ('sub1.11', 0, 202), ('sub1.2', 0, 56), ('sub1.0', 0, 90), ('sub1.4', 124, 207), ('sub1.5', 0, 46), ('sub14.8', 56, 64), ('sub1.4', 5, 115), ('sub1.7', 5, 207), ('sub1.10', 0, 209), ('sub1.1', 0, 210)]}
+Using window size of 224 pixels
+Generating grid movies:   0%|                     | 0/8 [00:00<?, ?it/s]Generating grid movies:  12%|█▋           | 1/8 [00:08<01:00,  8.60s/it]Generating grid movies:  25%|███▎         | 2/8 [00:17<00:53,  8.85s/it]Generating grid movies:  38%|████▉        | 3/8 [00:24<00:39,  7.92s/it]Generating grid movies:  50%|██████▌      | 4/8 [00:31<00:29,  7.45s/it]Generating grid movies:  62%|████████▏    | 5/8 [00:37<00:21,  7.16s/it]Generating grid movies:  75%|█████████▊   | 6/8 [00:44<00:13,  6.98s/it]Generating grid movies:  88%|███████████▍ | 7/8 [00:51<00:06,  6.95s/it]Generating grid movies: 100%|█████████████| 8/8 [00:57<00:00,  6.70s/it]Generating grid movies: 100%|█████████████| 8/8 [00:57<00:00,  7.19s/it]
+[10.1488291  99.43371625]
+[ 4.50859099 84.86824733]
+[ -2.32959686 108.62125606]
+[-1.74673139e-02  9.13604850e+01]
+[ 0.36917115 97.54898654]
+[ 0.89072811 95.9869847 ]
+[-0.91686004 87.40411963]
+[ 1.9167407  86.48577586]
+[ 2.23438433 99.91850559]
+[ 0.12667373 92.49125014]
+[ 2.42411944 92.21043686]
+[-0.36483109 99.15925718]
+[  1.95807326 104.10742685]
+[ 5.20135805 89.26312821]
+[ 5.48176643 92.00219281]
+[ -0.52586764 105.00650761]
+[  2.13440388 103.25758173]
+[ 3.84675706 87.74280962]
+[ 3.46250567 92.21639353]
+[ 0.36917115 97.54898654]
+[ 5.20135805 89.26312821]
+[ 1.55615292 92.91536244]
+[ 5.48176643 92.00219281]
+[ 4.81142082 90.16170126]
+[-2.44688351 94.05248565]
+[-3.67948604 98.30270086]
+[ 6.99107536 84.17709847]
+[ -3.26804387 102.13487159]
+[ 0.89072811 95.9869847 ]
+[ 6.16039203 87.57333506]
+[-0.91686004 87.40411963]
+[-2.04792992 85.42197538]
+[-4.55867636 96.16297155]
+[ 6.99107536 84.17709847]
+[-2.62500182 85.91285192]
+[ 1.49906911 95.79555856]
+[-3.0114698  93.11998415]
+[-2.44688351 94.05248565]
+[ 0.2371871  93.14362362]
+[-0.36483109 99.15925718]
+[ 9.15849417 99.79253484]
+[ 5.47166083 83.45151871]
+[ 2.82589732 91.50715431]
+[ 1.30462553 89.15314475]
+[-2.44688351 94.05248565]
+[ 3.29333861 87.55010176]
+[10.1488291  99.43371625]
+[ 1.30462553 89.15314475]
+[ 0.81494797 95.79621445]
+[  2.56544477 100.8851172 ]
+[ 2.23438433 99.91850559]
+[-9.71270459e-02  9.74957296e+01]
+[ 0.33173508 94.28408532]
+[-1.74673139e-02  9.13604850e+01]
+[ 0.81494797 95.79621445]
+[ 0.12667373 92.49125014]
+[ 2.12489231 99.20421729]
+[ 1.77098532 97.99253587]
+[-1.46682087 94.95192569]
+[ 2.89517515 97.51199513]
+[ 1.49906911 95.79555856]
+[ 3.95681425 88.75720935]
+[ 1.97526305 86.61879947]
+[ -0.36660084 109.6328138 ]
+[ 3.29333861 87.55010176]
+[ 6.99107536 84.17709847]
+[ 1.93261122 90.90241778]
+[ 1.97526305 86.61879947]
+[ 2.33070645 86.65084374]
+[-2.04792992 85.42197538]
+[ 1.93261122 90.90241778]
+[ 3.29333861 87.55010176]
+[ -1.78405817 116.50851113]
+[ 2.77856756 93.03179617]
+[ -1.78405817 116.50851113]
+[ 1.92537843 93.57948293]
+[ 6.99107536 84.17709847]
+[-2.44688351 94.05248565]
+[ 4.884858   87.71240873]
+[-1.46682087 94.95192569]
+[ 5.48176643 92.00219281]
+[-3.0114698  93.11998415]
+[ -1.78405817 116.50851113]
+[ 3.51210656 91.44360768]
+[ 1.45764752 99.0233503 ]
+[ 4.9831947 95.8592317]
+[ 3.59651337 95.88490493]
+[ 1.45764752 99.0233503 ]
+[ 1.19888376 96.88541372]
+[ 1.77544073 97.75964278]
+[ 4.9831947 95.8592317]
+[ 3.75386557 90.70854052]
+[ 1.77544073 97.75964278]
+[ 4.41616126 95.79077792]
+[ 3.83232126 96.02593565]
+[ 4.54203978 95.29607777]
+Writing labeled movies to training/outputs/2.model_ensembles/lefthand/MODEL-0/labeled_movies
+obtained index df
+  0%|          | 0/2 [00:00<?, ?it/s][swscaler @ 0x6f31b80] Warning: data is not aligned! This can lead to a speed loss
+ 50%|█████     | 1/2 [00:00<00:00,  1.04it/s][swscaler @ 0x6a7cb80] Warning: data is not aligned! This can lead to a speed loss
+100%|██████████| 2/2 [00:01<00:00,  1.03it/s]100%|██████████| 2/2 [00:01<00:00,  1.03it/s]
+[  1.29054085 100.94373784]
+[ 3.44077284 94.45026993]
+Saving trajectory plots to training/outputs/2.model_ensembles/lefthand/MODEL-0/trajectory_plots
+Generating trajectory plots:   0%|                | 0/7 [00:00<?, ?it/s]Generating trajectory plots:  14%|█▏      | 1/7 [00:09<00:54,  9.02s/it]Generating trajectory plots:  29%|██▎     | 2/7 [00:11<00:24,  4.88s/it]Generating trajectory plots:  43%|███▍    | 3/7 [00:13<00:14,  3.70s/it]Generating trajectory plots:  57%|████▌   | 4/7 [00:15<00:08,  2.98s/it]Generating trajectory plots:  71%|█████▋  | 5/7 [00:17<00:05,  2.61s/it]Generating trajectory plots:  86%|██████▊ | 6/7 [00:18<00:02,  2.35s/it]Generating trajectory plots: 100%|████████| 7/7 [00:20<00:00,  2.22s/it]Generating trajectory plots: 100%|████████| 7/7 [00:20<00:00,  2.99s/it]
+Saved interactive trajectories plot to training/outputs/2.model_ensembles/lefthand/MODEL-0/trajectory_plots/all_trajectories.html
+{'text/html': '<iframe\n    scrolling="no"\n    width="100%"\n    height="520"\n    src="iframe_figures/figure_0.html"\n    frameborder="0"\n    allowfullscreen\n></iframe>\n'}
+create transition matrices...
+Group(s): HT, PD
+Traceback (most recent call last):
+  File "/hpc/group/tdunn/jmj73/tulip_arhmm/work.py", line 79, in <module>
+    an.get_transition_matrix(save_dir, model_name)
+  File "/hpc/group/tdunn/jmj73/tulip_arhmm/analysis/results.py", line 115, in get_transition_matrix
+    trans_mats, usages, groups, syll_include=kpms.generate_transition_matrices(
+  File "/hpc/group/tdunn/jmj73/tulip_arhmm/keypointmoseq/analysis.py", line 1532, in generate_transition_matrices
+    trans_mats, usages = get_group_trans_mats(
+  File "/hpc/group/tdunn/jmj73/tulip_arhmm/keypointmoseq/analysis.py", line 1421, in get_group_trans_mats
+    group_frequencies = get_frequencies(use_labels)[syll_include]
+IndexError: index 7 is out of bounds for axis 0 with size 7

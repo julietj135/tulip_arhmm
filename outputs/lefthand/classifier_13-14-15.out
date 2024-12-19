@@ -1,0 +1,198 @@
+WARNING:absl:No GPU/TPU found, falling back to CPU. (Set TF_CPP_MIN_LOG_LEVEL=0 and rerun for more info.)
+{'body': 'l', 'body_name': 'lefthand', 'augment': True, 'taps_per_window': 20, 'num_states': 8, 'num_ar_iters': 50, 'num_full_iters': 500, 'ids': [1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9], 'thresh': 2, 'multiclass': False, 'class_models': ['xgboost', 'logistic'], 'plot_grouped_freq': True, 'plot_bars': True, 'num_keypoints': 21, 'ar_only_kappa': 1000.0, 'full_model_kappa': 100.0, 'num_windows': 12, 'forward_indices': [0, 2, 17], 'target_direction': [1, 0, 0], 'config_path': 'training/hand_config.yml', 'combine': False}
+MODEL-0
+MODEL-4
+MODEL-1
+MODEL-2
+MODEL-5
+MODEL-3
+MODEL-7
+MODEL-8
+MODEL-6
+MODEL-9
+['MODEL-0', 'MODEL-4', 'MODEL-1', 'MODEL-2', 'MODEL-5', 'MODEL-3', 'MODEL-7', 'MODEL-8', 'MODEL-6', 'MODEL-9']
+  0%|          | 0/10 [00:00<?, ?it/s] 10%|█         | 1/10 [00:22<03:23, 22.58s/it] 20%|██        | 2/10 [00:47<03:09, 23.68s/it]/hpc/group/tdunn/jmj73/tulip_arhmm/analysis/classifier.py:71: RuntimeWarning:
+
+More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`). Consider using `matplotlib.pyplot.close()`.
+
+ 30%|███       | 3/10 [01:10<02:45, 23.69s/it] 40%|████      | 4/10 [01:32<02:17, 22.94s/it] 50%|█████     | 5/10 [01:56<01:56, 23.23s/it] 60%|██████    | 6/10 [02:19<01:33, 23.28s/it] 70%|███████   | 7/10 [02:44<01:11, 23.72s/it] 80%|████████  | 8/10 [03:08<00:47, 23.84s/it] 90%|█████████ | 9/10 [03:30<00:23, 23.36s/it]100%|██████████| 10/10 [03:53<00:00, 23.21s/it]100%|██████████| 10/10 [03:53<00:00, 23.35s/it]
+Classifying results in MODEL-0...
+{0, 1}
+starting classification...
+leave_out  ['sub13.0', 'sub13.1', 'sub13.2', 'sub13.3', 'sub13.4', 'sub13.5', 'sub13.6', 'sub13.7', 'sub13.8', 'sub13.9', 'sub13.10', 'sub13.11', 'sub14.0', 'sub14.1', 'sub14.2', 'sub14.3', 'sub14.4', 'sub14.5', 'sub14.6', 'sub14.7', 'sub14.8', 'sub14.9', 'sub14.10', 'sub14.11', 'sub15.0', 'sub15.1', 'sub15.2', 'sub15.3', 'sub15.4', 'sub15.5', 'sub15.6', 'sub15.7', 'sub15.8', 'sub15.9', 'sub15.10', 'sub15.11']
+Best Hyperparameters: {'learning_rate': 0.01, 'max_depth': 5, 'n_estimators': 20}
+Mean Accuracy: 0.8333333333333334
+Mean F1 Score: 0.8276547786792371
+Accuracy: 1.0
+['UPDRS<2', 'UPDRS>=2']
+Best Hyperparameters: {'C': 0.1}
+Mean Accuracy: 0.8402777777777778
+Mean F1 Score: 0.8322429939947836
+Accuracy: 1.0
+[[ 0.00682179 -0.30645191 -0.13589222  0.46073342  0.0292195   0.25208758
+  -0.28949382 -0.27876962 -0.08288693 -0.57925534  0.58909941  0.48611103
+   0.04929772  0.38299232 -0.36656901 -0.277168    0.12046909 -0.23182621
+   0.03732195]]
+['UPDRS<2', 'UPDRS>=2']
+Classifying results in MODEL-4...
+{0, 1}
+starting classification...
+leave_out  ['sub13.0', 'sub13.1', 'sub13.2', 'sub13.3', 'sub13.4', 'sub13.5', 'sub13.6', 'sub13.7', 'sub13.8', 'sub13.9', 'sub13.10', 'sub13.11', 'sub14.0', 'sub14.1', 'sub14.2', 'sub14.3', 'sub14.4', 'sub14.5', 'sub14.6', 'sub14.7', 'sub14.8', 'sub14.9', 'sub14.10', 'sub14.11', 'sub15.0', 'sub15.1', 'sub15.2', 'sub15.3', 'sub15.4', 'sub15.5', 'sub15.6', 'sub15.7', 'sub15.8', 'sub15.9', 'sub15.10', 'sub15.11']
+Best Hyperparameters: {'learning_rate': 0.01, 'max_depth': 7, 'n_estimators': 150}
+Mean Accuracy: 0.8055555555555557
+Mean F1 Score: 0.7978764827802315
+Accuracy: 0.8055555555555556
+['UPDRS<2', 'UPDRS>=2']
+Best Hyperparameters: {'C': 0.001}
+Mean Accuracy: 0.5833333333333334
+Mean F1 Score: 0.36776395644912524
+Accuracy: 0.3333333333333333
+[[-0.01910676 -0.02224709  0.00571005 -0.0089316   0.00474489  0.00145535
+   0.01205888 -0.01605145  0.00585318 -0.01702931  0.0101823   0.01336302
+  -0.00258963  0.00539023  0.02148916 -0.01616288 -0.00056045 -0.0060969
+  -0.02021482]]
+['UPDRS<2', 'UPDRS>=2']
+Classifying results in MODEL-1...
+{0, 1}
+starting classification...
+leave_out  ['sub13.0', 'sub13.1', 'sub13.2', 'sub13.3', 'sub13.4', 'sub13.5', 'sub13.6', 'sub13.7', 'sub13.8', 'sub13.9', 'sub13.10', 'sub13.11', 'sub14.0', 'sub14.1', 'sub14.2', 'sub14.3', 'sub14.4', 'sub14.5', 'sub14.6', 'sub14.7', 'sub14.8', 'sub14.9', 'sub14.10', 'sub14.11', 'sub15.0', 'sub15.1', 'sub15.2', 'sub15.3', 'sub15.4', 'sub15.5', 'sub15.6', 'sub15.7', 'sub15.8', 'sub15.9', 'sub15.10', 'sub15.11']
+Best Hyperparameters: {'learning_rate': 0.1, 'max_depth': 1, 'n_estimators': 20}
+Mean Accuracy: 0.7430555555555555
+Mean F1 Score: 0.7086367184727841
+Accuracy: 0.9722222222222222
+['UPDRS<2', 'UPDRS>=2']
+Best Hyperparameters: {'C': 100}
+Mean Accuracy: 0.8055555555555555
+Mean F1 Score: 0.7976906628652887
+Accuracy: 1.0
+[[ 2.55297638 -2.05910527 -0.01873579 -0.3353585   1.35770973 -3.40114224
+   0.97719622 -1.87890331 -0.77500256 -0.67468376 -0.33012325  1.1583688
+   3.95204748 -3.00941237 -1.11275498 -3.41167781 -0.07592961  4.8149295
+   0.09130612]]
+['UPDRS<2', 'UPDRS>=2']
+Classifying results in MODEL-2...
+{0, 1}
+starting classification...
+leave_out  ['sub13.0', 'sub13.1', 'sub13.2', 'sub13.3', 'sub13.4', 'sub13.5', 'sub13.6', 'sub13.7', 'sub13.8', 'sub13.9', 'sub13.10', 'sub13.11', 'sub14.0', 'sub14.1', 'sub14.2', 'sub14.3', 'sub14.4', 'sub14.5', 'sub14.6', 'sub14.7', 'sub14.8', 'sub14.9', 'sub14.10', 'sub14.11', 'sub15.0', 'sub15.1', 'sub15.2', 'sub15.3', 'sub15.4', 'sub15.5', 'sub15.6', 'sub15.7', 'sub15.8', 'sub15.9', 'sub15.10', 'sub15.11']
+Best Hyperparameters: {'learning_rate': 0.2, 'max_depth': 2, 'n_estimators': 50}
+Mean Accuracy: 0.9375
+Mean F1 Score: 0.9354870438025831
+Accuracy: 0.7222222222222222
+['UPDRS<2', 'UPDRS>=2']
+Best Hyperparameters: {'C': 10}
+Mean Accuracy: 0.9236111111111112
+Mean F1 Score: 0.9192121697498042
+Accuracy: 0.75
+[[-0.91881278 -0.34573186  0.07940719 -0.47716972 -0.67766121  1.3107132
+  -1.71576326 -1.19071867  2.35781418  4.40142307 -3.01751623 -1.77550418
+  -0.06878158  2.09897531 -3.84144034 -1.39694713 -0.49029421 -2.26437947
+  -0.85408215]]
+['UPDRS<2', 'UPDRS>=2']
+Classifying results in MODEL-5...
+{0, 1}
+starting classification...
+leave_out  ['sub13.0', 'sub13.1', 'sub13.2', 'sub13.3', 'sub13.4', 'sub13.5', 'sub13.6', 'sub13.7', 'sub13.8', 'sub13.9', 'sub13.10', 'sub13.11', 'sub14.0', 'sub14.1', 'sub14.2', 'sub14.3', 'sub14.4', 'sub14.5', 'sub14.6', 'sub14.7', 'sub14.8', 'sub14.9', 'sub14.10', 'sub14.11', 'sub15.0', 'sub15.1', 'sub15.2', 'sub15.3', 'sub15.4', 'sub15.5', 'sub15.6', 'sub15.7', 'sub15.8', 'sub15.9', 'sub15.10', 'sub15.11']
+Best Hyperparameters: {'learning_rate': 0.01, 'max_depth': 1, 'n_estimators': 200}
+Mean Accuracy: 0.7986111111111112
+Mean F1 Score: 0.7768363136951185
+Accuracy: 0.8333333333333334
+['UPDRS<2', 'UPDRS>=2']
+Best Hyperparameters: {'C': 0.01}
+Mean Accuracy: 0.8055555555555555
+Mean F1 Score: 0.7800030316159349
+Accuracy: 0.6944444444444444
+[[-0.09514468 -0.09830148 -0.07925709 -0.06019286 -0.07227105  0.13926686
+   0.11684695 -0.0994421   0.16013667 -0.12772211 -0.01545001  0.076028
+  -0.0969699   0.14374654  0.1300621  -0.11889009 -0.03108586 -0.00449605
+  -0.08022552]]
+['UPDRS<2', 'UPDRS>=2']
+Classifying results in MODEL-3...
+{0, 1}
+starting classification...
+leave_out  ['sub13.0', 'sub13.1', 'sub13.2', 'sub13.3', 'sub13.4', 'sub13.5', 'sub13.6', 'sub13.7', 'sub13.8', 'sub13.9', 'sub13.10', 'sub13.11', 'sub14.0', 'sub14.1', 'sub14.2', 'sub14.3', 'sub14.4', 'sub14.5', 'sub14.6', 'sub14.7', 'sub14.8', 'sub14.9', 'sub14.10', 'sub14.11', 'sub15.0', 'sub15.1', 'sub15.2', 'sub15.3', 'sub15.4', 'sub15.5', 'sub15.6', 'sub15.7', 'sub15.8', 'sub15.9', 'sub15.10', 'sub15.11']
+Best Hyperparameters: {'learning_rate': 0.2, 'max_depth': 1, 'n_estimators': 150}
+Mean Accuracy: 0.8888888888888888
+Mean F1 Score: 0.8862433862433864
+Accuracy: 0.9444444444444444
+['UPDRS<2', 'UPDRS>=2']
+Best Hyperparameters: {'C': 100}
+Mean Accuracy: 0.9027777777777777
+Mean F1 Score: 0.8988622257332334
+Accuracy: 0.6111111111111112
+[[ 1.81506017  0.39960813 -2.44220386 -3.6216593   0.09876031 -3.34544155
+  -4.72384172 -1.1771149   1.46179793 -9.50900463  1.93449594 -2.89214276
+  -4.69212715  4.31850847 -4.64446972 -4.88277568 -0.92315234  0.26760446
+  -2.96114318]]
+['UPDRS<2', 'UPDRS>=2']
+Classifying results in MODEL-7...
+{0, 1}
+starting classification...
+leave_out  ['sub13.0', 'sub13.1', 'sub13.2', 'sub13.3', 'sub13.4', 'sub13.5', 'sub13.6', 'sub13.7', 'sub13.8', 'sub13.9', 'sub13.10', 'sub13.11', 'sub14.0', 'sub14.1', 'sub14.2', 'sub14.3', 'sub14.4', 'sub14.5', 'sub14.6', 'sub14.7', 'sub14.8', 'sub14.9', 'sub14.10', 'sub14.11', 'sub15.0', 'sub15.1', 'sub15.2', 'sub15.3', 'sub15.4', 'sub15.5', 'sub15.6', 'sub15.7', 'sub15.8', 'sub15.9', 'sub15.10', 'sub15.11']
+Best Hyperparameters: {'learning_rate': 0.01, 'max_depth': 1, 'n_estimators': 200}
+Mean Accuracy: 0.8402777777777778
+Mean F1 Score: 0.8327373377282763
+Accuracy: 0.7222222222222222
+['UPDRS<2', 'UPDRS>=2']
+Best Hyperparameters: {'C': 10}
+Mean Accuracy: 0.8680555555555557
+Mean F1 Score: 0.8633189166887528
+Accuracy: 0.8611111111111112
+[[ 0.04270572 -3.83328465 -2.08347587 -0.86875205 -0.58517232  0.92967706
+  -0.33342987 -0.34708633 -1.38668948 -2.05593363  0.47884323 -0.65308957
+  -0.88622928  0.58221256  0.72918894 -0.00572155  0.60315653 -0.08326482
+  -2.75358071]]
+['UPDRS<2', 'UPDRS>=2']
+Classifying results in MODEL-8...
+{0, 1}
+starting classification...
+leave_out  ['sub13.0', 'sub13.1', 'sub13.2', 'sub13.3', 'sub13.4', 'sub13.5', 'sub13.6', 'sub13.7', 'sub13.8', 'sub13.9', 'sub13.10', 'sub13.11', 'sub14.0', 'sub14.1', 'sub14.2', 'sub14.3', 'sub14.4', 'sub14.5', 'sub14.6', 'sub14.7', 'sub14.8', 'sub14.9', 'sub14.10', 'sub14.11', 'sub15.0', 'sub15.1', 'sub15.2', 'sub15.3', 'sub15.4', 'sub15.5', 'sub15.6', 'sub15.7', 'sub15.8', 'sub15.9', 'sub15.10', 'sub15.11']
+Best Hyperparameters: {'learning_rate': 0.001, 'max_depth': 5, 'n_estimators': 20}
+Mean Accuracy: 0.8333333333333334
+Mean F1 Score: 0.8241777067748138
+Accuracy: 0.4722222222222222
+['UPDRS<2', 'UPDRS>=2']
+Best Hyperparameters: {'C': 0.001}
+Mean Accuracy: 0.5833333333333334
+Mean F1 Score: 0.36776395644912524
+Accuracy: 0.3333333333333333
+[[ 0.00956601 -0.00908406  0.00730535 -0.02312594 -0.00873768 -0.0059394
+   0.02924801 -0.02354432 -0.00199624 -0.01122258 -0.00948014 -0.02126112
+   0.00976338  0.01594337  0.02524669 -0.01639969 -0.00863611  0.0028301
+  -0.00074097]]
+['UPDRS<2', 'UPDRS>=2']
+Classifying results in MODEL-6...
+{0, 1}
+starting classification...
+leave_out  ['sub13.0', 'sub13.1', 'sub13.2', 'sub13.3', 'sub13.4', 'sub13.5', 'sub13.6', 'sub13.7', 'sub13.8', 'sub13.9', 'sub13.10', 'sub13.11', 'sub14.0', 'sub14.1', 'sub14.2', 'sub14.3', 'sub14.4', 'sub14.5', 'sub14.6', 'sub14.7', 'sub14.8', 'sub14.9', 'sub14.10', 'sub14.11', 'sub15.0', 'sub15.1', 'sub15.2', 'sub15.3', 'sub15.4', 'sub15.5', 'sub15.6', 'sub15.7', 'sub15.8', 'sub15.9', 'sub15.10', 'sub15.11']
+Best Hyperparameters: {'learning_rate': 0.2, 'max_depth': 1, 'n_estimators': 150}
+Mean Accuracy: 0.9375
+Mean F1 Score: 0.9346542346542345
+Accuracy: 0.5277777777777778
+['UPDRS<2', 'UPDRS>=2']
+Best Hyperparameters: {'C': 0.001}
+Mean Accuracy: 0.5833333333333334
+Mean F1 Score: 0.36776395644912524
+Accuracy: 0.4166666666666667
+[[-0.0056797  -0.01074859 -0.00285223  0.01007657 -0.00417165 -0.02829717
+  -0.01828351  0.02097323  0.01425288 -0.01689573  0.01999347  0.01334885
+   0.01427713 -0.02464699 -0.01672679  0.02308703 -0.01077797  0.0096291
+  -0.00982591]]
+['UPDRS<2', 'UPDRS>=2']
+Classifying results in MODEL-9...
+{0, 1}
+starting classification...
+leave_out  ['sub13.0', 'sub13.1', 'sub13.2', 'sub13.3', 'sub13.4', 'sub13.5', 'sub13.6', 'sub13.7', 'sub13.8', 'sub13.9', 'sub13.10', 'sub13.11', 'sub14.0', 'sub14.1', 'sub14.2', 'sub14.3', 'sub14.4', 'sub14.5', 'sub14.6', 'sub14.7', 'sub14.8', 'sub14.9', 'sub14.10', 'sub14.11', 'sub15.0', 'sub15.1', 'sub15.2', 'sub15.3', 'sub15.4', 'sub15.5', 'sub15.6', 'sub15.7', 'sub15.8', 'sub15.9', 'sub15.10', 'sub15.11']
+Best Hyperparameters: {'learning_rate': 0.2, 'max_depth': 7, 'n_estimators': 200}
+Mean Accuracy: 0.9166666666666666
+Mean F1 Score: 0.9148851148851148
+Accuracy: 0.6666666666666666
+['UPDRS<2', 'UPDRS>=2']
+Best Hyperparameters: {'C': 100}
+Mean Accuracy: 0.9444444444444445
+Mean F1 Score: 0.9422476722610938
+Accuracy: 0.6666666666666666
+[[ -0.27338129   1.02457099  -3.74821129   1.12464681  -8.21532476
+    0.69792483   0.02410475  -2.01393524   0.46886108   3.13155417
+   -6.11748887   2.10623748 -10.14386715   3.91939744  -0.03954887
+   -4.34061648  -1.5939764   -0.58607067  -2.71381195]]
+['UPDRS<2', 'UPDRS>=2']

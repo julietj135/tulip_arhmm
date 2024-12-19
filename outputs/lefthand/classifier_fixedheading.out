@@ -1,0 +1,495 @@
+WARNING:absl:No GPU/TPU found, falling back to CPU. (Set TF_CPP_MIN_LOG_LEVEL=0 and rerun for more info.)
+{'body': 'l', 'body_name': 'lefthand', 'augment': True, 'taps_per_window': 20, 'num_states': 8, 'num_ar_iters': 50, 'num_full_iters': 500, 'ids': [1, 10, 11, 12, 2, 3, 4, 5, 6, 7, 8, 9], 'thresh': 2, 'multiclass': False, 'class_models': ['xgboost', 'logistic'], 'plot_grouped_freq': True, 'plot_bars': True, 'num_keypoints': 21, 'ar_only_kappa': 1000.0, 'full_model_kappa': 100.0, 'num_windows': 12, 'forward_indices': [0, 2, 17], 'target_direction': [1, 0, 0], 'config_path': 'training/hand_config.yml', 'combine': False}
+['MODEL-0', 'MODEL-1', 'MODEL-2', 'MODEL-3', 'MODEL-4', 'MODEL-5', 'MODEL-6', 'MODEL-7', 'MODEL-8', 'MODEL-9']
+  0%|                                            | 0/10 [00:00<?, ?it/s] 10%|███▌                                | 1/10 [00:01<00:15,  1.78s/it] 20%|███████▏                            | 2/10 [00:03<00:12,  1.56s/it] 30%|██████████▊                         | 3/10 [00:04<00:10,  1.44s/it] 40%|██████████████▍                     | 4/10 [00:05<00:08,  1.40s/it] 50%|██████████████████                  | 5/10 [00:06<00:06,  1.26s/it] 60%|█████████████████████▌              | 6/10 [00:07<00:04,  1.19s/it] 70%|█████████████████████████▏          | 7/10 [00:08<00:03,  1.14s/it] 80%|████████████████████████████▊       | 8/10 [00:09<00:02,  1.10s/it] 90%|████████████████████████████████▍   | 9/10 [00:10<00:01,  1.09s/it]100%|███████████████████████████████████| 10/10 [00:12<00:00,  1.07s/it]100%|███████████████████████████████████| 10/10 [00:12<00:00,  1.20s/it]
+0 1 (8, 7, 22)
+0 2 (8, 7, 22)
+0 3 (8, 7, 22)
+0 4 (8, 7, 22)
+0 5 (8, 7, 22)
+0 6 (8, 7, 22)
+0 7 (8, 7, 22)
+0 8 (8, 7, 22)
+0 9 (8, 7, 22)
+1 0 (8, 7, 22)
+1 2 (8, 7, 22)
+1 3 (8, 7, 22)
+1 4 (8, 7, 22)
+1 5 (8, 7, 22)
+1 6 (8, 7, 22)
+1 7 (8, 7, 22)
+1 8 (8, 7, 22)
+1 9 (8, 7, 22)
+2 0 (8, 7, 22)
+2 1 (8, 7, 22)
+2 3 (8, 7, 22)
+2 4 (8, 7, 22)
+2 5 (8, 7, 22)
+2 6 (8, 7, 22)
+2 7 (8, 7, 22)
+2 8 (8, 7, 22)
+2 9 (8, 7, 22)
+3 0 (8, 7, 22)
+3 1 (8, 7, 22)
+3 2 (8, 7, 22)
+3 4 (8, 7, 22)
+3 5 (8, 7, 22)
+3 6 (8, 7, 22)
+3 7 (8, 7, 22)
+3 8 (8, 7, 22)
+3 9 (8, 7, 22)
+4 0 (8, 7, 22)
+4 1 (8, 7, 22)
+4 2 (8, 7, 22)
+4 3 (8, 7, 22)
+4 5 (8, 7, 22)
+4 6 (8, 7, 22)
+4 7 (8, 7, 22)
+4 8 (8, 7, 22)
+4 9 (8, 7, 22)
+5 0 (8, 7, 22)
+5 1 (8, 7, 22)
+5 2 (8, 7, 22)
+5 3 (8, 7, 22)
+5 4 (8, 7, 22)
+5 6 (8, 7, 22)
+5 7 (8, 7, 22)
+5 8 (8, 7, 22)
+5 9 (8, 7, 22)
+6 0 (8, 7, 22)
+6 1 (8, 7, 22)
+6 2 (8, 7, 22)
+6 3 (8, 7, 22)
+6 4 (8, 7, 22)
+6 5 (8, 7, 22)
+6 7 (8, 7, 22)
+6 8 (8, 7, 22)
+6 9 (8, 7, 22)
+7 0 (8, 7, 22)
+7 1 (8, 7, 22)
+7 2 (8, 7, 22)
+7 3 (8, 7, 22)
+7 4 (8, 7, 22)
+7 5 (8, 7, 22)
+7 6 (8, 7, 22)
+7 8 (8, 7, 22)
+7 9 (8, 7, 22)
+8 0 (8, 7, 22)
+8 1 (8, 7, 22)
+8 2 (8, 7, 22)
+8 3 (8, 7, 22)
+8 4 (8, 7, 22)
+8 5 (8, 7, 22)
+8 6 (8, 7, 22)
+8 7 (8, 7, 22)
+8 9 (8, 7, 22)
+9 0 (8, 7, 22)
+9 1 (8, 7, 22)
+9 2 (8, 7, 22)
+9 3 (8, 7, 22)
+9 4 (8, 7, 22)
+9 5 (8, 7, 22)
+9 6 (8, 7, 22)
+9 7 (8, 7, 22)
+9 8 (8, 7, 22)
+Best model: MODEL-0
+getting augmented data
+subject 1 has an augmentation of 12 segments
+subject 10 has an augmentation of 12 segments
+subject 11 has an augmentation of 12 segments
+subject 12 has an augmentation of 12 segments
+subject 2 has an augmentation of 12 segments
+subject 3 has an augmentation of 12 segments
+subject 4 has an augmentation of 12 segments
+subject 5 has an augmentation of 12 segments
+subject 6 has an augmentation of 12 segments
+subject 7 has an augmentation of 12 segments
+subject 8 has an augmentation of 12 segments
+subject 9 has an augmentation of 12 segments
+Shape of mask:  (144, 439)  same as shape of 'z'
+The mask for this segment/subject is 207.0 frames
+Shape of mask:  (144, 439)  same as shape of 'z'
+The mask for this segment/subject is 207.0 frames
+Shape of mask:  (144, 439)  same as shape of 'z'
+The mask for this segment/subject is 207.0 frames
+Shape of mask:  (144, 439)  same as shape of 'z'
+The mask for this segment/subject is 207.0 frames
+Shape of mask:  (144, 439)  same as shape of 'z'
+The mask for this segment/subject is 207.0 frames
+Shape of mask:  (144, 439)  same as shape of 'z'
+The mask for this segment/subject is 207.0 frames
+Shape of mask:  (144, 439)  same as shape of 'z'
+The mask for this segment/subject is 207.0 frames
+Shape of mask:  (144, 439)  same as shape of 'z'
+The mask for this segment/subject is 207.0 frames
+Shape of mask:  (144, 439)  same as shape of 'z'
+The mask for this segment/subject is 207.0 frames
+Shape of mask:  (144, 439)  same as shape of 'z'
+The mask for this segment/subject is 207.0 frames
+saving in  training/outputs/2.model_ensembles/lefthand/figures/state_sequence_sub1.0.png
+MODEL-0
+MODEL-4
+MODEL-1
+MODEL-2
+MODEL-5
+MODEL-3
+MODEL-7
+MODEL-8
+MODEL-6
+MODEL-9
+['MODEL-0', 'MODEL-4', 'MODEL-1', 'MODEL-2', 'MODEL-5', 'MODEL-3', 'MODEL-7', 'MODEL-8', 'MODEL-6', 'MODEL-9']
+  0%|          | 0/10 [00:00<?, ?it/s] 10%|█         | 1/10 [00:38<05:50, 38.94s/it] 20%|██        | 2/10 [01:17<05:09, 38.73s/it]/hpc/group/tdunn/jmj73/tulip_arhmm/analysis/classifier.py:51: RuntimeWarning:
+
+More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`). Consider using `matplotlib.pyplot.close()`.
+
+ 30%|███       | 3/10 [01:54<04:27, 38.15s/it] 40%|████      | 4/10 [02:32<03:46, 37.76s/it] 50%|█████     | 5/10 [03:21<03:30, 42.09s/it] 60%|██████    | 6/10 [04:20<03:11, 47.78s/it] 70%|███████   | 7/10 [05:18<02:32, 50.96s/it] 80%|████████  | 8/10 [06:15<01:46, 53.11s/it] 90%|█████████ | 9/10 [07:19<00:56, 56.32s/it]100%|██████████| 10/10 [08:18<00:00, 57.10s/it]100%|██████████| 10/10 [08:18<00:00, 49.82s/it]
+Classifying results in MODEL-0...
+no index csv in training/outputs/2.model_ensembles/lefthand/index.csv, use make_index_csv
+getting augmented data
+subject 1 has an augmentation of 12 segments
+subject 10 has an augmentation of 12 segments
+subject 11 has an augmentation of 12 segments
+subject 12 has an augmentation of 12 segments
+subject 13 has an augmentation of 12 segments
+subject 14 has an augmentation of 12 segments
+subject 15 has an augmentation of 12 segments
+subject 2 has an augmentation of 12 segments
+subject 3 has an augmentation of 12 segments
+subject 4 has an augmentation of 12 segments
+subject 5 has an augmentation of 12 segments
+subject 6 has an augmentation of 12 segments
+subject 7 has an augmentation of 12 segments
+subject 8 has an augmentation of 12 segments
+subject 9 has an augmentation of 12 segments
+Saved new index csv at training/outputs/2.model_ensembles/lefthand/index.csv
+moseq df saved to  training/outputs/2.model_ensembles/lefthand
+stats df saved to  training/outputs/2.model_ensembles/lefthand
+starting classification...
+leave_out  36
+Best Hyperparameters: {'learning_rate': 0.001, 'max_depth': 2, 'n_estimators': 20}
+Mean Accuracy: 0.8402777777777778
+Mean F1 Score: 0.8373736040212013
+Accuracy: 1.0
+Best Hyperparameters: {'C': 0.1}
+Mean Accuracy: 0.8194444444444443
+Mean F1 Score: 0.8182090241391277
+Accuracy: 1.0
+[[ 0.13925712 -0.24193337 -0.02469245  0.43751817  0.04112431  0.30888603
+  -0.15328424 -0.27551058 -0.12402498 -0.46550278  0.62966575  0.40382694
+   0.10020397  0.40207657 -0.32820471 -0.24624614  0.2451682  -0.216981
+   0.24683823]]
+Classifying results in MODEL-4...
+no index csv in training/outputs/2.model_ensembles/lefthand/index.csv, use make_index_csv
+getting augmented data
+subject 1 has an augmentation of 12 segments
+subject 10 has an augmentation of 12 segments
+subject 11 has an augmentation of 12 segments
+subject 12 has an augmentation of 12 segments
+subject 13 has an augmentation of 12 segments
+subject 14 has an augmentation of 12 segments
+subject 15 has an augmentation of 12 segments
+subject 2 has an augmentation of 12 segments
+subject 3 has an augmentation of 12 segments
+subject 4 has an augmentation of 12 segments
+subject 5 has an augmentation of 12 segments
+subject 6 has an augmentation of 12 segments
+subject 7 has an augmentation of 12 segments
+subject 8 has an augmentation of 12 segments
+subject 9 has an augmentation of 12 segments
+Saved new index csv at training/outputs/2.model_ensembles/lefthand/index.csv
+moseq df saved to  training/outputs/2.model_ensembles/lefthand
+stats df saved to  training/outputs/2.model_ensembles/lefthand
+starting classification...
+leave_out  36
+Best Hyperparameters: {'learning_rate': 0.1, 'max_depth': 2, 'n_estimators': 20}
+Mean Accuracy: 0.826388888888889
+Mean F1 Score: 0.8212083048730817
+Accuracy: 0.3888888888888889
+Best Hyperparameters: {'C': 0.001}
+Mean Accuracy: 0.5694444444444444
+Mean F1 Score: 0.49415683880158956
+Accuracy: 0.3333333333333333
+[[-0.02632321 -0.03260786  0.02314473  0.00188096  0.01365004  0.00258103
+   0.01380743 -0.02138158  0.00156834 -0.02111879  0.0131466   0.01866014
+  -0.00559801  0.0187005   0.01592266 -0.01936134  0.014562   -0.01278194
+  -0.02162506]]
+Classifying results in MODEL-1...
+no index csv in training/outputs/2.model_ensembles/lefthand/index.csv, use make_index_csv
+getting augmented data
+subject 1 has an augmentation of 12 segments
+subject 10 has an augmentation of 12 segments
+subject 11 has an augmentation of 12 segments
+subject 12 has an augmentation of 12 segments
+subject 13 has an augmentation of 12 segments
+subject 14 has an augmentation of 12 segments
+subject 15 has an augmentation of 12 segments
+subject 2 has an augmentation of 12 segments
+subject 3 has an augmentation of 12 segments
+subject 4 has an augmentation of 12 segments
+subject 5 has an augmentation of 12 segments
+subject 6 has an augmentation of 12 segments
+subject 7 has an augmentation of 12 segments
+subject 8 has an augmentation of 12 segments
+subject 9 has an augmentation of 12 segments
+Saved new index csv at training/outputs/2.model_ensembles/lefthand/index.csv
+moseq df saved to  training/outputs/2.model_ensembles/lefthand
+stats df saved to  training/outputs/2.model_ensembles/lefthand
+starting classification...
+leave_out  36
+Best Hyperparameters: {'learning_rate': 0.1, 'max_depth': 2, 'n_estimators': 20}
+Mean Accuracy: 0.888888888888889
+Mean F1 Score: 0.8873099123099123
+Accuracy: 0.6388888888888888
+Best Hyperparameters: {'C': 0.001}
+Mean Accuracy: 0.763888888888889
+Mean F1 Score: 0.7585367779229445
+Accuracy: 0.2777777777777778
+[[ 0.0315651   0.03326492  0.02965757 -0.01244522  0.03419575 -0.02755246
+   0.00836775 -0.01919771  0.00703749  0.01241504  0.00456305 -0.00560232
+   0.03000449 -0.02496112  0.00758983 -0.01726781  0.02221849  0.00422528
+   0.03406358]]
+Classifying results in MODEL-2...
+no index csv in training/outputs/2.model_ensembles/lefthand/index.csv, use make_index_csv
+getting augmented data
+subject 1 has an augmentation of 12 segments
+subject 10 has an augmentation of 12 segments
+subject 11 has an augmentation of 12 segments
+subject 12 has an augmentation of 12 segments
+subject 13 has an augmentation of 12 segments
+subject 14 has an augmentation of 12 segments
+subject 15 has an augmentation of 12 segments
+subject 2 has an augmentation of 12 segments
+subject 3 has an augmentation of 12 segments
+subject 4 has an augmentation of 12 segments
+subject 5 has an augmentation of 12 segments
+subject 6 has an augmentation of 12 segments
+subject 7 has an augmentation of 12 segments
+subject 8 has an augmentation of 12 segments
+subject 9 has an augmentation of 12 segments
+Saved new index csv at training/outputs/2.model_ensembles/lefthand/index.csv
+moseq df saved to  training/outputs/2.model_ensembles/lefthand
+stats df saved to  training/outputs/2.model_ensembles/lefthand
+starting classification...
+leave_out  36
+Best Hyperparameters: {'learning_rate': 0.2, 'max_depth': 1, 'n_estimators': 100}
+Mean Accuracy: 0.9513888888888888
+Mean F1 Score: 0.9509466143612485
+Accuracy: 0.75
+Best Hyperparameters: {'C': 100}
+Mean Accuracy: 0.9236111111111112
+Mean F1 Score: 0.922382712634429
+Accuracy: 0.6666666666666666
+[[-0.59194597  0.33481431 -0.6007886  -0.3360812   1.22445656  2.11429132
+   0.05949413 -0.89884823  7.65482703 11.31308538  0.2018283   0.18762961
+   0.1385368  10.98769869 -0.42113025 -0.92623682  0.66281768 -3.14729932
+   0.3830417 ]]
+Classifying results in MODEL-5...
+no index csv in training/outputs/2.model_ensembles/lefthand/index.csv, use make_index_csv
+getting augmented data
+subject 1 has an augmentation of 12 segments
+subject 10 has an augmentation of 12 segments
+subject 11 has an augmentation of 12 segments
+subject 12 has an augmentation of 12 segments
+subject 13 has an augmentation of 12 segments
+subject 14 has an augmentation of 12 segments
+subject 15 has an augmentation of 12 segments
+subject 2 has an augmentation of 12 segments
+subject 3 has an augmentation of 12 segments
+subject 4 has an augmentation of 12 segments
+subject 5 has an augmentation of 12 segments
+subject 6 has an augmentation of 12 segments
+subject 7 has an augmentation of 12 segments
+subject 8 has an augmentation of 12 segments
+subject 9 has an augmentation of 12 segments
+Saved new index csv at training/outputs/2.model_ensembles/lefthand/index.csv
+moseq df saved to  training/outputs/2.model_ensembles/lefthand
+stats df saved to  training/outputs/2.model_ensembles/lefthand
+starting classification...
+leave_out  36
+Best Hyperparameters: {'learning_rate': 0.1, 'max_depth': 5, 'n_estimators': 100}
+Mean Accuracy: 0.8958333333333334
+Mean F1 Score: 0.8947391526818885
+Accuracy: 0.4722222222222222
+Best Hyperparameters: {'C': 0.1}
+Mean Accuracy: 0.8263888888888888
+Mean F1 Score: 0.8234994472658013
+Accuracy: 0.75
+[[ 0.06107627 -0.06446739  0.10774926 -0.37266886 -0.35354421  0.5290405
+   0.236094   -0.27117283  0.47850103  0.08067166 -0.17093165  0.31982383
+  -0.32886801  0.48018122  0.42538918 -0.33487536  0.16684718  0.06871912
+   0.02317659]]
+Classifying results in MODEL-3...
+no index csv in training/outputs/2.model_ensembles/lefthand/index.csv, use make_index_csv
+getting augmented data
+subject 1 has an augmentation of 12 segments
+subject 10 has an augmentation of 12 segments
+subject 11 has an augmentation of 12 segments
+subject 12 has an augmentation of 12 segments
+subject 13 has an augmentation of 12 segments
+subject 14 has an augmentation of 12 segments
+subject 15 has an augmentation of 12 segments
+subject 2 has an augmentation of 12 segments
+subject 3 has an augmentation of 12 segments
+subject 4 has an augmentation of 12 segments
+subject 5 has an augmentation of 12 segments
+subject 6 has an augmentation of 12 segments
+subject 7 has an augmentation of 12 segments
+subject 8 has an augmentation of 12 segments
+subject 9 has an augmentation of 12 segments
+Saved new index csv at training/outputs/2.model_ensembles/lefthand/index.csv
+moseq df saved to  training/outputs/2.model_ensembles/lefthand
+stats df saved to  training/outputs/2.model_ensembles/lefthand
+starting classification...
+leave_out  36
+Best Hyperparameters: {'learning_rate': 0.01, 'max_depth': 1, 'n_estimators': 50}
+Mean Accuracy: 0.7430555555555557
+Mean F1 Score: 0.7176232397236052
+Accuracy: 0.3333333333333333
+Best Hyperparameters: {'C': 0.001}
+Mean Accuracy: 0.5069444444444445
+Mean F1 Score: 0.42556971609983946
+Accuracy: 0.4722222222222222
+[[ 0.02227378 -0.00277657  0.01049439 -0.00012846 -0.00133836  0.00054746
+  -0.03293585  0.02033145  0.02368584 -0.00514392  0.00286481  0.01984281
+  -0.00789391  0.02130342 -0.03561196 -0.00015699  0.01702986 -0.00454853
+   0.00694607]]
+Classifying results in MODEL-7...
+no index csv in training/outputs/2.model_ensembles/lefthand/index.csv, use make_index_csv
+getting augmented data
+subject 1 has an augmentation of 12 segments
+subject 10 has an augmentation of 12 segments
+subject 11 has an augmentation of 12 segments
+subject 12 has an augmentation of 12 segments
+subject 13 has an augmentation of 12 segments
+subject 14 has an augmentation of 12 segments
+subject 15 has an augmentation of 12 segments
+subject 2 has an augmentation of 12 segments
+subject 3 has an augmentation of 12 segments
+subject 4 has an augmentation of 12 segments
+subject 5 has an augmentation of 12 segments
+subject 6 has an augmentation of 12 segments
+subject 7 has an augmentation of 12 segments
+subject 8 has an augmentation of 12 segments
+subject 9 has an augmentation of 12 segments
+Saved new index csv at training/outputs/2.model_ensembles/lefthand/index.csv
+moseq df saved to  training/outputs/2.model_ensembles/lefthand
+stats df saved to  training/outputs/2.model_ensembles/lefthand
+starting classification...
+leave_out  36
+Best Hyperparameters: {'learning_rate': 0.001, 'max_depth': 1, 'n_estimators': 150}
+Mean Accuracy: 0.7916666666666666
+Mean F1 Score: 0.787729447132528
+Accuracy: 0.5
+Best Hyperparameters: {'C': 0.001}
+Mean Accuracy: 0.6666666666666666
+Mean F1 Score: 0.6365740740740741
+Accuracy: 0.9166666666666666
+[[-0.03166018 -0.03684818 -0.00755037 -0.00610813 -0.01240139  0.01887975
+   0.02371635 -0.00992881 -0.00628706 -0.0225206   0.02536747  0.00908695
+   0.00171926  0.01742511  0.02002125 -0.00864007 -0.00571372  0.01638755
+  -0.03765094]]
+Classifying results in MODEL-8...
+no index csv in training/outputs/2.model_ensembles/lefthand/index.csv, use make_index_csv
+getting augmented data
+subject 1 has an augmentation of 12 segments
+subject 10 has an augmentation of 12 segments
+subject 11 has an augmentation of 12 segments
+subject 12 has an augmentation of 12 segments
+subject 13 has an augmentation of 12 segments
+subject 14 has an augmentation of 12 segments
+subject 15 has an augmentation of 12 segments
+subject 2 has an augmentation of 12 segments
+subject 3 has an augmentation of 12 segments
+subject 4 has an augmentation of 12 segments
+subject 5 has an augmentation of 12 segments
+subject 6 has an augmentation of 12 segments
+subject 7 has an augmentation of 12 segments
+subject 8 has an augmentation of 12 segments
+subject 9 has an augmentation of 12 segments
+Saved new index csv at training/outputs/2.model_ensembles/lefthand/index.csv
+moseq df saved to  training/outputs/2.model_ensembles/lefthand
+stats df saved to  training/outputs/2.model_ensembles/lefthand
+starting classification...
+leave_out  36
+Best Hyperparameters: {'learning_rate': 0.1, 'max_depth': 2, 'n_estimators': 50}
+Mean Accuracy: 0.8541666666666666
+Mean F1 Score: 0.8532961591785121
+Accuracy: 0.7777777777777778
+Best Hyperparameters: {'C': 0.01}
+Mean Accuracy: 0.7222222222222222
+Mean F1 Score: 0.7179178845845513
+Accuracy: 0.6666666666666666
+[[-0.01698775 -0.02775502  0.06594611 -0.17348096 -0.05311938  0.04512923
+   0.1684716  -0.17186986 -0.05480716 -0.0312245  -0.01052769 -0.14641723
+   0.04315619  0.12593264  0.13803494 -0.12882795 -0.02089747 -0.04582726
+  -0.03285125]]
+Classifying results in MODEL-6...
+no index csv in training/outputs/2.model_ensembles/lefthand/index.csv, use make_index_csv
+getting augmented data
+subject 1 has an augmentation of 12 segments
+subject 10 has an augmentation of 12 segments
+subject 11 has an augmentation of 12 segments
+subject 12 has an augmentation of 12 segments
+subject 13 has an augmentation of 12 segments
+subject 14 has an augmentation of 12 segments
+subject 15 has an augmentation of 12 segments
+subject 2 has an augmentation of 12 segments
+subject 3 has an augmentation of 12 segments
+subject 4 has an augmentation of 12 segments
+subject 5 has an augmentation of 12 segments
+subject 6 has an augmentation of 12 segments
+subject 7 has an augmentation of 12 segments
+subject 8 has an augmentation of 12 segments
+subject 9 has an augmentation of 12 segments
+Saved new index csv at training/outputs/2.model_ensembles/lefthand/index.csv
+moseq df saved to  training/outputs/2.model_ensembles/lefthand
+stats df saved to  training/outputs/2.model_ensembles/lefthand
+starting classification...
+leave_out  36
+Best Hyperparameters: {'learning_rate': 0.1, 'max_depth': 1, 'n_estimators': 20}
+Mean Accuracy: 0.8333333333333334
+Mean F1 Score: 0.8319541324730738
+Accuracy: 0.6666666666666666
+Best Hyperparameters: {'C': 0.001}
+Mean Accuracy: 0.5
+Mean F1 Score: 0.40959609650311735
+Accuracy: 0.6666666666666666
+[[-0.00917985 -0.01013141  0.00027817  0.02392673  0.02049813 -0.02924137
+  -0.02251521  0.01947513  0.01151315 -0.01756263  0.01773998  0.01942399
+   0.01701079 -0.02725639 -0.01970517  0.01803713  0.00852534 -0.00045264
+  -0.00502654]]
+Classifying results in MODEL-9...
+no index csv in training/outputs/2.model_ensembles/lefthand/index.csv, use make_index_csv
+getting augmented data
+subject 1 has an augmentation of 12 segments
+subject 10 has an augmentation of 12 segments
+subject 11 has an augmentation of 12 segments
+subject 12 has an augmentation of 12 segments
+subject 13 has an augmentation of 12 segments
+subject 14 has an augmentation of 12 segments
+subject 15 has an augmentation of 12 segments
+subject 2 has an augmentation of 12 segments
+subject 3 has an augmentation of 12 segments
+subject 4 has an augmentation of 12 segments
+subject 5 has an augmentation of 12 segments
+subject 6 has an augmentation of 12 segments
+subject 7 has an augmentation of 12 segments
+subject 8 has an augmentation of 12 segments
+subject 9 has an augmentation of 12 segments
+Saved new index csv at training/outputs/2.model_ensembles/lefthand/index.csv
+moseq df saved to  training/outputs/2.model_ensembles/lefthand
+stats df saved to  training/outputs/2.model_ensembles/lefthand
+starting classification...
+leave_out  36
+Best Hyperparameters: {'learning_rate': 0.1, 'max_depth': 3, 'n_estimators': 50}
+Mean Accuracy: 0.9166666666666666
+Mean F1 Score: 0.915256282248598
+Accuracy: 0.75
+Best Hyperparameters: {'C': 10}
+Mean Accuracy: 0.9166666666666666
+Mean F1 Score: 0.915075984275069
+Accuracy: 0.7777777777777778
+[[ 2.65717647  2.41566437 -2.21554919 -1.79033532 -2.5756723  -0.58357573
+   0.38506926 -0.50602254  0.2019071   1.98362465 -0.2770306   3.04062025
+  -4.04095596  3.86323023  0.36557797 -0.88028837  1.32179048 -0.56727819
+  -0.36918894]]

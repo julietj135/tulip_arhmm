@@ -1,0 +1,253 @@
+WARNING:absl:No GPU/TPU found, falling back to CPU. (Set TF_CPP_MIN_LOG_LEVEL=0 and rerun for more info.)
+{'body': 'g', 'body_name': 'gait', 'augment': True, 'taps_per_window': 20, 'num_states': 8, 'num_ar_iters': 50, 'num_full_iters': 500, 'ids': [1, 10, 11, 12, 2, 3, 4, 5, 6, 7, 8, 9], 'thresh': 1, 'multiclass': False, 'class_models': ['xgboost', 'logistic'], 'plot_grouped_freq': True, 'plot_bars': True, 'num_keypoints': 26, 'ar_only_kappa': 10000.0, 'full_model_kappa': 1000.0, 'num_windows': 8, 'forward_indices': [3, 4, 19], 'target_direction': [1, 0, 0], 'config_path': 'training/gait_config.yml', 'combine': False}
+MODEL-0
+MODEL-4
+MODEL-1
+MODEL-2
+MODEL-5
+MODEL-3
+MODEL-7
+MODEL-8
+MODEL-6
+MODEL-9
+['MODEL-0', 'MODEL-4', 'MODEL-1', 'MODEL-2', 'MODEL-5', 'MODEL-3', 'MODEL-7', 'MODEL-8', 'MODEL-6', 'MODEL-9']
+  0%|          | 0/10 [00:00<?, ?it/s] 10%|█         | 1/10 [00:49<07:23, 49.31s/it] 20%|██        | 2/10 [01:41<06:48, 51.10s/it]/hpc/group/tdunn/jmj73/tulip_arhmm/analysis/classifier.py:356: RuntimeWarning:
+
+More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`). Consider using `matplotlib.pyplot.close()`.
+
+ 30%|███       | 3/10 [03:10<07:59, 68.44s/it] 40%|████      | 4/10 [04:26<07:06, 71.14s/it] 50%|█████     | 5/10 [05:55<06:28, 77.70s/it] 60%|██████    | 6/10 [07:11<05:09, 77.32s/it] 60%|██████    | 6/10 [07:46<05:10, 77.68s/it]
+Classifying results in MODEL-0...
+no index csv in training/outputs/2.model_ensembles/gait/index.csv, use make_index_csv
+getting augmented data
+subject 1 has an augmentation of 8 segments
+subject 10 has an augmentation of 8 segments
+subject 11 has an augmentation of 8 segments
+subject 12 has an augmentation of 8 segments
+subject 13 has an augmentation of 8 segments
+subject 14 has an augmentation of 8 segments
+subject 15 has an augmentation of 8 segments
+subject 2 has an augmentation of 8 segments
+subject 3 has an augmentation of 8 segments
+subject 4 has an augmentation of 8 segments
+subject 5 has an augmentation of 8 segments
+subject 6 has an augmentation of 8 segments
+subject 7 has an augmentation of 8 segments
+subject 8 has an augmentation of 8 segments
+subject 9 has an augmentation of 8 segments
+Saved new index csv at training/outputs/2.model_ensembles/gait/index.csv
+starting classification...
+leave_out  24
+Best Hyperparameters: {'learning_rate': 0.2, 'max_depth': 7, 'n_estimators': 200}
+Mean Accuracy: 0.8125
+Mean F1 Score: 0.7780370997762303
+Accuracy: 0.5416666666666666
+Best Hyperparameters: {'C': 0.001}
+Mean Accuracy: 0.6666666666666666
+Mean F1 Score: 0.3985869651504326
+Accuracy: 0.3333333333333333
+[[ 0.00862044  0.01002332  0.01258845  0.0080875   0.00029077  0.00546047
+   0.00992853  0.         -0.00372898  0.0103858   0.01373037 -0.00964729
+   0.00426388  0.00610343  0.00291609  0.          0.01212969  0.00371804
+   0.01076658]]
+Classifying results in MODEL-4...
+no index csv in training/outputs/2.model_ensembles/gait/index.csv, use make_index_csv
+getting augmented data
+subject 1 has an augmentation of 8 segments
+subject 10 has an augmentation of 8 segments
+subject 11 has an augmentation of 8 segments
+subject 12 has an augmentation of 8 segments
+subject 13 has an augmentation of 8 segments
+subject 14 has an augmentation of 8 segments
+subject 15 has an augmentation of 8 segments
+subject 2 has an augmentation of 8 segments
+subject 3 has an augmentation of 8 segments
+subject 4 has an augmentation of 8 segments
+subject 5 has an augmentation of 8 segments
+subject 6 has an augmentation of 8 segments
+subject 7 has an augmentation of 8 segments
+subject 8 has an augmentation of 8 segments
+subject 9 has an augmentation of 8 segments
+Saved new index csv at training/outputs/2.model_ensembles/gait/index.csv
+starting classification...
+leave_out  24
+Best Hyperparameters: {'learning_rate': 0.2, 'max_depth': 1, 'n_estimators': 200}
+Mean Accuracy: 0.625
+Mean F1 Score: 0.5545015371102328
+Accuracy: 0.8333333333333334
+Best Hyperparameters: {'C': 0.001}
+Mean Accuracy: 0.6666666666666666
+Mean F1 Score: 0.3985869651504326
+Accuracy: 0.3333333333333333
+[[ 0.00841086  0.01006704  0.00816195  0.00725643  0.00703979 -0.00482194
+   0.00832849 -0.00832265  0.00844692 -0.00133771  0.00882432 -0.0109895
+   0.01107814 -0.00536251  0.00685464 -0.00903986 -0.00247441  0.00436854
+   0.00903754]]
+Classifying results in MODEL-1...
+no index csv in training/outputs/2.model_ensembles/gait/index.csv, use make_index_csv
+getting augmented data
+subject 1 has an augmentation of 8 segments
+subject 10 has an augmentation of 8 segments
+subject 11 has an augmentation of 8 segments
+subject 12 has an augmentation of 8 segments
+subject 13 has an augmentation of 8 segments
+subject 14 has an augmentation of 8 segments
+subject 15 has an augmentation of 8 segments
+subject 2 has an augmentation of 8 segments
+subject 3 has an augmentation of 8 segments
+subject 4 has an augmentation of 8 segments
+subject 5 has an augmentation of 8 segments
+subject 6 has an augmentation of 8 segments
+subject 7 has an augmentation of 8 segments
+subject 8 has an augmentation of 8 segments
+subject 9 has an augmentation of 8 segments
+Saved new index csv at training/outputs/2.model_ensembles/gait/index.csv
+starting classification...
+leave_out  24
+Best Hyperparameters: {'learning_rate': 0.001, 'max_depth': 1, 'n_estimators': 20}
+Mean Accuracy: 0.59375
+Mean F1 Score: 0.5348777049201876
+Accuracy: 0.5833333333333334
+Best Hyperparameters: {'C': 0.001}
+Mean Accuracy: 0.6666666666666666
+Mean F1 Score: 0.3985869651504326
+Accuracy: 0.3333333333333333
+[[ 0.00493576  0.00774064  0.00676859  0.01154069  0.00822442  0.00721882
+   0.00657814  0.         -0.00482381 -0.00739327  0.00697929  0.01562991
+   0.0062821   0.00507078  0.00549014  0.          0.00983134  0.00757729
+   0.01018799]]
+Classifying results in MODEL-2...
+no index csv in training/outputs/2.model_ensembles/gait/index.csv, use make_index_csv
+getting augmented data
+subject 1 has an augmentation of 8 segments
+subject 10 has an augmentation of 8 segments
+subject 11 has an augmentation of 8 segments
+subject 12 has an augmentation of 8 segments
+subject 13 has an augmentation of 8 segments
+subject 14 has an augmentation of 8 segments
+subject 15 has an augmentation of 8 segments
+subject 2 has an augmentation of 8 segments
+subject 3 has an augmentation of 8 segments
+subject 4 has an augmentation of 8 segments
+subject 5 has an augmentation of 8 segments
+subject 6 has an augmentation of 8 segments
+subject 7 has an augmentation of 8 segments
+subject 8 has an augmentation of 8 segments
+subject 9 has an augmentation of 8 segments
+Saved new index csv at training/outputs/2.model_ensembles/gait/index.csv
+starting classification...
+leave_out  24
+Best Hyperparameters: {'learning_rate': 0.01, 'max_depth': 1, 'n_estimators': 150}
+Mean Accuracy: 0.6354166666666666
+Mean F1 Score: 0.5043484680693983
+Accuracy: 0.3333333333333333
+Best Hyperparameters: {'C': 0.001}
+Mean Accuracy: 0.6666666666666666
+Mean F1 Score: 0.3985869651504326
+Accuracy: 0.3333333333333333
+[[ 0.01102099  0.00729002  0.00379962  0.00550688  0.00078359  0.00497451
+   0.01279745  0.00678791  0.00243723 -0.0045344   0.00256812  0.0145707
+  -0.00279292  0.00268131  0.00948076  0.00633627  0.01470477  0.00237408
+   0.00903447]]
+Classifying results in MODEL-5...
+no index csv in training/outputs/2.model_ensembles/gait/index.csv, use make_index_csv
+getting augmented data
+subject 1 has an augmentation of 8 segments
+subject 10 has an augmentation of 8 segments
+subject 11 has an augmentation of 8 segments
+subject 12 has an augmentation of 8 segments
+subject 13 has an augmentation of 8 segments
+subject 14 has an augmentation of 8 segments
+subject 15 has an augmentation of 8 segments
+subject 2 has an augmentation of 8 segments
+subject 3 has an augmentation of 8 segments
+subject 4 has an augmentation of 8 segments
+subject 5 has an augmentation of 8 segments
+subject 6 has an augmentation of 8 segments
+subject 7 has an augmentation of 8 segments
+subject 8 has an augmentation of 8 segments
+subject 9 has an augmentation of 8 segments
+Saved new index csv at training/outputs/2.model_ensembles/gait/index.csv
+starting classification...
+leave_out  24
+Best Hyperparameters: {'learning_rate': 0.2, 'max_depth': 2, 'n_estimators': 20}
+Mean Accuracy: 0.5833333333333334
+Mean F1 Score: 0.5301587301587302
+Accuracy: 0.375
+Best Hyperparameters: {'C': 0.001}
+Mean Accuracy: 0.6666666666666666
+Mean F1 Score: 0.3985869651504326
+Accuracy: 0.3333333333333333
+[[ 0.00718883  0.00970596  0.00793062  0.01513474  0.00891895  0.00674722
+   0.00278855  0.00775579 -0.00958765  0.00199081  0.00254919  0.01029344
+   0.00090842  0.00771289  0.00407493  0.00784757  0.00902645  0.00346486
+   0.01246919]]
+Classifying results in MODEL-3...
+no index csv in training/outputs/2.model_ensembles/gait/index.csv, use make_index_csv
+getting augmented data
+subject 1 has an augmentation of 8 segments
+subject 10 has an augmentation of 8 segments
+subject 11 has an augmentation of 8 segments
+subject 12 has an augmentation of 8 segments
+subject 13 has an augmentation of 8 segments
+subject 14 has an augmentation of 8 segments
+subject 15 has an augmentation of 8 segments
+subject 2 has an augmentation of 8 segments
+subject 3 has an augmentation of 8 segments
+subject 4 has an augmentation of 8 segments
+subject 5 has an augmentation of 8 segments
+subject 6 has an augmentation of 8 segments
+subject 7 has an augmentation of 8 segments
+subject 8 has an augmentation of 8 segments
+subject 9 has an augmentation of 8 segments
+Saved new index csv at training/outputs/2.model_ensembles/gait/index.csv
+starting classification...
+leave_out  24
+Best Hyperparameters: {'learning_rate': 0.2, 'max_depth': 3, 'n_estimators': 20}
+Mean Accuracy: 0.6666666666666666
+Mean F1 Score: 0.6087043341829299
+Accuracy: 0.7083333333333334
+Best Hyperparameters: {'C': 0.001}
+Mean Accuracy: 0.6666666666666666
+Mean F1 Score: 0.3985869651504326
+Accuracy: 0.3333333333333333
+[[ 0.01050663  0.00937079  0.00521487  0.00628504  0.0074215   0.00822724
+  -0.00101751  0.          0.00730691  0.01286693 -0.01382373 -0.00569725
+   0.00991015  0.00841691 -0.00282132  0.         -0.00101751  0.00718752
+   0.00929297]]
+Classifying results in MODEL-7...
+no index csv in training/outputs/2.model_ensembles/gait/index.csv, use make_index_csv
+getting augmented data
+subject 1 has an augmentation of 8 segments
+subject 10 has an augmentation of 8 segments
+subject 11 has an augmentation of 8 segments
+subject 12 has an augmentation of 8 segments
+subject 13 has an augmentation of 8 segments
+subject 14 has an augmentation of 8 segments
+subject 15 has an augmentation of 8 segments
+subject 2 has an augmentation of 8 segments
+subject 3 has an augmentation of 8 segments
+subject 4 has an augmentation of 8 segments
+subject 5 has an augmentation of 8 segments
+subject 6 has an augmentation of 8 segments
+subject 7 has an augmentation of 8 segments
+subject 8 has an augmentation of 8 segments
+subject 9 has an augmentation of 8 segments
+Saved new index csv at training/outputs/2.model_ensembles/gait/index.csv
+Traceback (most recent call last):
+  File "/hpc/group/tdunn/jmj73/tulip_arhmm/work.py", line 63, in <module>
+    an.run_classifier(save_dir,
+  File "/hpc/group/tdunn/jmj73/tulip_arhmm/analysis/classifier.py", line 397, in run_classifier
+    classification(save_dirs, model_names, num_states, thresh, body, body_name, num_windows, augment, multiclass, class_models, plot_grouped_freq, plot_bars)
+  File "/hpc/group/tdunn/jmj73/tulip_arhmm/analysis/classifier.py", line 219, in classification
+    df = pd.read_csv(os.path.join(model_dir,'results/{}.csv'.format(name)))
+  File "/hpc/group/tdunn/jmj73/miniconda3/envs/dappy/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/hpc/group/tdunn/jmj73/miniconda3/envs/dappy/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/hpc/group/tdunn/jmj73/miniconda3/envs/dappy/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "/hpc/group/tdunn/jmj73/miniconda3/envs/dappy/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+  File "/hpc/group/tdunn/jmj73/miniconda3/envs/dappy/lib/python3.9/site-packages/pandas/io/common.py", line 873, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: 'training/outputs/2.model_ensembles/gait/MODEL-7/results/sub13.0.csv'

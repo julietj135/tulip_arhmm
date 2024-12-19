@@ -1,0 +1,352 @@
+WARNING:absl:No GPU/TPU found, falling back to CPU. (Set TF_CPP_MIN_LOG_LEVEL=0 and rerun for more info.)
+{'body': 'lr', 'body_name': 'leftright', 'augment': True, 'taps_per_window': 20, 'num_states': 8, 'num_ar_iters': 50, 'num_full_iters': 500, 'ids': [1, 10, 11, 12, 2, 3, 4, 5, 6, 7, 8, 9], 'thresh': 2, 'multiclass': False, 'class_models': ['xgboost', 'logistic'], 'plot_grouped_freq': True, 'plot_bars': True, 'num_keypoints': 21, 'ar_only_kappa': 1000.0, 'full_model_kappa': 100.0, 'num_windows': 12, 'forward_indices': [0, 2, 17], 'target_direction': [1, 0, 0], 'config_path': 'training/hand_config.yml', 'combine': True}
+['MODEL-0', 'MODEL-1', 'MODEL-2', 'MODEL-3', 'MODEL-4', 'MODEL-5', 'MODEL-6', 'MODEL-7', 'MODEL-8', 'MODEL-9']
+  0%|                                            | 0/10 [00:00<?, ?it/s] 10%|███▌                                | 1/10 [00:03<00:32,  3.66s/it] 20%|███████▏                            | 2/10 [00:06<00:24,  3.00s/it] 30%|██████████▊                         | 3/10 [00:08<00:19,  2.74s/it] 40%|██████████████▍                     | 4/10 [00:10<00:14,  2.48s/it] 50%|██████████████████                  | 5/10 [00:12<00:11,  2.35s/it] 60%|█████████████████████▌              | 6/10 [00:15<00:10,  2.54s/it] 70%|█████████████████████████▏          | 7/10 [00:20<00:09,  3.26s/it] 80%|████████████████████████████▊       | 8/10 [00:24<00:07,  3.62s/it] 90%|████████████████████████████████▍   | 9/10 [00:29<00:03,  3.79s/it]100%|███████████████████████████████████| 10/10 [00:33<00:00,  3.87s/it]100%|███████████████████████████████████| 10/10 [00:33<00:00,  3.31s/it]
+0 1 (8, 7, 22)
+0 2 (8, 7, 22)
+0 3 (8, 7, 22)
+0 4 (8, 7, 22)
+0 5 (8, 7, 22)
+0 6 (8, 7, 22)
+0 7 (8, 7, 22)
+0 8 (8, 7, 22)
+0 9 (8, 7, 22)
+1 0 (8, 7, 22)
+1 2 (8, 7, 22)
+1 3 (8, 7, 22)
+1 4 (8, 7, 22)
+1 5 (8, 7, 22)
+1 6 (8, 7, 22)
+1 7 (8, 7, 22)
+1 8 (8, 7, 22)
+1 9 (8, 7, 22)
+2 0 (8, 7, 22)
+2 1 (8, 7, 22)
+2 3 (8, 7, 22)
+2 4 (8, 7, 22)
+2 5 (8, 7, 22)
+2 6 (8, 7, 22)
+2 7 (8, 7, 22)
+2 8 (8, 7, 22)
+2 9 (8, 7, 22)
+3 0 (8, 7, 22)
+3 1 (8, 7, 22)
+3 2 (8, 7, 22)
+3 4 (8, 7, 22)
+3 5 (8, 7, 22)
+3 6 (8, 7, 22)
+3 7 (8, 7, 22)
+3 8 (8, 7, 22)
+3 9 (8, 7, 22)
+4 0 (8, 7, 22)
+4 1 (8, 7, 22)
+4 2 (8, 7, 22)
+4 3 (8, 7, 22)
+4 5 (8, 7, 22)
+4 6 (8, 7, 22)
+4 7 (8, 7, 22)
+4 8 (8, 7, 22)
+4 9 (8, 7, 22)
+5 0 (8, 7, 22)
+5 1 (8, 7, 22)
+5 2 (8, 7, 22)
+5 3 (8, 7, 22)
+5 4 (8, 7, 22)
+5 6 (8, 7, 22)
+5 7 (8, 7, 22)
+5 8 (8, 7, 22)
+5 9 (8, 7, 22)
+6 0 (8, 7, 22)
+6 1 (8, 7, 22)
+6 2 (8, 7, 22)
+6 3 (8, 7, 22)
+6 4 (8, 7, 22)
+6 5 (8, 7, 22)
+6 7 (8, 7, 22)
+6 8 (8, 7, 22)
+6 9 (8, 7, 22)
+7 0 (8, 7, 22)
+7 1 (8, 7, 22)
+7 2 (8, 7, 22)
+7 3 (8, 7, 22)
+7 4 (8, 7, 22)
+7 5 (8, 7, 22)
+7 6 (8, 7, 22)
+7 8 (8, 7, 22)
+7 9 (8, 7, 22)
+8 0 (8, 7, 22)
+8 1 (8, 7, 22)
+8 2 (8, 7, 22)
+8 3 (8, 7, 22)
+8 4 (8, 7, 22)
+8 5 (8, 7, 22)
+8 6 (8, 7, 22)
+8 7 (8, 7, 22)
+8 9 (8, 7, 22)
+9 0 (8, 7, 22)
+9 1 (8, 7, 22)
+9 2 (8, 7, 22)
+9 3 (8, 7, 22)
+9 4 (8, 7, 22)
+9 5 (8, 7, 22)
+9 6 (8, 7, 22)
+9 7 (8, 7, 22)
+9 8 (8, 7, 22)
+Best model: MODEL-0
+getting left right data
+l subject 1 has an augmentation of 12 segments
+r subject 1 has an augmentation of 12 segments
+l subject 10 has an augmentation of 12 segments
+r subject 10 has an augmentation of 12 segments
+l subject 11 has an augmentation of 12 segments
+r subject 11 has an augmentation of 12 segments
+l subject 12 has an augmentation of 12 segments
+r subject 12 has an augmentation of 12 segments
+l subject 2 has an augmentation of 12 segments
+r subject 2 has an augmentation of 12 segments
+l subject 3 has an augmentation of 12 segments
+r subject 3 has an augmentation of 12 segments
+l subject 4 has an augmentation of 12 segments
+r subject 4 has an augmentation of 12 segments
+l subject 5 has an augmentation of 12 segments
+r subject 5 has an augmentation of 12 segments
+l subject 6 has an augmentation of 12 segments
+r subject 6 has an augmentation of 12 segments
+l subject 7 has an augmentation of 12 segments
+r subject 7 has an augmentation of 12 segments
+l subject 8 has an augmentation of 12 segments
+r subject 8 has an augmentation of 12 segments
+l subject 9 has an augmentation of 12 segments
+r subject 9 has an augmentation of 12 segments
+Shape of mask:  (288, 469)  same as shape of 'z'
+The mask for this segment/subject is 207.0 frames
+Shape of mask:  (288, 469)  same as shape of 'z'
+The mask for this segment/subject is 207.0 frames
+Shape of mask:  (288, 469)  same as shape of 'z'
+The mask for this segment/subject is 207.0 frames
+Shape of mask:  (288, 469)  same as shape of 'z'
+The mask for this segment/subject is 207.0 frames
+Shape of mask:  (288, 469)  same as shape of 'z'
+The mask for this segment/subject is 207.0 frames
+Shape of mask:  (288, 469)  same as shape of 'z'
+The mask for this segment/subject is 207.0 frames
+Shape of mask:  (288, 469)  same as shape of 'z'
+The mask for this segment/subject is 207.0 frames
+Shape of mask:  (288, 469)  same as shape of 'z'
+The mask for this segment/subject is 207.0 frames
+Shape of mask:  (288, 469)  same as shape of 'z'
+The mask for this segment/subject is 207.0 frames
+Shape of mask:  (288, 469)  same as shape of 'z'
+The mask for this segment/subject is 207.0 frames
+saving in  training/outputs/2.model_ensembles/leftright/figures/state_sequence_lsub1.0.png
+MODEL-0
+MODEL-4
+MODEL-1
+MODEL-2
+MODEL-5
+MODEL-3
+MODEL-7
+MODEL-8
+MODEL-6
+MODEL-9
+['MODEL-0', 'MODEL-4', 'MODEL-1', 'MODEL-2', 'MODEL-5', 'MODEL-3', 'MODEL-7', 'MODEL-8', 'MODEL-6', 'MODEL-9']
+updating configuration for patient 1...
+updating configuration for patient 10...
+updating configuration for patient 11...
+updating configuration for patient 12...
+updating configuration for patient 13...
+updating configuration for patient 14...
+updating configuration for patient 15...
+updating configuration for patient 2...
+updating configuration for patient 3...
+updating configuration for patient 4...
+updating configuration for patient 5...
+updating configuration for patient 6...
+updating configuration for patient 7...
+updating configuration for patient 8...
+updating configuration for patient 9...
+  0%|          | 0/10 [00:00<?, ?it/s] 10%|█         | 1/10 [01:06<09:54, 66.01s/it] 20%|██        | 2/10 [01:48<06:59, 52.43s/it]/hpc/group/tdunn/jmj73/tulip_arhmm/analysis/classifier.py:51: RuntimeWarning:
+
+More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`). Consider using `matplotlib.pyplot.close()`.
+
+ 30%|███       | 3/10 [02:32<05:38, 48.38s/it] 40%|████      | 4/10 [03:23<04:55, 49.25s/it] 50%|█████     | 5/10 [04:10<04:02, 48.47s/it] 60%|██████    | 6/10 [04:52<03:05, 46.32s/it] 70%|███████   | 7/10 [05:33<02:14, 44.71s/it] 80%|████████  | 8/10 [06:23<01:32, 46.33s/it] 90%|█████████ | 9/10 [07:10<00:46, 46.43s/it]100%|██████████| 10/10 [07:56<00:00, 46.27s/it]100%|██████████| 10/10 [07:56<00:00, 47.61s/it]
+Classifying results in MODEL-0...
+no index csv in training/outputs/2.model_ensembles/leftright/index.csv, use make_index_csv
+moseq df saved to  training/outputs/2.model_ensembles/leftright
+stats df saved to  training/outputs/2.model_ensembles/leftright
+starting classification...
+leave_out  72
+Best Hyperparameters: {'learning_rate': 0.01, 'max_depth': 2, 'n_estimators': 150}
+Mean Accuracy: 0.8472222222222222
+Mean F1 Score: 0.8463765941477958
+Accuracy: 0.9305555555555556
+Best Hyperparameters: {'C': 0.001}
+Mean Accuracy: 0.8298611111111112
+Mean F1 Score: 0.8296720910037646
+Accuracy: 0.8333333333333334
+[[ 0.01882534  0.0185168  -0.02136026 -0.01822868  0.0190882   0.02116072
+   0.04204446 -0.05647468  0.02207725  0.00872684 -0.03610425 -0.00701489
+  -0.02434484 -0.02932163  0.06007586 -0.04840308 -0.01492747 -0.0118737
+   0.01380628]]
+Classifying results in MODEL-4...
+no index csv in training/outputs/2.model_ensembles/leftright/index.csv, use make_index_csv
+moseq df saved to  training/outputs/2.model_ensembles/leftright
+stats df saved to  training/outputs/2.model_ensembles/leftright
+starting classification...
+leave_out  72
+Best Hyperparameters: {'learning_rate': 0.2, 'max_depth': 1, 'n_estimators': 20}
+Mean Accuracy: 0.875
+Mean F1 Score: 0.8743882356454802
+Accuracy: 0.9027777777777778
+Best Hyperparameters: {'C': 0.1}
+Mean Accuracy: 0.90625
+Mean F1 Score: 0.9061862223165863
+Accuracy: 0.9444444444444444
+[[-0.25206173  0.03665805 -0.0718682   0.13385654  0.67699799 -0.691261
+  -0.46696818  0.59769513 -0.25453242  0.30895156 -0.55290239  0.66089412
+   0.4713765  -0.75421485 -0.43536097  0.48215874 -0.30909049  0.08216505
+  -0.04374864]]
+Classifying results in MODEL-1...
+no index csv in training/outputs/2.model_ensembles/leftright/index.csv, use make_index_csv
+moseq df saved to  training/outputs/2.model_ensembles/leftright
+stats df saved to  training/outputs/2.model_ensembles/leftright
+starting classification...
+leave_out  72
+Best Hyperparameters: {'learning_rate': 0.01, 'max_depth': 7, 'n_estimators': 150}
+Mean Accuracy: 0.8402777777777778
+Mean F1 Score: 0.8400630228450718
+Accuracy: 0.7916666666666666
+Best Hyperparameters: {'C': 10}
+Mean Accuracy: 0.8923611111111112
+Mean F1 Score: 0.8922580999334154
+Accuracy: 0.7638888888888888
+[[-1.57925534  2.34862608  0.03445289 -1.89184238  1.29542466 -0.36610896
+   1.01602006  2.3599665   1.18967379  1.28878865 -0.20080926 -2.66034021
+   4.62362642 -0.27839126  1.83887799  1.15478698 -0.76260648  0.63361337
+   0.29091317]]
+Classifying results in MODEL-2...
+no index csv in training/outputs/2.model_ensembles/leftright/index.csv, use make_index_csv
+moseq df saved to  training/outputs/2.model_ensembles/leftright
+stats df saved to  training/outputs/2.model_ensembles/leftright
+starting classification...
+leave_out  72
+Best Hyperparameters: {'learning_rate': 0.01, 'max_depth': 1, 'n_estimators': 150}
+Mean Accuracy: 0.78125
+Mean F1 Score: 0.7795265471749419
+Accuracy: 0.7083333333333334
+Best Hyperparameters: {'C': 100}
+Mean Accuracy: 0.8263888888888888
+Mean F1 Score: 0.8260256507440588
+Accuracy: 0.6666666666666666
+[[ 4.24092639 -3.28940178  2.35251851 -2.17239577 -1.43294466  0.78308177
+  -0.48376233  0.19570032  3.50266919  0.79991456 -1.7812006   1.95995312
+   0.27530464  5.77072247  0.81294659 -0.49568456 -0.3102348   0.25901397
+   0.35200565]]
+Classifying results in MODEL-5...
+no index csv in training/outputs/2.model_ensembles/leftright/index.csv, use make_index_csv
+moseq df saved to  training/outputs/2.model_ensembles/leftright
+stats df saved to  training/outputs/2.model_ensembles/leftright
+starting classification...
+leave_out  72
+Best Hyperparameters: {'learning_rate': 0.1, 'max_depth': 3, 'n_estimators': 70}
+Mean Accuracy: 0.8333333333333334
+Mean F1 Score: 0.8332994143617434
+Accuracy: 0.6666666666666666
+Best Hyperparameters: {'C': 100}
+Mean Accuracy: 0.8402777777777777
+Mean F1 Score: 0.839950389461592
+Accuracy: 0.7361111111111112
+[[-1.22754031  2.36822259 -1.77833871 -3.6643561   1.44342494  3.90816401
+   2.2091856  -2.31101937  5.58752715  2.1249939  -0.37953953  0.53317067
+  -0.21577118  1.48868527  8.59711979 -1.19351068 -0.10840428  0.07727894
+   0.81911559]]
+Classifying results in MODEL-3...
+no index csv in training/outputs/2.model_ensembles/leftright/index.csv, use make_index_csv
+moseq df saved to  training/outputs/2.model_ensembles/leftright
+stats df saved to  training/outputs/2.model_ensembles/leftright
+starting classification...
+leave_out  72
+Best Hyperparameters: {'learning_rate': 0.01, 'max_depth': 5, 'n_estimators': 70}
+Mean Accuracy: 0.9027777777777777
+Mean F1 Score: 0.9025365316306089
+Accuracy: 0.7361111111111112
+Best Hyperparameters: {'C': 1}
+Mean Accuracy: 0.8993055555555555
+Mean F1 Score: 0.8991376307543453
+Accuracy: 0.7083333333333334
+[[ 0.0892172   1.12968104 -1.03582361 -0.27235993  0.49605239  0.70621681
+  -1.31059352  1.19853088  0.54088556 -0.21037127  0.24248998 -0.70398716
+   1.5884936  -2.08205005 -0.84320859  1.46405442 -0.10957464  0.14781272
+   0.29159952]]
+Classifying results in MODEL-7...
+no index csv in training/outputs/2.model_ensembles/leftright/index.csv, use make_index_csv
+moseq df saved to  training/outputs/2.model_ensembles/leftright
+stats df saved to  training/outputs/2.model_ensembles/leftright
+starting classification...
+leave_out  72
+Best Hyperparameters: {'learning_rate': 0.001, 'max_depth': 7, 'n_estimators': 20}
+Mean Accuracy: 0.8333333333333334
+Mean F1 Score: 0.8324504510604637
+Accuracy: 0.9166666666666666
+Best Hyperparameters: {'C': 1}
+Mean Accuracy: 0.8888888888888888
+Mean F1 Score: 0.8887975998433291
+Accuracy: 0.9444444444444444
+[[ 0.1202832   0.33155928 -1.15813986 -0.16822103  0.5181582  -0.46985143
+   1.7994189  -0.84097884  1.7653863   0.07260375 -0.65454405 -1.61830182
+   0.40802377 -1.05792133  1.10871875 -0.70681464 -0.13591532  0.39171808
+   0.14471175]]
+Classifying results in MODEL-8...
+no index csv in training/outputs/2.model_ensembles/leftright/index.csv, use make_index_csv
+moseq df saved to  training/outputs/2.model_ensembles/leftright
+stats df saved to  training/outputs/2.model_ensembles/leftright
+starting classification...
+leave_out  72
+Best Hyperparameters: {'learning_rate': 0.01, 'max_depth': 5, 'n_estimators': 100}
+Mean Accuracy: 0.8159722222222222
+Mean F1 Score: 0.8148233412441988
+Accuracy: 0.9305555555555556
+Best Hyperparameters: {'C': 0.1}
+Mean Accuracy: 0.8368055555555555
+Mean F1 Score: 0.8362330392063914
+Accuracy: 0.9027777777777778
+[[ 0.10520412  0.0087855  -0.49699834 -0.21766037  0.27994122 -0.40597371
+   0.13938314  0.6502857   0.10453657 -0.44764258  0.12923563 -0.46967946
+   0.57851733 -0.17230384  0.4157539   0.57112259 -0.17725936  0.10887211
+   0.03980302]]
+Classifying results in MODEL-6...
+no index csv in training/outputs/2.model_ensembles/leftright/index.csv, use make_index_csv
+moseq df saved to  training/outputs/2.model_ensembles/leftright
+stats df saved to  training/outputs/2.model_ensembles/leftright
+starting classification...
+leave_out  72
+Best Hyperparameters: {'learning_rate': 0.01, 'max_depth': 1, 'n_estimators': 50}
+Mean Accuracy: 0.75
+Mean F1 Score: 0.7400619893630834
+Accuracy: 0.9722222222222222
+Best Hyperparameters: {'C': 10}
+Mean Accuracy: 0.8194444444444443
+Mean F1 Score: 0.8194022329034129
+Accuracy: 0.7916666666666666
+[[-1.49517264  2.39065544 -1.64617863  0.7581809   0.309993   -0.72095821
+  -2.02397033  0.34328502 -0.1090943   3.15549397  0.60249978 -0.8474667
+   1.63821349  0.0452089   1.79542609  2.54999358  0.46616032  0.39104416
+  -0.01914301]]
+Classifying results in MODEL-9...
+no index csv in training/outputs/2.model_ensembles/leftright/index.csv, use make_index_csv
+moseq df saved to  training/outputs/2.model_ensembles/leftright
+stats df saved to  training/outputs/2.model_ensembles/leftright
+starting classification...
+leave_out  72
+Best Hyperparameters: {'learning_rate': 0.2, 'max_depth': 1, 'n_estimators': 100}
+Mean Accuracy: 0.8993055555555557
+Mean F1 Score: 0.8991314665835742
+Accuracy: 0.9583333333333334
+Best Hyperparameters: {'C': 0.01}
+Mean Accuracy: 0.8819444444444443
+Mean F1 Score: 0.8816813488680496
+Accuracy: 0.9583333333333334
+[[-0.20218357 -0.06171706 -0.0437138   0.17893422 -0.19910089  0.08861415
+   0.27644897  0.14351207 -0.18326103 -0.13520957 -0.21858113  0.11864158
+  -0.15695696  0.1722079   0.22715447  0.12272535 -0.10199459  0.16809613
+  -0.03508305]]

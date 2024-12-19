@@ -1,0 +1,37 @@
+WARNING:absl:No GPU/TPU found, falling back to CPU. (Set TF_CPP_MIN_LOG_LEVEL=0 and rerun for more info.)
+{'body': 'g', 'body_name': 'gait', 'augment': True, 'taps_per_window': 20, 'num_states': 8, 'num_ar_iters': 50, 'num_full_iters': 500, 'ids': [1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9], 'thresh': 1, 'multiclass': False, 'class_models': ['xgboost', 'logistic'], 'plot_grouped_freq': True, 'plot_bars': True, 'num_keypoints': 26, 'ar_only_kappa': 10000.0, 'full_model_kappa': 1000.0, 'num_windows': 8, 'forward_indices': [3, 4, 19], 'target_direction': [1, 0, 0], 'config_path': 'training/gait_config.yml', 'combine': False}
+getting augmented data
+subject 1 has an augmentation of 8 segments
+subject 10 has an augmentation of 8 segments
+subject 11 has an augmentation of 8 segments
+subject 12 has an augmentation of 8 segments
+subject 13 has an augmentation of 8 segments
+subject 14 has an augmentation of 8 segments
+subject 15 has an augmentation of 8 segments
+subject 2 has an augmentation of 8 segments
+subject 3 has an augmentation of 8 segments
+subject 4 has an augmentation of 8 segments
+subject 5 has an augmentation of 8 segments
+subject 6 has an augmentation of 8 segments
+subject 7 has an augmentation of 8 segments
+subject 8 has an augmentation of 8 segments
+subject 9 has an augmentation of 8 segments
+entered function
+Writing grid movies to training/outputs/2.model_ensembles/gait/MODEL-2/grid_movies
+obtained index df
+got 8 instances
+{0: [('sub14.2', 85, 93), ('sub15.6', 121, 131), ('sub9.4', 7, 21), ('sub13.3', 0, 35), ('sub2.2', 21, 25), ('sub12.7', 130, 151), ('sub4.6', 268, 287), ('sub10.6', 288, 314), ('sub9.3', 178, 203), ('sub15.0', 160, 161), ('sub12.1', 19, 33), ('sub14.4', 0, 18)], 1: [('sub13.3', 70, 79), ('sub7.3', 72, 92), ('sub6.1', 68, 92), ('sub6.2', 68, 76), ('sub4.0', 415, 418), ('sub1.0', 194, 214), ('sub1.4', 87, 109), ('sub14.1', 84, 101), ('sub8.5', 66, 73), ('sub12.1', 259, 278), ('sub5.5', 183, 196), ('sub9.5', 6, 36)], 2: [('sub7.5', 16, 22), ('sub2.4', 81, 86), ('sub4.0', 109, 128), ('sub10.5', 331, 348), ('sub13.0', 130, 133), ('sub6.3', 227, 241), ('sub5.4', 47, 48), ('sub7.7', 4, 5), ('sub13.7', 240, 244), ('sub13.2', 364, 389), ('sub11.3', 128, 133), ('sub10.7', 184, 202)], 3: [('sub15.3', 103, 109), ('sub5.2', 164, 185), ('sub11.7', 69, 74), ('sub7.0', 113, 133), ('sub7.1', 75, 90), ('sub8.7', 140, 148), ('sub5.4', 187, 192), ('sub15.7', 204, 208), ('sub10.2', 319, 324), ('sub7.4', 240, 255), ('sub1.5', 4, 10), ('sub7.6', 251, 254)], 4: [('sub13.5', 26, 50), ('sub9.1', 137, 144), ('sub2.5', 142, 153), ('sub12.5', 98, 134), ('sub7.1', 114, 124), ('sub8.2', 93, 118), ('sub3.4', 158, 181), ('sub15.1', 134, 154), ('sub13.4', 16, 55), ('sub13.7', 124, 148), ('sub1.5', 100, 130), ('sub14.4', 53, 73)], 5: [('sub1.4', 129, 150), ('sub13.3', 281, 303), ('sub10.7', 9, 58), ('sub12.6', 167, 187), ('sub4.2', 146, 167), ('sub7.2', 51, 61), ('sub9.6', 91, 115), ('sub10.1', 175, 196), ('sub8.1', 138, 152), ('sub12.1', 141, 160), ('sub11.2', 217, 228), ('sub5.3', 374, 408)], 6: [('sub4.0', 0, 60), ('sub14.1', 0, 7), ('sub6.3', 0, 23), ('sub5.7', 0, 28), ('sub10.4', 0, 6), ('sub8.2', 0, 34), ('sub13.5', 0, 13), ('sub6.7', 0, 60), ('sub10.2', 0, 68), ('sub15.2', 0, 19), ('sub5.2', 0, 18), ('sub8.4', 0, 14)], 7: [('sub9.3', 0, 14), ('sub2.1', 0, 7), ('sub6.1', 0, 15), ('sub7.7', 0, 4), ('sub6.5', 0, 22), ('sub15.3', 163, 173), ('sub15.7', 170, 176), ('sub11.0', 0, 12), ('sub1.1', 0, 10), ('sub15.1', 76, 89), ('sub2.4', 0, 6), ('sub3.2', 0, 12)]}
+Using window size of 3472 pixels
+Generating grid movies:   0%|                     | 0/8 [00:00<?, ?it/s]Generating grid movies: 100%|███████████| 8/8 [00:00<00:00, 2768.52it/s]
+Writing labeled movies to training/outputs/2.model_ensembles/gait/MODEL-2/labeled_movies
+obtained index df
+  0%|          | 0/2 [00:00<?, ?it/s] 50%|█████     | 1/2 [00:16<00:16, 16.97s/it]100%|██████████| 2/2 [00:33<00:00, 16.60s/it]100%|██████████| 2/2 [00:33<00:00, 16.66s/it]
+[   8.13484364 -208.29054608]
+[  -5.77867298 -206.60888538]
+Saving trajectory plots to training/outputs/2.model_ensembles/gait/MODEL-2/trajectory_plots
+Generating trajectory plots:   0%|                | 0/6 [00:00<?, ?it/s]Generating trajectory plots:  17%|█▎      | 1/6 [00:02<00:13,  2.66s/it]Generating trajectory plots:  33%|██▋     | 2/6 [00:04<00:09,  2.45s/it]Generating trajectory plots:  50%|████    | 3/6 [00:07<00:07,  2.56s/it]Generating trajectory plots:  67%|█████▎  | 4/6 [00:09<00:04,  2.47s/it]Generating trajectory plots:  83%|██████▋ | 5/6 [00:12<00:02,  2.43s/it]Generating trajectory plots: 100%|████████| 6/6 [00:14<00:00,  2.39s/it]Generating trajectory plots: 100%|████████| 6/6 [00:14<00:00,  2.44s/it]
+Saved interactive trajectories plot to training/outputs/2.model_ensembles/gait/MODEL-2/trajectory_plots/all_trajectories.html
+{'text/html': '<iframe\n    scrolling="no"\n    width="100%"\n    height="520"\n    src="iframe_figures/figure_0.html"\n    frameborder="0"\n    allowfullscreen\n></iframe>\n'}
+create transition matrices...
+Group(s): HT, PD
+Saved figure to training/outputs/2.model_ensembles/gait/MODEL-2/figures/transition_matrices.png

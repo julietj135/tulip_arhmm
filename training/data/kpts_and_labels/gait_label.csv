@@ -1,0 +1,16 @@
+Subject,UPDRS_name,score1,score2,score3,gold_standard
+1,Gait - Body,0,0,1,0
+2,Gait - Body,0,1,1,1
+3,Gait - Body,0,1,0,0
+4,Gait - Body,1,2,1,1
+5,Gait - Body,0,1,1,1
+6,Gait - Body,1,1,2,1
+7,Gait - Body,0,0,1,0
+8,Gait - Body,1,1,2,1
+9,Gait - Body,0,0,1,0
+10,Gait - Body,2,1,2,2
+11,Gait - Body,1,2,1,1
+12,Gait - Body,0,0,0,0
+13,Gait - Body,1,2,2,2
+14,Gait - Body,0,1,0,0
+15,Gait - Body,1,2,2,2

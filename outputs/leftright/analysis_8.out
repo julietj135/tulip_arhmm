@@ -1,0 +1,147 @@
+WARNING:absl:No GPU/TPU found, falling back to CPU. (Set TF_CPP_MIN_LOG_LEVEL=0 and rerun for more info.)
+{'body': 'lr', 'body_name': 'leftright', 'augment': True, 'taps_per_window': 20, 'num_states': 8, 'num_ar_iters': 50, 'num_full_iters': 500, 'ids': [1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9], 'thresh': 2, 'multiclass': False, 'class_models': ['xgboost', 'logistic'], 'plot_grouped_freq': True, 'plot_bars': True, 'num_keypoints': 21, 'ar_only_kappa': 1000.0, 'full_model_kappa': 100.0, 'num_windows': 12, 'forward_indices': [0, 2, 17], 'target_direction': [1, 0, 0], 'config_path': 'training/hand_config.yml', 'combine': True}
+getting left right data
+l subject 1 has an augmentation of 12 segments
+r subject 1 has an augmentation of 12 segments
+l subject 10 has an augmentation of 12 segments
+r subject 10 has an augmentation of 12 segments
+l subject 11 has an augmentation of 12 segments
+r subject 11 has an augmentation of 12 segments
+l subject 12 has an augmentation of 12 segments
+r subject 12 has an augmentation of 12 segments
+l subject 13 has an augmentation of 12 segments
+r subject 13 has an augmentation of 12 segments
+l subject 14 has an augmentation of 12 segments
+r subject 14 has an augmentation of 12 segments
+l subject 15 has an augmentation of 12 segments
+r subject 15 has an augmentation of 12 segments
+l subject 2 has an augmentation of 12 segments
+r subject 2 has an augmentation of 12 segments
+l subject 3 has an augmentation of 12 segments
+r subject 3 has an augmentation of 12 segments
+l subject 4 has an augmentation of 12 segments
+r subject 4 has an augmentation of 12 segments
+l subject 5 has an augmentation of 12 segments
+r subject 5 has an augmentation of 12 segments
+l subject 6 has an augmentation of 12 segments
+r subject 6 has an augmentation of 12 segments
+l subject 7 has an augmentation of 12 segments
+r subject 7 has an augmentation of 12 segments
+l subject 8 has an augmentation of 12 segments
+r subject 8 has an augmentation of 12 segments
+l subject 9 has an augmentation of 12 segments
+r subject 9 has an augmentation of 12 segments
+entered function
+Writing grid movies to training/outputs/2.model_ensembles/leftright/MODEL-8/grid_movies
+obtained index df
+got 8 instances
+{0: [('rsub7.11', 72, 78), ('rsub11.2', 82, 95), ('rsub11.0', 137, 151), ('rsub1.0', 7, 10), ('rsub6.11', 9, 11), ('rsub9.8', 78, 81), ('rsub7.11', 163, 166), ('rsub6.6', 99, 101), ('rsub3.9', 70, 80), ('rsub3.5', 154, 166), ('lsub7.0', 62, 73), ('rsub3.0', 168, 176)], 1: [('rsub11.4', 94, 105), ('rsub11.6', 71, 82), ('rsub3.6', 124, 145), ('rsub6.7', 134, 227), ('rsub3.9', 80, 96), ('lsub7.3', 74, 84), ('rsub11.9', 199, 216), ('rsub11.6', 164, 165), ('lsub11.11', 46, 54), ('rsub11.7', 14, 29), ('rsub6.3', 65, 201), ('rsub6.3', 59, 64)], 2: [('rsub14.9', 0, 5), ('lsub7.2', 117, 122), ('rsub3.6', 0, 5), ('rsub2.1', 0, 5), ('rsub10.9', 0, 5), ('rsub9.4', 0, 8), ('rsub12.4', 0, 5), ('lsub12.8', 0, 5), ('rsub11.10', 0, 5), ('rsub14.9', 80, 84), ('rsub5.7', 0, 5), ('lsub7.3', 93, 97)], 3: [('lsub2.8', 208, 217), ('lsub12.6', 86, 114), ('lsub2.8', 160, 205), ('rsub12.2', 180, 289), ('rsub10.9', 203, 231), ('lsub5.4', 50, 164), ('rsub12.6', 140, 181), ('rsub10.5', 259, 330), ('lsub12.10', 76, 102), ('lsub5.8', 10, 198), ('rsub10.7', 156, 271), ('lsub2.3', 30, 54)], 4: [('rsub10.8', 284, 291), ('lsub5.7', 127, 134), ('rsub10.2', 105, 133), ('lsub10.0', 5, 8), ('lsub12.7', 8, 23), ('lsub2.10', 71, 92), ('lsub2.10', 241, 257), ('lsub2.11', 108, 124), ('rsub10.3', 80, 97), ('rsub12.7', 95, 103), ('lsub9.8', 54, 65), ('lsub13.5', 102, 107)], 5: [('lsub11.11', 5, 37), ('rsub1.4', 5, 213), ('lsub3.11', 5, 230), ('lsub7.4', 5, 177), ('rsub1.1', 5, 204), ('rsub14.9', 5, 39), ('lsub11.4', 21, 265), ('rsub14.1', 5, 117), ('rsub1.7', 5, 213), ('rsub14.2', 5, 89), ('lsub7.8', 5, 26), ('lsub7.0', 16, 39)], 6: [('lsub9.5', 5, 157), ('lsub13.5', 6, 22), ('lsub4.9', 13, 274), ('lsub4.8', 5, 195), ('lsub10.5', 177, 260), ('lsub10.6', 5, 300), ('lsub10.11', 286, 374), ('lsub13.3', 183, 198), ('rsub4.6', 5, 314), ('lsub9.8', 106, 145), ('rsub9.7', 142, 258), ('lsub9.10', 5, 41)], 7: [('lsub15.0', 0, 216), ('lsub8.6', 0, 248), ('lsub13.3', 109, 183), ('lsub13.5', 111, 324), ('lsub13.10', 0, 11), ('lsub15.6', 0, 143), ('lsub5.0', 5, 75), ('lsub13.6', 0, 94), ('rsub13.8', 0, 385), ('rsub15.4', 0, 209), ('rsub8.6', 0, 205), ('rsub8.2', 0, 221)]}
+Using window size of 224 pixels
+Generating grid movies:   0%|                     | 0/8 [00:00<?, ?it/s]Generating grid movies:  12%|█▋           | 1/8 [00:08<00:56,  8.13s/it]Generating grid movies:  25%|███▎         | 2/8 [00:16<00:49,  8.17s/it]Generating grid movies:  38%|████▉        | 3/8 [00:24<00:41,  8.21s/it]Generating grid movies:  50%|██████▌      | 4/8 [00:33<00:33,  8.49s/it]Generating grid movies:  62%|████████▏    | 5/8 [00:42<00:25,  8.50s/it]Generating grid movies:  75%|█████████▊   | 6/8 [00:50<00:16,  8.44s/it]Generating grid movies:  88%|███████████▍ | 7/8 [00:58<00:08,  8.20s/it]Generating grid movies: 100%|█████████████| 8/8 [01:05<00:00,  8.06s/it]Generating grid movies: 100%|█████████████| 8/8 [01:05<00:00,  8.23s/it]
+[ 5.44782967 89.68542832]
+[13.42031431 91.2928158 ]
+[ 7.99945632 90.80673617]
+[ 4.56414036 99.30834982]
+[  3.86757579 110.69554305]
+[ 3.18488493 92.80238645]
+[ 5.44782967 89.68542832]
+[ 22.47360009 104.10805088]
+[ 8.50794173 97.3722152 ]
+[12.30604375 94.25390484]
+[ 6.85663322 84.88137558]
+[13.72328147 92.24586359]
+[11.31723997 92.2932375 ]
+[14.35225305 92.65919466]
+[16.29834158 88.41550235]
+[  6.05938621 111.08608624]
+[ 8.50794173 97.3722152 ]
+[ 2.33449806 84.49335073]
+[13.24134612 90.47926068]
+[14.35225305 92.65919466]
+[-0.80632752 93.85615516]
+[14.50304969 89.93610057]
+[  6.16826474 110.00535973]
+[  6.16826474 110.00535973]
+[ 5.27787252 90.17065067]
+[ 6.1208889  86.34415529]
+[16.29834158 88.41550235]
+[3.98866625e-03 1.05816103e+02]
+[ 0.63914026 93.02965842]
+[ 2.04268178 91.01402959]
+[  3.97256929 105.98701822]
+[ -0.69976983 111.38403553]
+[13.30190265 90.06692787]
+[ 5.27787252 90.17065067]
+[ 2.55849928 83.81361606]
+[ 2.33449806 84.49335073]
+[  1.02292008 100.36282377]
+[  2.15821933 108.41939961]
+[  1.02292008 100.36282377]
+[  1.11104953 106.03220901]
+[ 0.63914026 93.02965842]
+[ 3.65805335 87.90525786]
+[ 9.06262098 94.69508472]
+[-1.72599081 94.89030031]
+[ -1.66397709 111.0914392 ]
+[ 2.33070645 86.65084374]
+[ 0.295746   98.06370116]
+[10.15032936 93.71542167]
+[ 0.42450371 93.7136575 ]
+[ 1.0318594  87.57523263]
+[-0.69139691 95.76540516]
+[-1.92063466 94.08079254]
+[ -2.22668245 112.41667955]
+[ 2.06147031 98.30589971]
+[ 2.06147031 98.30589971]
+[  2.56544477 100.8851172 ]
+[-0.74863454 93.23992207]
+[  1.52563778 105.13423013]
+[ 3.91973481 92.00516048]
+[-2.62500182 85.91285192]
+[-0.80632752 93.85615516]
+[ 2.15091639 97.77322172]
+[  2.13440388 103.25758173]
+[ 2.29314226 85.98152274]
+[ 4.03597996 95.83999307]
+[ 5.27787252 90.17065067]
+[-1.28265384 90.04255408]
+[ 1.82094977 88.85886464]
+[ 2.85952754 99.86097385]
+[ 1.30546586 89.47744769]
+[ 2.11853927 85.13539556]
+[ 6.85663322 84.88137558]
+[ 3.02139353 94.318494  ]
+[-2.62500182 85.91285192]
+[-6.66081744 95.03563279]
+[-4.26429644 97.84006177]
+[ 0.89072811 95.9869847 ]
+[-3.2710639  96.31722092]
+[ 1.49906911 95.79555856]
+[ 2.77250841 86.12585068]
+[-2.43549663 92.70819475]
+[ 3.91973481 92.00516048]
+[ 2.53637645 94.16206713]
+[ 2.03818177 92.11930522]
+[-1.62001091 93.55842528]
+[15.7111523  92.05278231]
+[ 2.77250841 86.12585068]
+[-2.62500182 85.91285192]
+[-0.91686004 87.40411963]
+[ 1.7190889  92.48082088]
+[ 2.36967262 89.10257382]
+[ 3.95681425 88.75720935]
+[ 8.53773911 83.04947576]
+[ 9.96033762 98.41091555]
+[19.69327309 84.65164614]
+[22.97081315 81.66466819]
+Writing labeled movies to training/outputs/2.model_ensembles/leftright/MODEL-8/labeled_movies
+obtained index df
+  0%|          | 0/2 [00:00<?, ?it/s]  0%|          | 0/2 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "/hpc/group/tdunn/jmj73/tulip_arhmm/work.py", line 69, in <module>
+    an.get_movies(save_dir,
+  File "/hpc/group/tdunn/jmj73/tulip_arhmm/analysis/results.py", line 88, in get_movies
+    generate_labeled_movie(results, save_dir, model_name, coordinates=data_dict["stand"], post = 190, keypoints_only=True, fps=40, use_dims=[1,2], rotate=True, subjects=names, **kpms_config())
+  File "/hpc/group/tdunn/jmj73/tulip_arhmm/analysis/results.py", line 699, in generate_labeled_movie
+    syllables[key],
+KeyError: 'sub1.0'

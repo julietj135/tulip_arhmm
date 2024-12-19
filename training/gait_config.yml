@@ -1,0 +1,201 @@
+
+
+#==================== ANATOMY =====================#
+
+# used to access columns in the keypoint data
+bodyparts:
+- nose0
+- lefteye1
+- righteye2
+- leftear3
+- rightear4
+- leftshoulder5
+- rightshoulder6
+- leftelbow7
+- rightelbow8
+- leftwrist9
+- rightwrist10
+- lefthip11
+- righthip12
+- leftknee13
+- rightknee14
+- leftankle15
+- rightankle16
+- head17
+- neck18
+- hip19
+- leftbigtoe20
+- rightbigtoe21
+- leftsmalltoe22
+- rightsmalltoe23
+- leftheel24
+- rightheel25
+
+# determines the subset of bodyparts to use for modeling and the order in which they are represented
+use_bodyparts:
+- nose0
+- lefteye1
+- righteye2
+- leftear3
+- rightear4
+- leftshoulder5
+- rightshoulder6
+- leftelbow7
+- rightelbow8
+- leftwrist9
+- rightwrist10
+- lefthip11
+- righthip12
+- leftknee13
+- rightknee14
+- leftankle15
+- rightankle16
+- head17
+- neck18
+- hip19
+- leftbigtoe20
+- rightbigtoe21
+- leftsmalltoe22
+- rightsmalltoe23
+- leftheel24
+- rightheel25
+
+# used for visualization only
+skeleton:
+- - nose0
+  - lefteye1
+- - lefteye1
+  - righteye2
+- - righteye2
+  - nose0
+- - nose0
+  - neck18
+- - head17
+  - neck18
+- - head17
+  - leftear3
+- - head17
+  - lefteye1
+- - head17
+  - righteye2
+- - head17
+  - rightear4
+- - neck18
+  - leftshoulder5
+- - leftshoulder5
+  - leftelbow7
+- - leftelbow7
+  - leftwrist9
+- - neck18
+  - rightshoulder6
+- - rightshoulder6
+  - rightelbow8
+- - rightelbow8
+  - rightwrist10
+- - neck18
+  - hip19
+- - hip19
+  - lefthip11
+- - lefthip11
+  - leftknee13
+- - leftknee13
+  - leftankle15
+- - leftankle15
+  - leftheel24
+- - leftheel24
+  - leftbigtoe20
+- - leftheel24
+  - leftsmalltoe22
+- - hip19
+  - righthip12
+- - righthip12
+  - rightknee14
+- - rightknee14
+  - rightankle16
+- - rightankle16
+  - rightheel25
+- - rightheel25
+  - rightbigtoe21
+- - rightheel25
+  - rightsmalltoe23
+
+# used to initialize heading
+anterior_bodyparts:
+- hip19
+
+# used to initialize heading
+posterior_bodyparts:
+- leftear3
+- rightear4
+
+
+#==================== FITTING =====================#
+
+# upper bound of uniform noise added to the data during initial AR-HMM fitting; this is used to regularize the model
+added_noise_level: 0.1
+
+# number of frames used to fit the PCA model during initialization
+PCA_fitting_num_frames: 1000
+
+# used to define outliers for interpolation when the model is initialized
+conf_threshold: 0.5
+
+
+#================== HYPER PARAMS ==================#
+
+# parameters to convert neural net likelihoods to error size priors
+error_estimator:
+  intercept: 0.25
+  slope: -0.5
+
+# keypoint observation hyperparameters
+obs_hypparams:
+  nu_s: 5
+  nu_sigma: 100000.0
+  sigmasq_0: 0.1
+  sigmasq_C: 0.1
+
+# autoregressive hyperparameters
+ar_hypparams:
+  K_0_scale: 10.0
+  S_0_scale: 0.01
+  latent_dim: 3
+  nlags: 3
+
+# transition hyperparameters
+trans_hypparams:
+  alpha: 5.7
+  gamma: 1000.0
+  kappa: 1000000.0
+  num_states: 8
+
+# centroid movement hyperparameters
+cen_hypparams:
+  sigmasq_loc: 0.5
+
+
+#===================== OTHER ======================#
+
+# suffix used to match videos to recording names; this can usually be left empty (see `util.find_matching_videos` for details)
+recording_name_suffix: ''
+
+# whether to print progress messages during fitting
+verbose: false
+
+# pseudocount used regularize neural network confidences
+conf_pseudocount: 0.001
+
+# directory with videos from which keypoints were derived (used for crowd movies)
+video_dir: proj_directory/data/videos/
+
+# colormap used for visualization; see `matplotlib.cm.get_cmap` for options
+keypoint_colormap: autumn
+
+# whether to whiten principal components; used to initialize the latent pose trajectory `x`
+whiten: true
+
+# whether to keep the heading angle fixed; this should only be True if the pose is constrained to a narrow range of angles, e.g. a headfixed mouse.
+fix_heading: true
+
+# data are broken up into segments to parallelize fitting
+seg_length: 10000

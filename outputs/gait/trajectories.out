@@ -1,0 +1,20 @@
+WARNING:absl:No GPU/TPU found, falling back to CPU. (Set TF_CPP_MIN_LOG_LEVEL=0 and rerun for more info.)
+Traceback (most recent call last):
+  File "/hpc/group/tdunn/jmj73/tulip_arhmm/work.py", line 4, in <module>
+    from run import *
+  File "/hpc/group/tdunn/jmj73/tulip_arhmm/run.py", line 2, in <module>
+    from preprocessing.data import *
+  File "/hpc/group/tdunn/jmj73/tulip_arhmm/preprocessing/__init__.py", line 2, in <module>
+    from .data import *
+  File "/hpc/group/tdunn/jmj73/tulip_arhmm/preprocessing/data.py", line 2, in <module>
+    from preprocessing.kinematic_processing import *
+  File "/hpc/group/tdunn/jmj73/tulip_arhmm/preprocessing/kinematic_processing.py", line 10, in <module>
+    from keypointmoseq.jaxmoseq.models.keypoint_slds.alignment import align_egocentric
+  File "/hpc/group/tdunn/jmj73/tulip_arhmm/keypointmoseq/__init__.py", line 12, in <module>
+    from .viz import *
+  File "/hpc/group/tdunn/jmj73/tulip_arhmm/keypointmoseq/viz.py", line 18, in <module>
+    from .util import *
+  File "/hpc/group/tdunn/jmj73/tulip_arhmm/keypointmoseq/util.py", line 26
+    )get_syllable_instances
+     ^
+SyntaxError: invalid syntax
