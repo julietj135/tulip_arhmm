@@ -88,7 +88,8 @@ def log_joint_likelihood(x, mask, z, pi, Ab, Q, **kwargs):
     """
     ll = {}
 
-    log_pz = discrete_stateseq_log_prob(z, pi)
+    log_pz = 
+    (z, pi)
     log_px = continuous_stateseq_log_prob(x, z, Ab, Q)
 
     nlags = get_nlags(Ab)

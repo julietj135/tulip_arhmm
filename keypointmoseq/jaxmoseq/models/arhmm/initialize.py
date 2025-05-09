@@ -6,7 +6,7 @@ from jax_moseq.utils import device_put_as_scalar, check_precision
 from jax_moseq.utils.transitions import init_hdp_transitions
 from jax_moseq.utils.distributions import sample_mniw
 
-from jax_moseq.models.arhmm.gibbs import resample_discrete_stateseqs
+from jaxmoseq.models.arhmm.gibbs import resample_discrete_stateseqs
 
 na = jnp.newaxis
 

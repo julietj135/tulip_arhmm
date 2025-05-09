@@ -11,7 +11,7 @@ from jax_moseq.utils import (
 )
 
 from jax_moseq.models import arhmm
-from jax_moseq.models.slds.gibbs import resample_scales
+from .gibbs import resample_scales
 
 na = jnp.newaxis
 

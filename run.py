@@ -209,6 +209,7 @@ def run_model(prefix,
         **kpms_config(), 
         seed=jax.random.PRNGKey(seed),
     )
+    # Ab:  (8, 7, 22) x:  (180, 440, 7) for left finger tapping
 
     # stage 1: fit the model with AR only
     model = kpms.update_hypparams(model, kappa=ar_only_kappa)

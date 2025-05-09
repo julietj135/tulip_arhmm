@@ -257,6 +257,7 @@ def resample_scales(seed, Y, x, Cd, sigmasq, nu_s, s_0, **kwargs):
     s : jax array of shape (N, T, obs_dim)
         Noise scales.
     """
+    print("s_0: ", s_0)
     sqerr = compute_squared_error(Y, x, Cd)
     return resample_scales_from_sqerr(seed, sqerr, sigmasq, nu_s, s_0)
 

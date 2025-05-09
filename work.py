@@ -36,14 +36,14 @@ print(body_config())
 # an.kappa_scan([1000,10000,100000,1000000], "training/outputs/1.kappa_scans/{}".format(body_name), "MODEL")
 
 # FOR RUNNING MODEL ENSEMBLES ON SUBSET
-prefix, seed, save_dir = "MODEL", int(sys.argv[1]),  "training/outputs/2.model_ensembles/{}".format(body_name)
+prefix, seed, save_dir = "MODEL", int(sys.argv[1]),  "training/outputs/3.testing/{}".format(body_name)
 
-# model, model_name = run_model(prefix, 
-#           seed, 
-#           kpms_config,
-#           body_config,
-#           save_dir,
-#           **body_config())
+model, model_name = run_model(prefix, 
+          seed, 
+          kpms_config,
+          body_config,
+          save_dir,
+          **body_config())
 model_name = "MODEL-"+str(seed)
 # apply_model(save_dir,
 #               model_name,
@@ -115,7 +115,7 @@ data_dict = an.quickly_get_data(**body_config())
 
 # an.plot_state_seq_ensemble(save_dir, prefix, [0,1,2,3,4,5], 2)
 # an.plot_state_seq_ensemble(save_dir, prefix, [0,1,2,3,4,5], 10)
-an.plot_state_seq_subjects(save_dir,model_name)
+# an.plot_state_seq_subjects(save_dir,model_name)
 
 # for syllables
 # coordinates = an.quickly_get_data(**body_config())
