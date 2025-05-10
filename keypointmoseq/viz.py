@@ -1768,8 +1768,8 @@ def generate_trajectory_plots(
     
 
     syllable_ixs = sorted(typical_trajectories.keys())
-    # titles = [f"Syllable{s}" for s in syllable_ixs]
-    titles = typical_trajectories.keys()
+    titles = [f"Syllable{s}" for s in syllable_ixs]
+    # titles = list(typical_trajectories.keys())
     Xs = np.stack([typical_trajectories[s] for s in syllable_ixs])
 
     if Xs.shape[-1] == 3:

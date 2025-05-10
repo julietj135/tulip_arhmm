@@ -2,10 +2,10 @@ import jax
 import jax.numpy as jnp
 import jax.random as jr
 
-from jaxmoseq import utils
+from keypointmoseq.jaxmoseq import utils
 from jax_moseq.utils import jax_io, device_put_as_scalar, check_precision
 
-from jaxmoseq.models import arhmm, slds
+from keypointmoseq.jaxmoseq.models import arhmm, slds
 from .gibbs import resample_scales
 from .alignment import preprocess_for_pca
 

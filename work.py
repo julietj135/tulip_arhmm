@@ -38,12 +38,12 @@ print(body_config())
 # FOR RUNNING MODEL ENSEMBLES ON SUBSET
 prefix, seed, save_dir = "MODEL", int(sys.argv[1]),  "training/outputs/3.testing/{}".format(body_name)
 
-model, model_name = run_model(prefix, 
-          seed, 
-          kpms_config,
-          body_config,
-          save_dir,
-          **body_config())
+# model, model_name = run_model(prefix, 
+#           seed, 
+#           kpms_config,
+#           body_config,
+#           save_dir,
+#           **body_config())
 model_name = "MODEL-"+str(seed)
 # apply_model(save_dir,
 #               model_name,
@@ -68,15 +68,15 @@ model_name = "MODEL-"+str(seed)
 
 
 # FOR GRID MOVIES AND SYLLABLE STUFF
-# an.get_movies(save_dir,
-#                     model_name,
-#                     body_config,
-#                     kpms_config,
-#                     False, # grid
-#                     False, # full
-#                     True, # traj
-#                     ["sub1.0","sub5.0"],
-#                     **body_config())
+an.get_movies(save_dir,
+                    model_name,
+                    body_config,
+                    kpms_config,
+                    False, # grid
+                    False, # full
+                    True, # traj
+                    ["sub1.0","sub5.0"],
+                    **body_config())
                     
 # an.get_transition_matrix(save_dir, model_name, 0.00)
 

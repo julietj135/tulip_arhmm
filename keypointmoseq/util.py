@@ -1069,19 +1069,19 @@ def get_typical_trajectories(
         min_instances=min_instances,
     )
     
-    # to create PD vs HT trajectories
-    PDs = [2,3,5]
-    PD_trajs = []
-    HT_trajs = []
-    for syll in syllable_instances.keys():
-        if syll in PDs:
-            print(syllable_instances[syll])
-            PD_trajs += syllable_instances[syll]
-        else:
-            HT_trajs += syllable_instances[syll]
+    # # to create PD vs HT trajectories
+    # PDs = [2,3,5]
+    # PD_trajs = []
+    # HT_trajs = []
+    # for syll in syllable_instances.keys():
+    #     if syll in PDs:
+    #         print(syllable_instances[syll])
+    #         PD_trajs += syllable_instances[syll]
+    #     else:
+    #         HT_trajs += syllable_instances[syll]
     
-    syllable_instances = {"UPDRS < 2": HT_trajs,"UPDRS >= 2": PD_trajs}
-    print(syllable_instances["UPDRS < 2"])
+    # syllable_instances = {"UPDRS < 2": HT_trajs,"UPDRS >= 2": PD_trajs}
+    # print(syllable_instances["UPDRS < 2"])
 
     if len(syllable_instances) == 0:
         raise ValueError(
