@@ -1,4 +1,4 @@
-## Outer directory files
+# Outer directory files
 
 **run.py**
 
@@ -12,9 +12,9 @@ Can ignore, was just to test code on DCC.
 
 Execution script that loads in data and applies all other functions.
 
-## Preprocessing
+# Preprocessing
 
-# Internal directories
+## Internal directories
 **configs**
 
 Contains all configuration files for each behaviorial test.
