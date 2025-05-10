@@ -14,6 +14,9 @@ Execution script that loads in data and applies all other functions.
 
 # Subdirectories
 
+## Training
+Contains data and model outputs. Model outputs are ignored on git due to size.
+
 ## Preprocessing
 
 ### Internal directories
