@@ -12,9 +12,11 @@ Can ignore, was just to test code on DCC.
 
 Execution script that loads in data and applies all other functions.
 
-# Preprocessing
+# Subdirectories
 
-## Internal directories
+## Preprocessing
+
+### Internal directories
 **configs**
 
 Contains all configuration files for each behaviorial test.
