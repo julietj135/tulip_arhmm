@@ -8,10 +8,48 @@ from analysis.results import *
 import h5py
 
 def kappa_scan(kappas, save_dir, prefix,):
+    """
+    Plots a kappa scan and saves the plot as a PDF.
+
+    Parameters
+    ----------
+    kappas : list of float
+        A list of kappa values to scan.
+    save_dir : str
+        Directory where the plot will be saved.
+    prefix : str
+        Prefix for the file naming convention.
+
+    Returns
+    -------
+    None
+        Generates and saves a PDF plot of the kappa scan.
+    """
+
     kpms.plot_kappa_scan(kappas, save_dir, prefix)
     plt.savefig(save_dir+"/kappas.pdf")
     
 def plot_state_seq_ensemble(save_dir, prefix, model_ids, index):
+    """
+    Plots an ensemble of state sequences for multiple models.
+
+    Parameters
+    ----------
+    save_dir : str
+        Directory where results are saved.
+    prefix : str
+        Prefix for model names.
+    model_ids : list of int
+        List of model IDs to include in the ensemble.
+    index : int
+        Index of the state sequence to plot.
+
+    Returns
+    -------
+    None
+        Generates and saves a PDF plot of the ensemble state sequences.
+    """
+
     model_names = ['MODEL-{}'.format(i) for i in model_ids]
     all_zs = []
     for model_name in model_names:
@@ -30,6 +68,24 @@ def plot_state_seq_ensemble(save_dir, prefix, model_ids, index):
         
     
 def model_ensemble(save_dir, prefix, model_ids):
+    """
+    Analyzes and visualizes the performance of an ensemble of models.
+
+    Parameters
+    ----------
+    save_dir : str
+        Directory where results are saved.
+    prefix : str
+        Prefix for model names.
+    model_ids : list of int
+        List of model IDs to include in the ensemble.
+
+    Returns
+    -------
+    None
+        Generates and saves plots of expected marginal likelihood scores and confusion matrices.
+    """
+
     model_names = ['MODEL-{}'.format(i) for i in model_ids]
     print(model_names)
     
@@ -63,6 +119,32 @@ def plot_states(save_dir,
                 start, 
                 window_size, 
                 ax):
+    """
+    Plots the state sequence history for a specific model and subject.
+
+    Parameters
+    ----------
+    save_dir : str
+        Directory where model data is saved.
+    model_name : str
+        Name of the model whose results are being plotted.
+    name : str
+        Name of the subject.
+    index : int
+        Index of the subject for the state sequence.
+    start : int
+        Starting frame index for the window to plot.
+    window_size : int
+        Number of frames to include in the window.
+    ax : matplotlib.axes.Axes
+        The axes object to plot the state sequence on.
+
+    Returns
+    -------
+    None
+        Plots the state sequence history for the subject and saves the figure.
+    """
+
     model_dir = os.path.join(save_dir, model_name)
     
     if not os.path.isdir(model_dir+"/figures/"):
@@ -96,6 +178,20 @@ def plot_states(save_dir,
     ax.set_xticklabels(xticklabels)
 
 def get_num_frames(body_config):
+    """
+    Retrieves the number of frames for each subject from the data.
+
+    Parameters
+    ----------
+    body_config : function
+        A function to configure body data.
+
+    Returns
+    -------
+    dict
+        A dictionary mapping subject names to the number of frames for each subject.
+    """
+
     data_dict = quickly_get_data(**body_config())
     num_frames = {}
     for name in data_dict["rot"].keys():
@@ -111,6 +207,34 @@ def get_sequences(save_dir,
                   num_windows,
                   **kwargs
                   ):
+    """
+    Retrieves and plots state sequences for a specific subject, segment, and model ensemble.
+
+    Parameters
+    ----------
+    save_dir : str
+        Directory where model data is saved.
+    prefix : str
+        Prefix for model names.
+    subject : int
+        Subject ID for which to retrieve and plot sequences.
+    segment : int
+        Segment of the subject's data to retrieve.
+    body_config : function
+        A function to configure body data.
+    augment : bool
+        Whether to augment the data.
+    num_windows : int
+        Number of windows to use for the segmentation.
+    **kwargs : additional keyword arguments
+        Additional arguments to pass to helper functions.
+
+    Returns
+    -------
+    None
+        Plots the state sequences for the subject and saves the figure.
+    """
+
     # get model names
     model_names=[]
     for subdir, dirs, files in os.walk(save_dir):

@@ -19,6 +19,33 @@ def quickly_get_data(ids,
                      combine,
                      augment,
                      **kwargs):
+    """
+    Retrieves data based on specified preprocessing type: left-right combined data, augmented data, or full subject data.
+
+    Parameters
+    ----------
+    ids : list
+        List of subject identifiers.
+    body : str
+        Specifies the body part or configuration (e.g., "lr").
+    num_windows : int
+        Number of temporal windows per subject.
+    forward_indices : list
+        Indices used for forward alignment.
+    target_direction : str
+        Direction to align or process movement (e.g., "forward").
+    combine : bool
+        If True, returns left-right combined data.
+    augment : bool
+        If True, returns augmented data.
+    **kwargs : dict
+        Additional arguments.
+
+    Returns
+    -------
+    dict
+        Dictionary containing processed data keyed by subject.
+    """
     if combine:
         print("getting left right data")
         data_dict = get_left_right_data(ids, num_windows, body, forward_indices, target_direction)
@@ -39,6 +66,33 @@ def make_index_csv(save_dir,
                    body,
                    num_windows,
                    **kwargs):
+    """
+    Creates a new index CSV file mapping each sample to its group label (HT or PD) after augmentation.
+
+    Parameters
+    ----------
+    save_dir : str
+        Directory to save the index file.
+    og_index_df : pd.DataFrame
+        Original index DataFrame containing subject names and group labels.
+    data : dict
+        Dictionary of processed data.
+    augment : bool
+        If True, assumes augmentation and expands labels accordingly.
+    ids : list
+        List of subject identifiers.
+    body : str
+        Type of body data ("lr" for left-right).
+    num_windows : int
+        Number of windows per subject.
+    **kwargs : dict
+        Additional arguments.
+
+    Returns
+    -------
+    pd.DataFrame
+        New index DataFrame with sample names and group labels.
+    """
     new_labels = []
     
     if augment and body != "lr":
@@ -58,52 +112,77 @@ def make_index_csv(save_dir,
     return df
 
 def plot_numsub_in_syllable(save_dir, model_name):
+    """
+    Plots the number of subjects (total, healthy, and diseased) that used each syllable.
+
+    Parameters
+    ----------
+    save_dir : str
+        Directory containing results and where plots will be saved.
+    model_name : str
+        Name of the trained model.
+
+    Saves
+    -----
+    counts.png, counts_combined.png : Bar plots of syllable usage statistics.
+    """
     results = kpms.load_results(save_dir, model_name)
     z = []
     lengths = []
+
     for subject in results.keys():
         seq = results[subject]["syllable"]
         z.append(seq)
         lengths.append(len(seq))
-    
-    for seq in range(len(z)):
-        if len(z[seq]) < max(lengths):
-            z[seq] = z[seq] + [-1]*(max(lengths)-len(z[seq]))
-        
-    z = np.array(z)
-    print(len(z))
-    print(z)
+
+    max_len = max(lengths)
+    z_array = np.full((len(z), max_len), -1)
+    for i, seq in enumerate(z):
+        z_array[i, :len(seq)] = seq
+    print(len(z_array))
+    print(z_array)
     index_df = pd.read_csv(os.path.join(save_dir,'index.csv'))
 
     counts, pd_counts, ht_counts = {}, {}, {}
-    for i in range(np.max(z)+1):
+    for i in range(np.max(z_array)+1):
         counts[i], pd_counts[i], ht_counts[i] = 0,0,0
-    for i in range(len(z)):
-        sylls = set(z[i])
+    for i in range(len(z_array)):
+        sylls = set(z_array[i])
         diagnosis = index_df.group[i]
         for syll in sylls:
-            counts[syll] += 1
-            if diagnosis == "HT":
-                ht_counts[syll] += 1
-            else:
-                pd_counts[syll] += 1
+            if syll > -1:
+                counts[syll] += 1
+                if diagnosis == "HT":
+                    ht_counts[syll] += 1
+                else:
+                    pd_counts[syll] += 1
     
     plt.figure(figsize=(9,3))
     plt.subplot(1,3,1)
-    plt.bar(np.arange(np.max(z)+1), counts.values(), color='black')
+    plt.bar(np.arange(np.max(z_array)+1), counts.values(), color='black')
     plt.xlabel("syllable")
     plt.ylabel("total number of subjects")
     plt.subplot(1,3,2)
-    plt.bar(np.arange(np.max(z)+1), ht_counts.values(), color='green')
+    plt.bar(np.arange(np.max(z_array)+1), ht_counts.values(), color='green')
     plt.xlabel("syllable")
     plt.ylabel("total number of healthy subjects")
     plt.subplot(1,3,3)
-    plt.bar(np.arange(np.max(z)+1), pd_counts.values(), color='salmon')
+    plt.bar(np.arange(np.max(z_array)+1), pd_counts.values(), color='salmon')
     plt.xlabel("syllable")
     plt.ylabel("total number of diseased subjects")
     plt.tight_layout()
     plt.savefig(save_dir+"/"+model_name+"/figures/counts.png")
-        
+
+    # Another plot
+    plt.figure(figsize=(5,5))
+    print("HT counts: ", list(ht_counts.values()))
+    print("PD counts: ", list(pd_counts.values()))
+    plt.bar(np.arange(np.max(z_array)+1), list(ht_counts.values()), label='UPDRS < 2', color='green')
+    plt.bar(np.arange(np.max(z_array)+1), list(pd_counts.values()), bottom=list(ht_counts.values()), label='UPDRS >= 2', color='salmon')
+    plt.ylabel('Number of Augmented Subjects')
+    plt.legend()
+    plt.tight_layout()
+    plt.savefig(save_dir+"/"+model_name+"/figures/counts_combined.png")
 
 def plot_syllable(
     coordinates,
@@ -124,9 +203,59 @@ def plot_syllable(
     lims=None,
     projection_planes=["xy", "xz"],
     density_sample=False,
-    sampling_options={"n_neighbors": 50},
+    sampling_options={"n_neighbors": 1},
     **kwargs
 ):
+    """
+    Plots typical trajectories for each syllable in 2D projections.
+
+    Parameters
+    ----------
+    coordinates : np.ndarray
+        Pose or keypoint data.
+    results : dict
+        Model output containing syllables.
+    save_dir : str
+        Root directory for saving plots.
+    model_name : str
+        Name of the model used for labeling.
+    output_dir : str, optional
+        Path to save trajectory plots (defaults to model-based path).
+    pre : int
+        Frames before syllable onset to include.
+    post : int
+        Frames after syllable onset to include.
+    min_frequency : float
+        Minimum frequency threshold for a syllable to be included.
+    min_duration : int
+        Minimum duration for a syllable to be considered.
+    skeleton : list
+        Skeleton structure for visualization.
+    bodyparts : list
+        All body parts available in the data.
+    use_bodyparts : list
+        Subset of bodyparts to include.
+    plot_options : dict
+        Options for the plot appearance.
+    get_limits_pctl : float
+        Percentile for calculating axis limits.
+    padding : dict
+        Padding for plot limits.
+    lims : np.ndarray, optional
+        Global limits for trajectory plots.
+    projection_planes : list of str
+        Planes to project ('xy', 'xz', 'yz').
+    density_sample : bool
+        Whether to sample based on density.
+    sampling_options : dict
+        Options for sampling (e.g., neighbors).
+    **kwargs : dict
+        Additional arguments.
+
+    Saves
+    -----
+    One PDF plot per syllable per projection.
+    """
     
     edges = [] if len(skeleton) == 0 else kpms.get_edges(use_bodyparts, skeleton)
     output_dir = "{}/{}/trajectory_plots/".format(save_dir,model_name)
@@ -189,6 +318,20 @@ def plot_syllable(
     
 
 def plot_state_seq_subjects(save_dir,model_name):
+    """
+    Visualizes the state (syllable) sequences of the first two windows per subject as a heatmap.
+
+    Parameters
+    ----------
+    save_dir : str
+        Directory containing model results.
+    model_name : str
+        Name of the model.
+
+    Saves
+    -----
+    state_seq_subjects.pdf : Heatmap of state sequences.
+    """
     results = kpms.load_results(save_dir, model_name)
     z = []
     lengths = []
@@ -239,6 +382,39 @@ def plot_progress(
     min_frequency=0.001,
     min_histogram_length=10,
 ):
+    """
+    Plots progress metrics during training: frequency distribution, duration histogram, and median duration over iterations.
+
+    Parameters
+    ----------
+    model : dict
+        Final model containing 'states' with syllable sequences.
+    data : dict
+        Data dictionary with 'mask' used for training.
+    checkpoint_path : str
+        Path to the HDF5 file containing model snapshots.
+    project_dir : str, optional
+        Directory to save plots.
+    model_name : str, optional
+        Name of the model (used in file naming).
+    path : str, optional
+        Specific path to save the figure.
+    savefig : bool
+        If True, saves the figure.
+    fig_size : tuple, optional
+        Size of the final figure.
+    window_size : int
+        Number of frames to sample for sequence evolution.
+    min_frequency : float
+        Minimum frequency for syllables to be included in histogram.
+    min_histogram_length : int
+        Minimum length for frequency histogram x-axis.
+
+    Returns
+    -------
+    tuple
+        (fig, axs) for the generated figure and its axes.
+    """
     z = np.array(model["states"]["z"])
     mask = np.array(data["mask"])
     durations = get_durations(z, mask)
@@ -303,6 +479,30 @@ def get_zvals(save_dir,
                    body_ind,
                    sub_id,
                    name):
+    """
+    Retrieves the z-values for a specific body part and subject from the processed data.
+
+    Parameters
+    ----------
+    save_dir : str
+        Directory where results are saved.
+    model_name : str
+        Name of the model whose results are to be accessed.
+    body_config : function
+        A function to configure body data.
+    body_ind : int
+        Index of the body part for which z-values are required.
+    sub_id : int
+        Identifier for the subject.
+    name : str
+        The specific name or identifier of the data to retrieve.
+
+    Returns
+    -------
+    np.ndarray
+        The z-values for the specified body part, subject, and data name.
+    """
+
     config = body_config()
     config.update(ids = [sub_id])
     body_config = lambda: config
@@ -316,7 +516,28 @@ def plot_syllable_fingers(save_dir,
                    body_config,
                    plot_ids,
                    body):
-    
+    """
+    Plots finger-related data (index and thumb movements) with syllable states.
+
+    Parameters
+    ----------
+    save_dir : str
+        Directory where model data is saved.
+    model_name : str
+        Name of the model whose results are being analyzed.
+    body_config : function
+        A function to configure body data.
+    plot_ids : list of int
+        List of subject IDs to plot.
+    body : str
+        Indicates whether the plot is for the left ('l') or right ('r') hand.
+
+    Returns
+    -------
+    None
+        Generates and saves plots showing finger movement (index and thumb).
+    """
+
     if body not in "lr":
         raise ValueError("body is not fingertapping, should not use plot_syllable_fingers")
     
@@ -374,7 +595,28 @@ def plot_syllable_heel(save_dir,
                    body_config,
                    plot_ids,
                    body):
-    
+    """
+    Plots heel-related data (left and right heel movements) with syllable states.
+
+    Parameters
+    ----------
+    save_dir : str
+        Directory where model data is saved.
+    model_name : str
+        Name of the model whose results are being analyzed.
+    body_config : function
+        A function to configure body data.
+    plot_ids : list of int
+        List of subject IDs to plot.
+    body : str
+        Indicates the body type ('g' for gait data).
+
+    Returns
+    -------
+    None
+        Generates and saves plots showing heel movement (left and right).
+    """
+
     if body != "g":
         raise ValueError("body is not gait, should not use plot_syllable_heel")
     
@@ -437,7 +679,44 @@ def get_movies(save_dir,
                     augment,
                     ids,
                     **kwargs):
-    
+    """
+    Generates and saves movies for different body movements (e.g., grid, full movie, trajectory).
+
+    Parameters
+    ----------
+    save_dir : str
+        Directory where results are saved.
+    model_name : str
+        Name of the model whose results are being analyzed.
+    body_config : function
+        A function to configure body data.
+    kpms_config : dict
+        Configuration for the KPMS tool.
+    get_grid : bool
+        Whether to generate grid movie.
+    get_full : bool
+        Whether to generate full movie.
+    get_trajectories : bool
+        Whether to generate trajectory plots.
+    names : list
+        List of subject names.
+    body : str
+        Indicates body type ('g' for gait).
+    combine : bool
+        Whether to combine results from multiple subjects.
+    augment : bool
+        Whether to augment the data.
+    ids : list
+        List of subject IDs to process.
+    **kwargs : additional keyword arguments
+        Additional arguments passed to the movie generation functions.
+
+    Returns
+    -------
+    None
+        Generates and saves movie files.
+    """
+
     # get data and results
     data_dict = quickly_get_data(**body_config())
     results = kpms.load_results(save_dir, model_name)
@@ -462,6 +741,22 @@ def get_movies(save_dir,
         kpms.generate_trajectory_plots(data_dict["rot"], results, save_dir, model_name, fps=40, min_frequency=0.0, projection_planes=["yz"], **kpms_config())
 
 def check_dataframes(save_dir,model_name):
+    """
+    Checks and computes missing dataframes required for the analysis (e.g., 'moseq_df' and 'stats_df').
+
+    Parameters
+    ----------
+    save_dir : str
+        Directory where model data is saved.
+    model_name : str
+        Name of the model whose data is being processed.
+
+    Returns
+    -------
+    None
+        Ensures the necessary dataframes are present in the model directory.
+    """
+
     model_dir = os.path.join(save_dir, model_name) 
     stats_dir = os.path.join(model_dir,'stats_df.csv')
     
@@ -479,6 +774,24 @@ def check_dataframes(save_dir,model_name):
 def get_transition_matrix(save_dir,
                           model_name,
                           min_frequency):
+    """
+    Generates and visualizes transition matrices for syllables with a specified frequency threshold.
+
+    Parameters
+    ----------
+    save_dir : str
+        Directory where model data is saved.
+    model_name : str
+        Name of the model whose results are being analyzed.
+    min_frequency : float
+        Minimum frequency threshold for syllables to be included in the transition matrix.
+
+    Returns
+    -------
+    None
+        Generates and saves visualizations of transition matrices.
+    """
+
     normalize='bigram' # normalization method ("bigram", "rows" or "columns")
     
     check_dataframes(save_dir, model_name)
@@ -497,6 +810,21 @@ def get_transition_matrix(save_dir,
 def get_syllable_quantitative_main(save_dir,
                               model_name,
                               ):
+    """
+    Computes and plots summary statistics (e.g., mean, std) of various features for each syllable.
+
+    Parameters
+    ----------
+    save_dir : str
+        Directory where model data is saved.
+    model_name : str
+        Name of the model whose results are being analyzed.
+
+    Returns
+    -------
+    None
+        Generates and saves plots of quantitative syllable features.
+    """
 
     model_dir = os.path.join(save_dir, model_name) 
     
@@ -536,6 +864,21 @@ def get_syllable_quantitative_main(save_dir,
 def get_syllable_quantitative_all(save_dir,
                               model_name,
                               ):
+    """
+    Computes and plots summary statistics (e.g., mean, std) of all features for each syllable.
+
+    Parameters
+    ----------
+    save_dir : str
+        Directory where model data is saved.
+    model_name : str
+        Name of the model whose results are being analyzed.
+
+    Returns
+    -------
+    None
+        Generates and saves plots of all quantitative syllable features.
+    """
 
     model_dir = os.path.join(save_dir, model_name) 
     
@@ -580,6 +923,30 @@ def get_syllable_instances(
     min_frequency=0,
     min_instances=0,
 ):
+    """
+    Extracts instances of syllables from state sequences based on specified duration, frequency, and count thresholds.
+
+    Parameters
+    ----------
+    stateseqs : dict
+        Dictionary containing syllable state sequences for each subject.
+    min_duration : int
+        Minimum duration of syllable instances to include.
+    pre : int
+        Number of frames before syllable start.
+    post : int
+        Number of frames after syllable end.
+    min_frequency : float
+        Minimum frequency of syllables for inclusion.
+    min_instances : int
+        Minimum number of instances required for syllable inclusion.
+
+    Returns
+    -------
+    dict
+        A dictionary containing syllable instances that meet the specified thresholds.
+    """
+
     num_syllables = int(max(map(max, stateseqs.values())) + 1)
     syllable_instances = [[] for syllable in range(num_syllables)]
     movie_titles = [[] for syllable in range(num_syllables)]
@@ -598,6 +965,23 @@ def get_syllable_instances(
     return {syllable: syllable_instances[syllable] for syllable in use_syllables}
 
 def write_video_clip(frames, path, fps=30, quality=7):
+    """Write a video clip to a file.
+
+    Parameters
+    ----------
+    frames : np.ndarray
+        Video frames as a 4D array of shape `(num_frames, height, width, 3)`
+        or a 3D array of shape `(num_frames, height, width)`.
+
+    path : str
+        Path to save the video clip.
+
+    fps : int, default=30
+        Framerate of video encoding.
+
+    quality : int, default=7
+        Quality of video encoding.
+    """
     with imageio.get_writer(
         path, pixelformat="yuv420p", fps=fps, quality=quality
     ) as writer:
@@ -615,6 +999,43 @@ def get_grid_movie_window_size(
     fudge_factor=1.1,
     blocksize=16,
 ):
+    """Automatically determine the window size for a grid movie.
+
+    The window size is set such that across all sampled instances,
+    the animal is fully visible in at least `pctl` percent of frames.
+
+    Parameters
+    ----------
+    sampled_instances: dict
+        Dictionary mapping syllables to lists of instances, where each
+        instance is specified as a tuple with the video name, start frame
+        and end frame.
+
+    centroids: dict
+        Dictionary mapping video names to arrays of shape `(n_frames, 2)`
+        with the x,y coordinates of animal centroid on each frame
+
+    headings: dict
+        Dictionary mapping video names to arrays of shape `(n_frames,)`
+        with the heading of the animal on each frame (in radians)
+
+    coordinates: dict
+        Dictionary mapping recording names to keypoint coordinates as
+        ndarrays of shape (n_frames, n_bodyparts, 2).
+
+    pre, post: int
+        Number of frames before/after syllable onset that are included
+        in the grid movies.
+
+    pctl: int, default=95
+        Percentile of frames in which the animal should be fully visible.
+
+    fudge_factor: float, default=1.1
+        Factor by which to multiply the window size.
+
+    blocksize: int, default=16
+        Window size is rounded up to the nearest multiple of `blocksize`.
+    """
     all_trajectories = get_instance_trajectories(
         sum(sampled_instances.values(), []),
         coordinates,
@@ -644,6 +1065,45 @@ def overlay_keypoints_on_image(
     title=None,  # New parameter for title
     rotate=False,
 ):
+    """Overlay keypoints on an image.
+
+    Parameters
+    ----------
+    image: ndarray of shape (height, width, 3)
+        Image to overlay keypoints on.
+
+    coordinates: ndarray of shape (num_keypoints, 2)
+        Array of keypoint coordinates.
+
+    edges: list of tuples, default=[]
+        List of edges that define the skeleton, where each edge is a
+        pair of indexes.
+
+    keypoint_colormap: str, default='autumn'
+        Name of a matplotlib colormap to use for coloring the keypoints.
+
+    keypoint_colors : array-like, shape=(num_keypoints,3), default=None
+        Color for each keypoint. If None, the keypoint colormap is used.
+        If the dtype is int, the values are assumed to be in the range 0-255,
+        otherwise they are assumed to be in the range 0-1.
+
+    node_size: int, default=5
+        Size of the keypoints.
+
+    line_width: int, default=2
+        Width of the skeleton lines.
+
+    copy: bool, default=False
+        Whether to copy the image before overlaying keypoints.
+
+    opacity: float, default=1.0
+        Opacity of the overlay graphics (0.0-1.0).
+
+    Returns
+    -------
+    image: ndarray of shape (height, width, 3)
+        Image with keypoints overlayed.
+    """
     if copy or opacity < 1.0:
         canvas = image.copy()
     else:

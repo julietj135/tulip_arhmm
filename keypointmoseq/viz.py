@@ -1653,7 +1653,7 @@ def generate_trajectory_plots(
     projection_planes=["xy", "xz"],
     interactive=True,
     density_sample=True,
-    sampling_options={"n_neighbors": 50},
+    sampling_options={"n_neighbors": 1},
     **kwargs,
 ):
     """
@@ -1769,7 +1769,7 @@ def generate_trajectory_plots(
 
     syllable_ixs = sorted(typical_trajectories.keys())
     titles = [f"Syllable{s}" for s in syllable_ixs]
-    # titles = list(typical_trajectories.keys())
+    # titles = list(typical_trajectories.keys()) ## uncomment this if trajectories are grouped by labels not syllables
     Xs = np.stack([typical_trajectories[s] for s in syllable_ixs])
 
     if Xs.shape[-1] == 3:

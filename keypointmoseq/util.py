@@ -365,7 +365,7 @@ def get_syllable_instances(
         for s, e, syllable in zip(starts, ends, stateseq[starts]):
             if e - s >= min_duration and s >= pre and s < len(stateseq) - post:
                 syllable_instances[syllable].append((key, s, e))
-
+                
     frequencies_filter = get_frequencies(stateseqs) >= min_frequency
     counts_filter = np.array(list(map(len, syllable_instances))) >= min_instances
     use_syllables = np.all([frequencies_filter, counts_filter], axis=0).nonzero()[0]
@@ -1068,7 +1068,7 @@ def get_typical_trajectories(
         min_frequency=min_frequency,
         min_instances=min_instances,
     )
-    
+
     # # to create PD vs HT trajectories
     # PDs = [2,3,5]
     # PD_trajs = []

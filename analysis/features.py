@@ -9,6 +9,16 @@ import pickle
 from keypointmoseq.jaxmoseq.utils import get_durations, get_frequencies
 
 def find_consecutive_sequences(labels):
+    """
+    Identify sequences of consecutive identical labels.
+
+    Parameters:
+    - labels (list): List of labels (e.g., syllables) over time.
+
+    Returns:
+    - consecutive_sequences (list of tuples): Each tuple contains (label, start_index, end_index)
+                        for a run of consecutive identical labels.
+    """
     consecutive_sequences = []
     current_label = None
     start_index = 0
@@ -22,12 +32,30 @@ def find_consecutive_sequences(labels):
     return consecutive_sequences
 
 def get_sub_freq(consecutive_sequences):
+    """
+    Count how many times each label appears in the sequence list.
+
+    Parameters:
+    - consecutive_sequences (list): Output of find_consecutive_sequences.
+
+    Returns:
+    - frequences (np.ndarray): Frequency count of each label (up to label 1199).
+    """
     frequences = np.zeros(1200)
     for item in consecutive_sequences:
         frequences[item[0]] += 1
     return frequences
 
 def find_repeated_labels(labels):
+    """
+    Identify which labels occur consecutively more than once.
+
+    Parameters:
+    - labels (list): List of labels over time.
+
+    Returns:
+    - unique_repeated_labels (set): Labels that occur in consecutive repeats.
+    """
     current_label = None
     consecutive_count = 0
     unique_repeated_labels = set()
@@ -42,6 +70,15 @@ def find_repeated_labels(labels):
     return unique_repeated_labels
 
 def most_freq_syll(consecutive_sequences):
+    """
+    Find the label that appears most frequently in consecutive sequences.
+
+    Parameters:
+    - consecutive_sequences (list): Output of find_consecutive_sequences.
+
+    Returns:
+    - most_frequent_label (int): The most frequent label.
+    """
     frequency = {}
     for label, _, _ in consecutive_sequences:
         frequency[label] = frequency.get(label, 0) + 1
@@ -50,6 +87,16 @@ def most_freq_syll(consecutive_sequences):
 
 
 def find_total_duration(consecutive_sequences, label):
+    """
+    Compute total duration (in frames) of a specific label.
+
+    Parameters:
+    - consecutive_sequences (list): Output of find_consecutive_sequences.
+        label (int): Label to calculate total duration for.
+
+    Returns:
+    - total_duration (int): Total duration of the label.
+    """
     total_duration = 0
     for lbl, start_index, end_index in consecutive_sequences:
         if lbl == label:
@@ -57,6 +104,17 @@ def find_total_duration(consecutive_sequences, label):
     return total_duration
 
 def get_freq_finger(signal,signal_name):
+    """
+    Calculate and plot the dominant frequency component of a signal.
+
+    Parameters:
+    - signal (np.ndarray): Time series signal.
+    - signal_name (str): Name of the signal (for plotting purposes).
+
+    Returns:
+    - frequency (float): Dominant frequency
+    - magnitude (float): Magnitude at dominant frequency
+    """
     signal -= np.mean(signal)
     dft_result = fft(signal)
     magnitudes = np.abs(dft_result)
@@ -90,13 +148,45 @@ def get_freq_finger(signal,signal_name):
     plt.show()
     return frequency, magnitude
 
-def freq_finger(sub,bod):
+def freq_finger(sub):
+    """
+    Compute the frequency fingerprint using the Euclidean distance
+    between two body keypoints (e.g., fingers).
+
+    Parameters:
+    - sub (np.ndarray): Pose array of shape (frames, keypoints, 2 or 3).
+
+    Returns:
+    - frequency (float): Dominant frequency
+    - magnitude (float): Magnitude at dominant frequency
+    """
     distance = np.linalg.norm(sub[:,4,:]-sub[:,8,:], axis=1)
     frequency, magnitude = get_freq_finger(distance, "")
     return frequency, magnitude
     
 
 def get_features(path_syll, results, sub, bod):
+    """
+    Extract key features from syllable data and keypoint pose data.
+
+    Parameters:
+    - path_syll (str): Path to the CSV file containing syllable labels.
+    - results (dict): Results dictionary containing syllable metadata.
+    - sub (np.ndarray): Keypoint pose data (frames x keypoints x coords).
+
+    Returns:
+    - list: [
+            number of unique syllables,
+            number of frequently repeated syllables,
+            mean duration of syllables,
+            median duration of syllables,
+            std deviation of syllable durations,
+            mean frequency of syllables,
+            median frequency of syllables,
+            std deviation of frequencies,
+            proportion of time spent in most frequent syllable
+        ]
+    """
     df = pd.read_csv(path_syll)
     SYLL = df.syllable.tolist()
     unique_syllables = list(set(SYLL))
@@ -123,16 +213,10 @@ def get_features(path_syll, results, sub, bod):
     most_freq_syllable = most_freq_syll(consecutive_sequences)
     total_duration = find_total_duration(consecutive_sequences, most_freq_syllable)
     
-    # freq_tap = freq_finger(sub,bod)
     return [len(unique_syllables),len(unique_freq_syll),
             mean_duration,median_duration,std_dev_duration,
             mean_frequency, median_frequency, std_dev_frequency, total_duration/len(sub)]
-    # return [len(unique_syllables),len(unique_freq_syll),
-    #         mean_duration,median_duration,std_dev_duration,
-    #         mean_frequency, median_frequency, std_dev_frequency, total_duration/len(sub), freq_tap]
-
-    
-
+   
 
 
 

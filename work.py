@@ -36,7 +36,7 @@ print(body_config())
 # an.kappa_scan([1000,10000,100000,1000000], "training/outputs/1.kappa_scans/{}".format(body_name), "MODEL")
 
 # FOR RUNNING MODEL ENSEMBLES ON SUBSET
-prefix, seed, save_dir = "MODEL", int(sys.argv[1]),  "training/outputs/3.testing/{}".format(body_name)
+prefix, seed, save_dir = "MODEL", int(sys.argv[1]),  "training/outputs/2.model_ensembles/{}".format(body_name)
 
 # model, model_name = run_model(prefix, 
 #           seed, 
@@ -100,7 +100,7 @@ an.get_movies(save_dir,
 
 
 # FOR FIGURE MAKING
-data_dict = an.quickly_get_data(**body_config())
+# data_dict = an.quickly_get_data(**body_config())
 
 # # median durations for gait kappa: 11, 17, 45, 46
 # save_dir = "training/outputs/1.kappa_scans/gait"

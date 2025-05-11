@@ -19,6 +19,18 @@ from preprocessing.data import *
 from analysis.results import *
 
 def plot_grouped_frequency(model_dir, total_df, thresh, num_syllables=8):
+    """
+    Plots the average frequency and duration of each syllable across subjects, grouped by UPDRS score threshold.
+
+    Parameters:
+    - model_dir (str): Directory where plots will be saved.
+    - total_df (pd.DataFrame): DataFrame containing syllable frequency and duration statistics for each subject.
+    - thresh (int): UPDRS score threshold to divide subjects into two groups.
+    - num_syllables (int): Number of unique syllables considered.
+
+    Outputs:
+    - Saves two bar plots (frequency and duration) in the 'figures' subdirectory of model_dir.
+    """
     # aggregate the data by group
     df = total_df.copy().drop(columns=['name'])
     grouped = df.groupby('group').mean()
@@ -66,6 +78,19 @@ def plot_grouped_frequency(model_dir, total_df, thresh, num_syllables=8):
     plt.show()
 
 def plotbar(vals,vals_name,labels,thresh,path):
+    """
+    Plots a bar chart comparing the mean value of a given metric between UPDRS-based subject groups.
+
+    Parameters:
+    - vals (list of float): Metric values for all subjects.
+    - vals_name (str): Name of the metric to be used in the y-axis label and filename.
+    - labels (list of int): Binary UPDRS-based group labels (0 or 1).
+    - thresh (int): UPDRS score threshold used to generate labels.
+    - path (str): Directory where the bar plot will be saved.
+
+    Outputs:
+    - Saves a bar chart with error bars comparing the mean metric value between groups.
+    """
     values_0 = [vals[i] for i in range(len(vals)) if (labels[i] == 0 or labels[i] == 0)]
     values_1 = [vals[i] for i in range(len(vals)) if (labels[i] == 1 or labels[i] == 1)]
     std_err_0 = np.std(values_0) / np.sqrt(len(values_0))
@@ -78,6 +103,19 @@ def plotbar(vals,vals_name,labels,thresh,path):
     plt.show(block=True)
     
 def get_labels(thresh=2,multiclass=False):
+    """
+    Retrieves UPDRS-based labels for each subject and task.
+
+    Parameters:
+    - thresh (int): UPDRS score threshold for binarizing labels.
+    - multiclass (bool): If True, uses raw UPDRS scores as labels; otherwise uses binary thresholding.
+
+    Returns:
+    - left_labels (dict): Subject-wise labels for left-hand finger tapping.
+    - right_labels (dict): Subject-wise labels for right-hand finger tapping.
+    - gait_labels (dict): Subject-wise labels for gait task.
+    - left_right_labels (dict): Dictionary of left and right labels for each subject, grouped by 'l' and 'r'.
+    """
     df_syll = pd.read_csv("training/data/IndexFingertapping_3DPoses_Labels/Indexfinger_gait_label_final.csv")
     behavorial_tests = ["Finger tapping - Right hand", "Finger tapping - Left hand", "Gait"]
     subjects = np.arange(1,16)
@@ -106,7 +144,27 @@ def classification(save_dirs,
                    class_models=['xgboost','logistic'], 
                    plot_grouped_freq=False, 
                    plot_bars=False):
-    
+    """
+    Performs behavioral classification using syllable-based features extracted from motion capture data.
+
+    This function loads data for specified subjects, applies augmentation if requested, extracts 
+    statistical and transition-based features from MoSeq syllable usage, and trains classifiers 
+    (XGBoost or Logistic Regression) to distinguish behavior groups.
+
+    Parameters:
+        save_dirs (list of str): Directories where model checkpoints are saved.
+        model_names (list of str): Names of trained MoSeq models to analyze.
+        num_syllables (int): Number of syllables in the MoSeq model.
+        thresh (int): UPDRS threshold to define binary classification groups.
+        body (str): One of "g", "l", "r", or "lr" indicating the body part or combination used.
+        body_name (str): String identifier for the body part (used in naming or display).
+        num_windows (int): Number of windows for augmentation.
+        augmentation (bool): If True, applies data augmentation (sliding window segmentation).
+        multiclass (bool, optional): If True, uses multiclass classification. Defaults to False.
+        class_models (list of str, optional): Classifier types to use. Options include 'xgboost' and 'logistic'.
+        plot_grouped_freq (bool, optional): If True, generates plots for grouped syllable frequency. Defaults to False.
+        plot_bars (bool, optional): If True and binary classification, plots bar plots of key features. Defaults to False.
+    """
     left_labels, right_labels, gait_labels, left_right_labels = get_labels(thresh, multiclass)
     if body == "g":
         labels = gait_labels
@@ -394,7 +452,27 @@ def run_classifier(save_dir,
                    plot_bars,
                    class_models,
                    **kwargs):
-    
+    """
+    Finds trained MoSeq models in a directory and applies classification to all of them.
+
+    This wrapper function searches for all model subdirectories matching a given prefix and then calls
+    the `classification()` function on each to evaluate performance and visualize results.
+
+    Parameters:
+        save_dir (str): Path to the directory containing MoSeq model subfolders.
+        prefix (str): Model name prefix to filter relevant model folders.
+        body (str): One of "g", "l", "r", or "lr" indicating the body part or combination used.
+        body_name (str): Display name for the body part.
+        num_windows (int): Number of sliding windows for data augmentation.
+        num_states (int): Number of behavioral syllables (MoSeq states).
+        thresh (int): UPDRS threshold for grouping subjects.
+        augment (bool): If True, uses augmented data in classification.
+        multiclass (bool): If True, performs multiclass classification instead of binary.
+        plot_grouped_freq (bool): Whether to plot grouped syllable frequency bar plots.
+        plot_bars (bool): Whether to plot additional bar plots for features.
+        class_models (list of str): List of classifier types to use (e.g., ['xgboost', 'logistic']).
+        **kwargs: Additional keyword arguments (currently unused but passed through).
+    """
     # get all models in save directory
     model_names = []
     for subdir, dirs, files in os.walk(save_dir):

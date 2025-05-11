@@ -17,6 +17,20 @@ def get_root_rot(
     forward_indices: Union[List, np.ndarray] = [0, 1, 2],
     target_direction: Union[List, np.ndarray] = [0, 1, 2],
 ):
+    """
+    Calculate the root rotation quaternion based on pose and target direction.
+    
+    Parameters:
+    - pose (np.ndarray): The pose data to process.
+    - kinematic_tree (Union[List, np.ndarray]): The kinematic tree structure.
+    - offset (np.ndarray): The offset values for the joints.
+    - forward_indices (Union[List, np.ndarray], optional): Indices for determining the forward direction. Defaults to [0, 1, 2].
+    - target_direction (Union[List, np.ndarray], optional): The target direction for alignment. Defaults to [0, 1, 2].
+    
+    Returns:
+    - root_qtn (np.ndarray): The root quaternion rotation.
+    - root_cont6d (np.ndarray): The 6D representation of the root rotation.
+    """
     # Find forward root direction
     if len(forward_indices) == 3:
         forward = np.mean(np.cross(pose[:, forward_indices[1]] - pose[:, forward_indices[0]], pose[:, forward_indices[2]] - pose[:, forward_indices[0]]),axis=0)
@@ -38,6 +52,19 @@ def inv_kin(
     forward_indices: Union[List, np.ndarray] = [0, 1, 2],
     target_direction: Union[List, np.ndarray] = [0, 1, 2],
 ):
+    """
+    Compute the inverse kinematics for a given pose, adjusting joint angles to match target direction.
+    
+    Parameters:
+    - pose (np.ndarray): The pose data to process.
+    - kinematic_tree (Union[List, np.ndarray]): The kinematic tree structure.
+    - offset (np.ndarray): The offset values for the joints.
+    - forward_indices (Union[List, np.ndarray], optional): Indices for determining the forward direction. Defaults to [0, 1, 2].
+    - target_direction (Union[List, np.ndarray], optional): The target direction for alignment. Defaults to [0, 1, 2].
+    
+    Returns:
+    - local_quat (np.ndarray): The local quaternion rotation for each joint.
+    """
     root_quat, _ = get_root_rot(pose, kinematic_tree, offset, forward_indices, target_direction)
     local_quat = np.zeros(pose.shape[:-1] + (4,))
 
@@ -58,6 +85,18 @@ def inv_kin(
     return local_quat
 
 def convert_left_data(raw_pose, skeleton_config, forward_indices, target_direction):
+    """
+    Convert raw pose data to a local 6D rotation representation using inverse kinematics.
+    
+    Parameters:
+    - raw_pose (np.ndarray): The raw pose data to process.
+    - skeleton_config (dict): The configuration containing kinematic tree and offsets.
+    - forward_indices (Union[List, np.ndarray]): Indices for forward direction.
+    - target_direction (Union[List, np.ndarray]): The target direction for rotation.
+    
+    Returns:
+    - np.ndarray: The converted 6D rotation representation of the pose.
+    """
     # apply inv kinematics
     local_qtn = inv_kin(
         raw_pose,
@@ -71,6 +110,14 @@ def convert_left_data(raw_pose, skeleton_config, forward_indices, target_directi
     return qtn.quaternion_to_cont6d_np(local_qtn)
 
 def plot_points(keypoints, labels, image_title):
+    """
+    Visualize keypoints in 3D and save the plot with labeled points.
+    
+    Parameters:
+    - keypoints (np.ndarray): The keypoints to plot in 3D.
+    - labels (List): Labels for each keypoint.
+    - image_title (str): The title for the saved image.
+    """
     fig = plt.figure()
     ax = fig.add_subplot(111, projection='3d')
     ax.scatter(keypoints[:, 0], keypoints[:, 1], keypoints[:, 2], color='blue')
@@ -85,6 +132,19 @@ def plot_points(keypoints, labels, image_title):
     plt.savefig("figures_videos/allsubs/{}".format(image_title))
 
 def get_rotation_matrix(data,body,root_rot,forward_indices,num_frames):
+    """
+    Compute a rotation matrix based on data and body type, used for transforming poses.
+    
+    Parameters:
+    - data (np.ndarray): The pose data to process.
+    - body (str): The body type, can be 'l', 'r', or 'lr'.
+    - root_rot (np.ndarray): The root rotation quaternion.
+    - forward_indices (Union[List, np.ndarray]): Indices for forward direction.
+    - num_frames (int): The number of frames in the pose data.
+    
+    Returns:
+    - np.ndarray: The rotation matrix applied to the data.
+    """
     if body in "lr":
         matR = qtn.cont6d_to_matrix_np(root_rot)
     else:
@@ -101,7 +161,18 @@ def get_rotation_matrix(data,body,root_rot,forward_indices,num_frames):
 
 def apply_rotation(data,body,root_rot,forward_indices,num_frames,z=False):
     """
-    z = whether or not rotations are around the z axis or unrestricted (applies only to hand)
+    Apply rotation to pose data based on the root rotation and body type.
+    
+    Parameters:
+    - data (np.ndarray): The pose data to rotate.
+    - body (str): The body type, can be 'l', 'r', or 'lr'.
+    - root_rot (np.ndarray): The root rotation quaternion.
+    - forward_indices (Union[List, np.ndarray]): Indices for forward direction.
+    - num_frames (int): The number of frames in the pose data.
+    - z (bool, optional): Whether the rotation is restricted to the Z-axis. Defaults to False.
+    
+    Returns:
+    - np.ndarray: The rotated pose data.
     """
     if len(forward_indices) == 3:
         curr_dir = np.mean(np.cross(data[:, forward_indices[1]] - data[:, forward_indices[0]], data[:, forward_indices[2]] - data[:, forward_indices[0]]),axis=0)
@@ -118,6 +189,19 @@ def apply_rotation(data,body,root_rot,forward_indices,num_frames,z=False):
     return np.einsum('ijk,ikl->ijl', matR, data.transpose(0, 2, 1)).transpose(0, 2, 1) 
 
 def kinematics(sub, skeleton_config_path, data, body, num_keypoints):
+    """
+    Process the kinematics of the body data, rotating and transforming keypoints.
+    
+    Parameters:
+    - sub (np.ndarray): The subject pose data.
+    - skeleton_config_path (str): The path to the skeleton configuration.
+    - data (dict): A dictionary to store processed data.
+    - body (str): The body type, can be 'l', 'r', or 'lr'.
+    - num_keypoints (int): The number of keypoints in the pose data.
+    
+    Returns:
+    - dict: The dictionary containing processed kinematic data.
+    """
     if body in "lr":
         forward_indices = [0, 2, 17]
         target_direction = [1, 0, 0]
