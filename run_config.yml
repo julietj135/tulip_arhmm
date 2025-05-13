@@ -39,4 +39,5 @@ class_models:
 - xgboost
 - logistic
 plot_grouped_freq: True
+classification: False
 plot_bars: True

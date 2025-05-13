@@ -1003,6 +1003,7 @@ def get_typical_trajectories(
     use_bodyparts=None,
     density_sample=True,
     sampling_options={"n_neighbors": 50},
+    splitting=None,
 ):
     """Generate representative keypoint trajectories for each syllable.
 
@@ -1069,19 +1070,32 @@ def get_typical_trajectories(
         min_instances=min_instances,
     )
 
-    # # to create PD vs HT trajectories
-    # PDs = [2,3,5]
-    # PD_trajs = []
-    # HT_trajs = []
-    # for syll in syllable_instances.keys():
-    #     if syll in PDs:
-    #         print(syllable_instances[syll])
-    #         PD_trajs += syllable_instances[syll]
-    #     else:
-    #         HT_trajs += syllable_instances[syll]
-    
-    # syllable_instances = {"UPDRS < 2": HT_trajs,"UPDRS >= 2": PD_trajs}
-    # print(syllable_instances["UPDRS < 2"])
+    if splitting is not None:
+        # to create grouped trajectories
+        print(splitting)
+        new_syllable_instances = {}
+        for i, key in enumerate(splitting.keys()):
+            ids_key = splitting[key]
+            # print(key, ids_key)
+            trajs = []
+            for syll in syllable_instances.keys():
+                if syll in ids_key:
+                    trajs += syllable_instances[syll]
+                    # print(syll, key, ids_key, syllable_instances[syll])
+            new_syllable_instances[key] = trajs
+        syllable_instances =  new_syllable_instances
+        
+        # PDs = [2,3,5]
+        # PD_trajs = []
+        # HT_trajs = []
+        # for syll in syllable_instances.keys():
+        #     if syll in PDs:
+        #         PD_trajs += syllable_instances[syll]
+        #     else:
+        #         HT_trajs += syllable_instances[syll]
+        
+        # syllable_instances = {"UPDRS < 2": HT_trajs,"UPDRS >= 2": PD_trajs}
+        # print(syllable_instances["UPDRS >= 2"])
 
     if len(syllable_instances) == 0:
         raise ValueError(
@@ -1133,7 +1147,7 @@ def syllable_similarity(
     bodyparts=None,
     use_bodyparts=None,
     density_sample=False,
-    sampling_options={"n_neighbors": 50},
+    sampling_options={"n_neighbors": 1},
     **kwargs,
 ):
     """Generate a distance matrix over syllable trajectories.

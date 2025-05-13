@@ -1653,7 +1653,8 @@ def generate_trajectory_plots(
     projection_planes=["xy", "xz"],
     interactive=True,
     density_sample=True,
-    sampling_options={"n_neighbors": 1},
+    sampling_options={"n_neighbors": 50},
+    splitting=None,
     **kwargs,
 ):
     """
@@ -1762,16 +1763,18 @@ def generate_trajectory_plots(
         use_bodyparts,
         density_sample,
         sampling_options,
+        splitting
     )
     
     print(typical_trajectories.keys())
     
-
     syllable_ixs = sorted(typical_trajectories.keys())
-    titles = [f"Syllable{s}" for s in syllable_ixs]
-    # titles = list(typical_trajectories.keys()) ## uncomment this if trajectories are grouped by labels not syllables
+    if splitting is not None:
+        titles = list(typical_trajectories.keys()) ## uncomment this if trajectories are grouped by labels not syllables
+    else:
+        titles = [f"Syllable{s}" for s in syllable_ixs]
     Xs = np.stack([typical_trajectories[s] for s in syllable_ixs])
-
+    
     if Xs.shape[-1] == 3:
         projection_planes = [
             "".join(sorted(plane.lower())) for plane in projection_planes

@@ -91,21 +91,31 @@ def make_index_csv(save_dir,
     Returns
     -------
     pd.DataFrame
-        New index DataFrame with sample names and group labels.
+        New index DataFrame with sample names, group, and stage labels.
     """
     new_labels = []
+    new_stages = []
+    new_stages_cat2 = []
+    new_stages_cat3 = []
     
     if augment and body != "lr":
         for id in ids:
             for l in range(num_windows): 
                 newlabel = og_index_df.group[og_index_df.name == "sub{}".format(id)].tolist()[0]
+                newstage = og_index_df.stage[og_index_df.name == "sub{}".format(id)].tolist()[0]
+                stage2 = og_index_df.stage_2[og_index_df.name == "sub{}".format(id)].tolist()[0]
+                stage3 = og_index_df.stage_3[og_index_df.name == "sub{}".format(id)].tolist()[0]
                 new_labels.append(newlabel)
+                new_stages.append(newstage)
+                new_stages_cat2.append(stage2)
+                new_stages_cat3.append(stage3)
                 
     if body == "lr":
         print("index file should have already been made with 12 windows per sub")
+        return og_index_df
                 
     new_labels_df = {"name":data.keys(),
-                                 "group":new_labels}
+                                 "group":new_labels, "stage":new_stages, "stage_2":new_stages_cat2, "stage_3":new_stages_cat3}
     df = pd.DataFrame(new_labels_df)
     df.to_csv(save_dir+"/index.csv",index=False)
     print("Saved new index csv at "+save_dir+"/index.csv")
@@ -183,6 +193,115 @@ def plot_numsub_in_syllable(save_dir, model_name):
     plt.legend()
     plt.tight_layout()
     plt.savefig(save_dir+"/"+model_name+"/figures/counts_combined.png")
+
+def plot_numsub_in_syllable_3stages(save_dir, model_name):
+    """
+    Plots the number of subjects (total, healthy, and diseased) that used each syllable.
+
+    Parameters
+    ----------
+    save_dir : str
+        Directory containing results and where plots will be saved.
+    model_name : str
+        Name of the trained model.
+
+    Saves
+    -----
+    counts.png, counts_combined.png : Bar plots of syllable usage statistics.
+    """
+    results = kpms.load_results(save_dir, model_name)
+    z = []
+    lengths = []
+
+    for subject in results.keys():
+        seq = results[subject]["syllable"]
+        z.append(seq)
+        lengths.append(len(seq))
+
+    max_len = max(lengths)
+    z_array = np.full((len(z), max_len), -1)
+    for i, seq in enumerate(z):
+        z_array[i, :len(seq)] = seq
+    index_df = pd.read_csv(os.path.join(save_dir,'index.csv'))
+
+    counts, counts1, counts2, counts3 = {}, {}, {}, {}
+    for i in range(np.max(z_array)+1):
+        counts[i], counts1[i], counts2[i], counts3[i] = 0,0,0,0
+    for i in range(len(z_array)):
+        sylls = set(z_array[i])
+        months = index_df.stage[i]
+        for syll in sylls:
+            if syll > -1:
+                counts[syll] += 1
+                if months < 24:
+                    counts1[syll] += 1
+                elif (months >= 24) and (months < 60):
+                    counts2[syll] += 1
+                else:
+                    counts3[syll] += 1
+
+    # Another plot
+    plt.figure(figsize=(5,5))
+    plt.bar(np.arange(np.max(z_array)+1), list(counts1.values()), label='0-2 yrs', color='green')
+    plt.bar(np.arange(np.max(z_array)+1), list(counts2.values()), label='2-5 yrs', color='orange')
+    plt.bar(np.arange(np.max(z_array)+1), list(counts3.values()), label='5+ yrs', color='salmon')
+    plt.ylabel('Number of Augmented Subjects')
+    plt.legend()
+    plt.tight_layout()
+    plt.savefig(save_dir+"/"+model_name+"/figures/counts_combined_3stages.png")
+    
+def plot_numsub_in_syllable_2stages(save_dir, model_name):
+    """
+    Plots the number of subjects (total, healthy, and diseased) that used each syllable.
+
+    Parameters
+    ----------
+    save_dir : str
+        Directory containing results and where plots will be saved.
+    model_name : str
+        Name of the trained model.
+
+    Saves
+    -----
+    counts.png, counts_combined.png : Bar plots of syllable usage statistics.
+    """
+    results = kpms.load_results(save_dir, model_name)
+    z = []
+    lengths = []
+
+    for subject in results.keys():
+        seq = results[subject]["syllable"]
+        z.append(seq)
+        lengths.append(len(seq))
+
+    max_len = max(lengths)
+    z_array = np.full((len(z), max_len), -1)
+    for i, seq in enumerate(z):
+        z_array[i, :len(seq)] = seq
+    index_df = pd.read_csv(os.path.join(save_dir,'index.csv'))
+
+    counts, counts1, counts2 = {}, {}, {}
+    for i in range(np.max(z_array)+1):
+        counts[i], counts1[i], counts2[i] = 0,0,0
+    for i in range(len(z_array)):
+        sylls = set(z_array[i])
+        months = index_df.stage[i]
+        for syll in sylls:
+            if syll > -1:
+                counts[syll] += 1
+                if months < 24:
+                    counts1[syll] += 1
+                else:
+                    counts2[syll] += 1
+
+    # Another plot
+    plt.figure(figsize=(5,5))
+    plt.bar(np.arange(np.max(z_array)+1), list(counts1.values()), label='<2 yrs', color='green')
+    plt.bar(np.arange(np.max(z_array)+1), list(counts2.values()), label='>=2 yrs', color='salmon')
+    plt.ylabel('Number of Augmented Subjects')
+    plt.legend()
+    plt.tight_layout()
+    plt.savefig(save_dir+"/"+model_name+"/figures/counts_combined_2stages.png")
 
 def plot_syllable(
     coordinates,
@@ -678,6 +797,8 @@ def get_movies(save_dir,
                     combine,
                     augment,
                     ids,
+                    splitting=None,
+                    sampling_options={"n_neighbors": 1},
                     **kwargs):
     """
     Generates and saves movies for different body movements (e.g., grid, full movie, trajectory).
@@ -708,6 +829,8 @@ def get_movies(save_dir,
         Whether to augment the data.
     ids : list
         List of subject IDs to process.
+    splitting : dict
+        How to group subjects
     **kwargs : additional keyword arguments
         Additional arguments passed to the movie generation functions.
 
@@ -738,9 +861,9 @@ def get_movies(save_dir,
             generate_labeled_movie(results, save_dir, model_name, coordinates=data_dict["stand"], post = 190, keypoints_only=True, fps=40, use_dims=[1,2], rotate=True, subjects=names, **kpms_config())
 
     if get_trajectories:
-        kpms.generate_trajectory_plots(data_dict["rot"], results, save_dir, model_name, fps=40, min_frequency=0.0, projection_planes=["yz"], **kpms_config())
+        kpms.generate_trajectory_plots(data_dict["rot"], results, save_dir, model_name, fps=40, min_frequency=0.0, projection_planes=["yz"], splitting=splitting, sampling_options=sampling_options,**kpms_config())
 
-def check_dataframes(save_dir,model_name):
+def check_dataframes(save_dir,model_name,group):
     """
     Checks and computes missing dataframes required for the analysis (e.g., 'moseq_df' and 'stats_df').
 
@@ -765,14 +888,18 @@ def check_dataframes(save_dir,model_name):
     
     if not os.path.isfile(model_dir+"/moseq_df.csv"):
         print("computing moseq_df")
-        moseq_df = kpms.compute_moseq_df(save_dir, model_name, smooth_heading=True) 
-
+        moseq_df = kpms.compute_moseq_df(save_dir, model_name, group, smooth_heading=True) 
+    else:
+        moseq_df = pd.read_csv(model_dir+"/moseq_df.csv")
+        moseq_df['group'] = moseq_df['group'].astype(str)
+        
     if not os.path.isfile(stats_dir):
         print("computing stats_df")
-        stats_df = kpms.compute_stats_df(save_dir, model_name, moseq_df, min_frequency=0.000, groupby=['group', 'name'], fps=80)
+        stats_df = kpms.compute_stats_df(save_dir, model_name, moseq_df, group, min_frequency=0.000, groupby=['group', 'name'], fps=80)
       
 def get_transition_matrix(save_dir,
                           model_name,
+                          group,
                           min_frequency):
     """
     Generates and visualizes transition matrices for syllables with a specified frequency threshold.
@@ -783,6 +910,8 @@ def get_transition_matrix(save_dir,
         Directory where model data is saved.
     model_name : str
         Name of the model whose results are being analyzed.
+    group : str
+        Column in index.csv to group subjects.
     min_frequency : float
         Minimum frequency threshold for syllables to be included in the transition matrix.
 
@@ -794,21 +923,23 @@ def get_transition_matrix(save_dir,
 
     normalize='bigram' # normalization method ("bigram", "rows" or "columns")
     
-    check_dataframes(save_dir, model_name)
+    check_dataframes(save_dir, model_name,group)
     
     print("create transition matrices...")
     trans_mats, usages, groups, syll_include=kpms.generate_transition_matrices(
-        save_dir, model_name, normalize=normalize,
+        save_dir, model_name, group, normalize=normalize,
         min_frequency=min_frequency
     )    
 
     kpms.visualize_transition_bigram(
-        save_dir, model_name, groups, trans_mats, syll_include, normalize=normalize, 
+        save_dir, model_name, groups, trans_mats, syll_include, group, normalize=normalize, 
         show_syllable_names=False 
     )
     
 def get_syllable_quantitative_main(save_dir,
                               model_name,
+                              group,
+                              stats_df
                               ):
     """
     Computes and plots summary statistics (e.g., mean, std) of various features for each syllable.
@@ -819,6 +950,8 @@ def get_syllable_quantitative_main(save_dir,
         Directory where model data is saved.
     model_name : str
         Name of the model whose results are being analyzed.
+    group : str
+        Column of index.csv to split subjects into groups
 
     Returns
     -------
@@ -828,18 +961,17 @@ def get_syllable_quantitative_main(save_dir,
 
     model_dir = os.path.join(save_dir, model_name) 
     
-    check_dataframes(save_dir, model_name)
-    stats_dir = os.path.join(model_dir,'stats_df.csv')
-    stats_df = pd.read_csv(stats_dir)
+    check_dataframes(save_dir, model_name,group)
     df = stats_df.copy().drop(columns=['name'])
 
     new_group = []
-    for group in df['group']:
-        if group == 'HT':
-            new_group.append(0)
-        else:
-            new_group.append(1)
-    df['group'] = new_group
+    if df['group'].tolist()[0] in ["HT","PD"]:
+        for group in df[group]:
+            if group == 'HT':
+                new_group.append(0)
+            else:
+                new_group.append(1)
+        df['group'] = new_group
     
     syllable_df = df.groupby('syllable').mean().reset_index()
 
@@ -847,7 +979,11 @@ def get_syllable_quantitative_main(save_dir,
     features = ['heading_mean','heading_std','angular_velocity_mean','angular_velocity_std']
     titles = ['mean heading', 'std heading', 'mean angular velocity','std angular velocity']
     
-    color = ['limegreen','limegreen','indianred','indianred','limegreen','indianred','limegreen','limegreen']
+    if group == "group":
+        color = ['limegreen','limegreen','indianred','indianred','limegreen','indianred','limegreen','limegreen']
+    elif group == "stage_2":
+        color = ['indianred','limegreen','indianred','indianred','limegreen','indianred','limegreen','limegreen']
+
     for i, col in enumerate(features):
         print(i,col)
         plt.subplot(2, 2, i+1)  # Create subplot for each column
@@ -859,7 +995,7 @@ def get_syllable_quantitative_main(save_dir,
         plt.xlabel('syllable')
 
     plt.tight_layout()
-    plt.savefig(model_dir+"/figures/syllable_char_main.pdf")
+    plt.savefig(model_dir+"/figures/syllable_char_main_{}.pdf".format(group))
     
 def get_syllable_quantitative_all(save_dir,
                               model_name,
@@ -882,7 +1018,7 @@ def get_syllable_quantitative_all(save_dir,
 
     model_dir = os.path.join(save_dir, model_name) 
     
-    check_dataframes(save_dir, model_name)
+    check_dataframes(save_dir, model_name,"group")
     stats_dir = os.path.join(model_dir,'stats_df.csv')
     stats_df = pd.read_csv(stats_dir)
     df = stats_df.copy().drop(columns=['name'])

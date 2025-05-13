@@ -163,7 +163,7 @@ def interactive_group_setting(project_dir, model_name):
     return pn.Row(summary_table, pn.Column(button))
 
 
-def compute_moseq_df(project_dir, model_name, *, fps=30, smooth_heading=True):
+def compute_moseq_df(project_dir, model_name, group, *, fps=30, smooth_heading=True):
     """Compute moseq dataframe from results dict that contains all kinematic
     values by frame.
 
@@ -225,7 +225,7 @@ def compute_moseq_df(project_dir, model_name, *, fps=30, smooth_heading=True):
         if index_data is not None:
             # find the group for each recording from index data
             s_group.append(
-                [index_data[index_data["name"] == k]["group"].values[0]] * n_frame
+                [index_data[index_data["name"] == k][group].values[0]] * n_frame
             )
         else:
             # no index data
@@ -281,7 +281,7 @@ def compute_moseq_df(project_dir, model_name, *, fps=30, smooth_heading=True):
     onset = np.full(moseq_df.shape[0], False)
     onset[indices] = True
     moseq_df["onset"] = onset
-    moseq_df.to_csv(project_dir+"/"+model_name+"/moseq_df.csv",index=False)
+    moseq_df.to_csv(project_dir+"/"+model_name+"/moseq_df_{}.csv".format(group),index=False)
     print("moseq df saved to ",project_dir)
     return moseq_df
 
@@ -290,6 +290,7 @@ def compute_stats_df(
     project_dir,
     model_name,
     moseq_df,
+    group_name,
     min_frequency=0.005,
     groupby=["group", "name"],
     fps=30,
@@ -339,7 +340,7 @@ def compute_stats_df(
         df = pd.DataFrame(
             {
                 "name": k,
-                "group": index_df[index_df["name"] == k]["group"].values[0],
+                "group": index_df[index_df["name"] == k][group_name].values[0].astype(str),
                 "syllable": np.arange(len(syll_freq)),
                 "frequency": syll_freq,
             }
@@ -372,7 +373,7 @@ def compute_stats_df(
 
     stats_df = pd.merge(features, frequency_df, on=groupby + ["syllable"])
     stats_df = pd.merge(stats_df, durations, on=groupby + ["syllable"])
-    stats_df.to_csv(project_dir+"/"+model_name+"/stats_df.csv",index=False)
+    stats_df.to_csv(project_dir+"/"+model_name+"/stats_df_{}.csv".format(group_name),index=False)
     print("stats df saved to ",project_dir)
     return stats_df
 
@@ -1436,6 +1437,7 @@ def visualize_transition_bigram(
     trans_mats,
     syll_include,
     save_dir=None,
+    splitting=None,
     normalize="bigram",
     figsize=(12, 6),
     show_syllable_names=True,
@@ -1448,6 +1450,8 @@ def visualize_transition_bigram(
         the groups in the project
     trans_mats : list
         the list of transition matrices for each group
+    splitting : dict
+        how to group subjects
     normalize : str, optional
         the method to normalize the transition matrix, by default 'bigram'
     figsize : tuple, optional
@@ -1493,65 +1497,57 @@ def visualize_transition_bigram(
         # axs[i].set_xticks(np.arange(len(syll_include)), syll_names, rotation=90)
 
     # save the figure
-    plot_name = "transition_matrices"
+    plot_name = "transition_matrices_stage2"
     save_analysis_figure(fig, plot_name, project_dir, model_name, save_dir)
     
     ###########
-    thresh=2
+    titles = ["<2 yrs", "2+ yrs"]
+    for p in range(len(trans_mats)):    
+        plt.figure(figsize=(3,3))
+        h = plt.imshow(
+            trans_mats[p][:max_syllables, :max_syllables],
+            cmap="cubehelix",
+            vmax=color_lim,
+        )
+        plt.ylabel("incoming syllable")
+        plt.yticks(np.arange(len(syll_include)), syll_names)
+        cb = fig.colorbar(h, fraction=0.046, pad=0.04)
+        cb.set_label("transition probability")
+        plt.xlabel("outgoing syllable")
+        plt.title(titles[p])
+        plt.xticks(np.arange(len(syll_include)), syll_names)
+        plt.tight_layout()
+        plt.savefig("{}/{}/figures/transition_{}.pdf".format(project_dir, model_name, titles[p]))
     
-    # plot ht
-    plt.figure(figsize=(3,3))
-    h = plt.imshow(
-        trans_mats[0][:max_syllables, :max_syllables],
-        cmap="cubehelix",
-        vmax=color_lim,
-    )
-    plt.ylabel("incoming syllable")
-    plt.yticks(np.arange(len(syll_include)), syll_names)
-    cb = fig.colorbar(h, fraction=0.046, pad=0.04)
-    cb.set_label("transition probability")
-    plt.xlabel("outgoing syllable")
-    plt.title('UPDRS<{}'.format(thresh))
-    plt.xticks(np.arange(len(syll_include)), syll_names)
-    plt.tight_layout()
-    plt.savefig("{}/{}/figures/transition_ht.pdf".format(project_dir, model_name))
-    
-    # plot pd
-    plt.figure(figsize=(3,3))
-    h = plt.imshow(
-        trans_mats[1][:max_syllables, :max_syllables],
-        cmap="cubehelix",
-        vmax=color_lim,
-    )
-    plt.ylabel("incoming syllable")
-    plt.yticks(np.arange(len(syll_include)), syll_names)
-    cb = fig.colorbar(h, fraction=0.046, pad=0.04)
-    cb.set_label("transition probability")
-    plt.xlabel("outgoing syllable")
-    plt.title('UPDRS>={}'.format(thresh))
-    plt.xticks(np.arange(len(syll_include)), syll_names)    
-    plt.tight_layout()
-    plt.savefig("{}/{}/figures/transition_pd.pdf".format(project_dir, model_name))
-    
-    
-
 
 def generate_transition_matrices(
-    project_dir, model_name, normalize="bigram", min_frequency=0.005
+    project_dir, model_name, group, normalize="bigram", min_frequency=0.005
 ):
     """Generate the transition matrices for each recording.
 
     Parameters
     ----------
-    progress_paths : dict
-        the dictionary of paths to the files in the analysis progress
+    project_dir : str
+        path for project directory
+    model_name : str
+        model name
+    group : str
+        column name in index.csv that you want to split the subjects on
     normalize : str, optional
         the method to normalize the transition matrix, by default 'bigram'
+    min_frequency : float
+        minimum frequency of syllable to be included in matrix
 
     Returns
     -------
     trans_mats : list
         the list of transition matrices for each group
+    usages : list
+        the list of syllable frequencies for each group
+    group : list
+        list of labels
+    syll_include : list
+        syllables that are included
     """
     trans_mats, usages = None, None
     # index file
@@ -1561,10 +1557,10 @@ def generate_transition_matrices(
 
     index_data = pd.read_csv(index_file, index_col=False)
 
-    label_group = list(index_data.group.values)
+    label_group = list(index_data[group].values)
+    group = sorted(list(index_data[group].unique()))
     recordings = list(index_data.name.values)
-    group = sorted(list(index_data.group.unique()))
-    print("Group(s):", ", ".join(group))
+    print("Group(s):", ", ".join([str(num) for num in group]))
 
     # load model reuslts
     results_dict = load_results(project_dir, model_name)

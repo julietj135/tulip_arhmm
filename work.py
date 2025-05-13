@@ -9,16 +9,16 @@ import keypointmoseq as kpms
 
 ###################### SET UP ############################################
 
-# body = "g"
-# body_name = "gait"
-# body_config_path = "training/gait_config.yml"
+body = "g"
+body_name = "gait"
+body_config_path = "training/gait_config.yml"
 # body = "r"
 # body_name = "righthand"
-body = "l"
-body_name = "lefthand"
+# body = "l"
+# body_name = "lefthand"
 # body = "lr"
 # body_name = "leftright"
-body_config_path = "training/hand_config.yml"
+# body_config_path = "training/hand_config.yml"
 
 kpms_config = lambda: load_config(body_config_path,True)
 body_config = lambda: update_body_config(body)
@@ -68,15 +68,15 @@ model_name = "MODEL-"+str(seed)
 
 
 # FOR GRID MOVIES AND SYLLABLE STUFF
-an.get_movies(save_dir,
-                    model_name,
-                    body_config,
-                    kpms_config,
-                    False, # grid
-                    False, # full
-                    True, # traj
-                    ["sub1.0","sub5.0"],
-                    **body_config())
+# an.get_movies(save_dir,
+#                     model_name,
+#                     body_config,
+#                     kpms_config,
+#                     False, # grid
+#                     False, # full
+#                     True, # traj
+#                     ["sub1.0","sub5.0"],
+#                     **body_config())
                     
 # an.get_transition_matrix(save_dir, model_name, 0.00)
 
@@ -126,3 +126,51 @@ an.get_movies(save_dir,
 # an.plot_syllable(coordinates["stand"], results, save_dir, model_name, projection_planes=['yz'], post=10, **kpms_config())
 
 # an.plot_numsub_in_syllable(save_dir, model_name)
+
+# FOR MAKING NEW FIGURES BASED ON NEW STAGE LABELS
+# 0-24 Months
+# 24-60
+# 60-
+data_dict = an.quickly_get_data(**body_config())
+og_index_df = pd.read_csv("training/labels/{}/index.csv".format(body_name))
+an.make_index_csv(save_dir,
+                   og_index_df,
+                   data_dict["raw"],
+                   **kpms_config(),
+                   **body_config())
+
+# remake bar plots so i know which syllables are in which stage
+an.plot_numsub_in_syllable_2stages(save_dir, model_name)
+an.plot_numsub_in_syllable_3stages(save_dir, model_name)
+
+# remake grouped finger tapping syllable trajectories
+# splitting = {"0-2 yrs": [0,1,4,6,7], '2-5 yrs':[2,3,5], '5+ yrs':[]}
+splitting = {"<2 yrs": [1,4,6,7], '>=2 yrs':[0,2,3,5]} # only for left hand
+# an.get_movies(save_dir,
+#                     model_name,
+#                     body_config,
+#                     kpms_config,
+#                     False, # grid
+#                     False, # full
+#                     True, # traj
+#                     ["sub1.0","sub5.0"],
+#                     splitting=splitting,
+#                     sampling_options={"n_neighbors": 100},
+#                     **body_config())
+
+# remake duration and frequency distributions
+an.plot_grouped_freq_standalone(save_dir, model_name, list(splitting.keys()), "stage_2", **kpms_config(),
+                   **body_config())
+
+# remake transition matrices
+an.get_transition_matrix(save_dir, model_name, "stage_2", 0.00)
+
+# remake quantitative characteristics
+# model_dir = os.path.join(save_dir,model_name)
+# stats_dir = os.path.join(model_dir,'stats_df_stage_2.csv')
+# stats_df = pd.read_csv(stats_dir)
+# an.get_syllable_quantitative_main(save_dir,
+#                               model_name,
+#                               "stage_2",
+#                               stats_df
+#                               )
